@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- Optional JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"
+  ></script>
+  <script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"
+  ></script>
+
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- 구글폰트 -->
+  <link
+  href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
+  rel="stylesheet">
+  >
+
+  <!-- Webpage Title -->
+  <title>오프사이드 기록</title>
+
+  <style type="text/css">
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+    .wrap {
+      width: 500px;
+      margin: auto;
+    }
+    .header {
+      margin: 20px 5px 20px 5px;
+      text-align: center;
+    }
+    .SubHeader {
+      margin: 20px 5px 20px 5px;
+    }
+    .button {
+      text-align: right;
+    }
+    h1, h2, h3, h4
+    h5 {
+      display: inline;
+    }
+    .contents {
+      text-align: auto;
+    }
+  </style>
+  
+</head>
+
+<script>
+  $('#datetimepicker').data("DateTimePicker").FUNCTION()
+</script>
+
+<body>
+  <div class = "wrap">
+
+    <!-- 헤더 -->
+    <div class="header">
+     <button onclick="()" type="button" class="btn btn-primary">
+      BACK
+    </button>
+       GAME STAT RECORD
+    <button onclick="()" type="button" class="btn btn-primary">
+      CONFIRM
+    </button>
+  </div>
+  <!-- 타이머 -->
+    <h5 class="form-group">Timer 00:00:00</h5>
+
+    <!-- 이벤트 타입 -->
+    <div class="input-group mb-3" >
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-primary">
+          <input type="radio" name="options" id="option1" autocomplete="off"> 슈팅
+        </label>
+        <label class="btn btn-outline-primary">
+          <input type="radio" name="options" id="option2" autocomplete="off"> 파울
+        </label>
+        <label class="btn btn-outline-primary">
+          <input type="radio" name="options" id="option3" autocomplete="off"> 코너킥
+        </label>
+        <label class="btn btn-outline-primary active">
+          <input type="radio" name="options" id="option4" autocomplete="off" checked> 오프사이드
+        </label>
+      </div>
+    </div>
+
+    <!-- 팀선택 -->
+    <div class="input-group mb-3" >
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-primary">
+          <input type="radio" name="options" id="option1" autocomplete="off"> 우리팀
+        </label>
+        <label class="btn btn-outline-primary">
+          <input type="radio" name="options" id="option2" autocomplete="off"> 상대팀
+        </label>
+      </div>
+    </div>
+
+  
+<!-- 오프사이드 파울정보 -->
+<div class="form-group">
+ <div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">오프사이드 정보</label>
+    <input type="text" class="form-control" placeholder="오프사이드 선수">
+    <input type="text" class="form-control" placeholder="오프사이드 위치">
+  </div>
+</div>
+
+<!-- 오심여부 -->
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+   <input type="checkbox" aria-label="Checkbox for following subject">
+  </div>
+  오심
+  </div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

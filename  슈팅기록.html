@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- Optional JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"
+  ></script>
+  <script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"
+  ></script>
+
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- 구글폰트 -->
+  <link
+  href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
+  rel="stylesheet">
+  >
+
+  <!-- Webpage Title -->
+  <title>슈팅 기록</title>
+
+  <style type="text/css">
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+    .wrap {
+      width: 500px;
+      margin: auto;
+    }
+    .header {
+      margin: 20px 5px 20px 5px;
+      text-align: center;
+    }
+    .SubHeader {
+      margin: 20px 5px 20px 5px;
+    }
+    .button {
+      text-align: right;
+    }
+    h1, h2, h3, h4
+    h5 {
+      display: inline;
+    }
+    .contents {
+      text-align: auto;
+    }
+  </style>
+  
+</head>
+
+<script>
+  $('#datetimepicker').data("DateTimePicker").FUNCTION()
+</script>
+
+<body>
+  <div class = "wrap">
+
+    <!-- 헤더 -->
+    <div class="header">
+     <button onclick="()" type="button" class="btn btn-primary">
+      BACK
+    </button>
+    SHOT
+    <button onclick="()" type="button" class="btn btn-primary">
+      CONFIRM
+    </button>
+  </div>
+  <!-- 타이머 -->
+  <h5 class="form-group">Timer 00:00:00</h5>
+  <!-- 이벤트 타입 -->
+  <div class="input-group mb-3" >
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">기록내용</label>
+    </div>
+    <select class="custom-select" id="inputGroupSelect01">
+     <option value="1">슈팅</option>
+     <option value="2">파울</option>
+     <option value="3">코너킥</option>
+     <option value="4">오프사이드</option>
+   </select>
+ </div>
+ <!-- 팀선택 -->
+ <div class="form-group">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">팀</label>
+    </div>
+    <select class="custom-select" id="inputGroupSelect01">
+      <option selected>우리팀</option>
+      <option value="1">상대팀</option>
+    </select>
+  </div>
+  <!-- 득점유무 -->
+  <div class="input-group mb-3" >
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">득점</label>
+    </div>
+    <select class="custom-select" id="inputGroupSelect01">
+      <option selected>득점실패</option>
+      <option value="1">득점성공</option>
+    </select>
+  </div>
+</div>
+<!-- 선택사항 -->
+<div class="form-group">
+  <p>Optional 선택사항</p>
+
+  <!-- 슈팅유형 -->
+  <div class="input-group mb-3" >
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">슈팅유형</label>
+    </div>
+    <select class="custom-select" id="inputGroupSelect01">
+      <option selected>선택</option>
+      <option value="1">유효</option>
+      <option value="2">무효</option>
+    </select>
+  </div>
+
+  <!-- 득점관련 세부정보 -->
+  <div class="container">
+    <!-- 득점유형 -->
+    <div class="input-group mb-3" >
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">득점유형</label>
+      </div>
+      <select class="custom-select" id="inputGroupSelect01">
+        <option selected>선택</option>
+        <option value="1">필드골</option>
+        <option value="2">프리킥골</option>
+        <option value="3">자책골</option>
+      </select>
+    </div>
+
+    <!-- 득점정보 -->
+    <div class="form-group">
+     <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01">득점정보</label>
+      <input type="text" class="form-control" placeholder="득점선수">
+      <input type="text" class="form-control" placeholder="득점위치">
+      <select class="custom-select" id="inputGroupSelect01">
+        <option selected>득점방법 선택</option>
+        <option value="1">오른발</option>
+        <option value="2">왼발</option>
+        <option value="3">헤더</option>
+        <option value="4">기타</option>
+      </select>
+    </div>
+  </div>
+  <!-- 도움정보 -->
+  <div class="form-group">
+   <div class="input-group mb-3">
+    <label class="input-group-text" for="inputGroupSelect01">도움정보</label>
+
+    <!-- 실책성, 세트피스 플레선택 -->
+    <div class="input-group-text">
+      <input type="checkbox" aria-label="Checkbox for following text input">
+    </div>
+
+    <select class="custom-select" id="inputGroupSelect01">
+      <option selected>플레이 선택</option>
+      <option value="1">상대팀 실책성 플레이</option>
+      <option value="2">세트피스 플레이</option>
+    </select>
+    <input type="text" class="form-control" placeholder="도움선수">
+    <input type="text" class="form-control" placeholder="도움위치">
+  </div>
+</div>
+<!-- 빌드업정 -->
+<div class="form-group">
+ <div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">빌드업정보</label>
+  <input type="text" class="form-control" placeholder="빌드업시작 선수">
+  <input type="text" class="form-control" placeholder="빌드업시작 위치">
+</div>
+</div>
+</div>
+
+<!-- 슈팅관련 세부정보 -->
+<!-- 슈팅정보 -->
+<div class="container">
+  <div class="form-group">
+   <div class="input-group mb-3">
+    <label class="input-group-text" for="inputGroupSelect01">슈팅정보</label>
+    <input type="text" class="form-control" placeholder="슈팅선수">
+    <input type="text" class="form-control" placeholder="슈팅위치">
+    <select class="custom-select" id="inputGroupSelect01">
+      <option selected>슈팅방법 선택</option>
+      <option value="1">오른발</option>
+      <option value="2">왼발</option>
+      <option value="3">헤더</option>
+      <option value="4">기타</option>
+    </select>
+  </div>
+</div>
+<!-- 도움정보 -->
+<div class="form-group">
+ <div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">키패스정보</label>
+
+  <!-- 실책성, 세트피스 플레선택 -->
+  <div class="input-group-text">
+    <input type="checkbox" aria-label="Checkbox for following text input">
+  </div>
+
+  <select class="custom-select" id="inputGroupSelect01">
+    <option selected>플레이 선택</option>
+    <option value="1">상대팀 실책성 플레이</option>
+    <option value="2">세트피스 플레이</option>
+  </select>
+  <input type="text" class="form-control" placeholder="키패스선수">
+  <input type="text" class="form-control" placeholder="키패위치">
+</div>
+</div>
+<!-- 빌드업정 -->
+<div class="form-group">
+ <div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">빌드업정보</label>
+  <input type="text" class="form-control" placeholder="빌드업시작 선수">
+  <input type="text" class="form-control" placeholder="빌드업시작 위치">
+</div>
+</div>
+</div>
+
+</div>
+
+</body>
+
+</html>

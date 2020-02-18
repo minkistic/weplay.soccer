@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- 구글폰트 -->
+	<link
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
+	rel="stylesheet">
+	/>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script
+	src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+	<title>팀관리</title>
+
+</head>
+
+<body>
+	<script type="text/javascript">
+		let playerlist = [];
+
+		function PlayerAdd() {
+			let PlayerNumber = $("#PlayerAdd_PlayerNumber").val();
+			let PlayerName = $("#PlayerAdd_PlayerName").val();
+
+			if (PlayerNumber == "") {
+				alert("등번호를 입력해 주세요");
+				$("#PlayerAdd_PlayerNumber").focus();
+				return;
+			} else if (PlayerName == "") {
+				alert("선수이름을 입력해주세요");
+				$("#PlayerAdd_PlayerName").focus();
+				return;
+			}
+
+			let list = {
+				PlayerNumber: PlayerNumber,
+				PlayerName: PlayerName,
+			};
+			playerlist.push(list);
+			UpdateList();
+		}
+
+		function UpdateList() {
+			$("#players-box").html("");
+			listing();
+		}
+
+		function listing() {
+			for (let i = 0; i < playerlist.length; i++) {
+				make_card(
+					playerlist[i]["PlayerNumber"],
+					playerlist[i]["PlayerName"],
+					);
+			}
+		}
+
+		function make_card(PlayerNumber, PlayerName) {
+			let temp_html =
+			"<tr>\
+			<td>" +
+			PlayerNumber +
+			"</td>\
+			<td>" +
+			PlayerName +
+			"</td>\
+			</tr>";
+			$("#players-box").append(temp_html);
+		}
+	</script>
+
+	<style type="text/css">
+		* {
+			font-family: 'Roboto', sans-serif;
+		}
+		.wrap {
+			width: 500px;
+			margin: auto;
+		}
+		.header {
+			margin: 20px 5px 20px 5px;
+			text-align: center;
+		}
+		.SubHeader {
+			margin: 20px 5px 20px 5px;
+		}
+		.button {
+			text-align: right;
+		}
+		h1, h2, h3, h4
+		h5 {
+			display: inline;
+		}
+		.contents {
+			text-align: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrap">
+
+		<div class="header">
+			
+			<h5>
+				<button onclick="back()" type="button" class="btn btn-primary">
+					<
+				</button>
+				CLUB MANAGEMENT
+				<button onclick="confirm()" type="button" class="btn btn-primary">
+					Confirm
+				</button>
+			</h5>
+		</div>
+
+		<div class="SubHeader">
+			<h6>CLUB NAME</h6>
+			<input
+			type="text"
+			class="form-control"
+			placeholder="우리팀 이름"
+			aria-describedby="basic-addon3"
+			/>
+
+			<div class="SubHeader">
+				<h6>PLAYER REGISTERATION</h6>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon3">No.</span>
+					</div>
+					<input
+					type="text"
+					class="form-control"
+					placeholder="등번호"
+					id="PlayerAdd_PlayerNumber"
+					aria-describedby="basic-addon3"
+					/>
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon3">PLAYER NAME</span>
+					</div>
+					<input
+					type="text"
+					class="form-control"
+					placeholder="선수이름"
+					id="PlayerAdd_PlayerName"
+					aria-describedby="basic-addon3"
+					/>
+				</div>
+
+				<div class="button">
+					<button onclick="PlayerAdd()" type="button" class="btn btn-primary">
+						+ REGISTER PLAYER
+					</button>
+				</div>
+
+
+				<h6 class="SubHeader">PLAYER LIST</h6>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">No.</th>
+							<th scope="col">Player Name</th>
+						</tr>
+					</thead>
+					<tbody id="players-box"></tbody>
+				</table>
+			</div>
+
+		</div>
+	</body>
+	</html>

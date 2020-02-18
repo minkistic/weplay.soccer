@@ -1,0 +1,288 @@
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<!-- Optional JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+	src="https://cdnjs.cloudf<!doctype html>
+lare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"
+	></script>
+	<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"
+	></script>
+
+	<!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- 구글폰트 -->
+	<link
+	href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
+	rel="stylesheet">
+	>
+
+	<!-- Webpage Title -->
+	<title>슈팅 기록</title>
+
+	<style type="text/css">
+		* {
+			font-family: 'Roboto', sans-serif;
+		}
+		.wrap {
+			width: 500px;
+			margin: auto;
+		}
+		.header {
+			margin: 20px 5px 20px 5px;
+			text-align: center;
+		}
+		.SubHeader {
+			margin: 20px 5px 20px 5px;
+		}
+		.button {
+			text-align: right;
+		}
+		h1, h2, h3, h4
+		h5 {
+			display: inline;
+		}
+		.contents {
+			text-align: auto;
+		}
+	</style>
+
+</head>
+
+<script>
+	$('#datetimepicker').data("DateTimePicker").FUNCTION()
+</script>
+
+<body>
+
+	<div class = "wrap">
+		<!-- 헤더 -->
+		<div class="header">
+			<button onclick="()" type="button" class="btn btn-primary">
+				BACK
+			</button>
+			       GAME STAT +
+			<button onclick="()" type="button" class="btn btn-primary">
+				CONFIRM
+			</button>
+		</div>
+		<!-- 타이머 -->
+		<h5 class="form-group">Timer 00:00:00</h5>
+
+		<!-- 이벤트 타입 -->
+		<div class="input-group mb-3" >
+			<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				<label class="btn btn-outline-primary active">
+					<input type="radio" name="options" id="option1" autocomplete="off" checked> 슈팅
+				</label>
+				<label class="btn btn-outline-primary">
+					<input type="radio" name="options" id="option2" autocomplete="off"> 파울
+				</label>
+				<label class="btn btn-outline-primary">
+					<input type="radio" name="options" id="option3" autocomplete="off"> 코너킥
+				</label>
+				<label class="btn btn-outline-primary">
+					<input type="radio" name="options" id="option4" autocomplete="off"> 오프사이드
+				</label>
+			</div>
+		</div>
+
+		<!-- 팀선택 -->
+		<div class="input-group mb-3" >
+			<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				<label class="btn btn-outline-primary">
+					<input type="radio" name="options" id="option1" autocomplete="off"> 우리팀
+				</label>
+				<label class="btn btn-outline-primary">
+					<input type="radio" name="options" id="option2" autocomplete="off"> 상대팀
+				</label>
+			</div>
+		</div>
+
+		<!-- 득점유무 -->
+		<div class="input-group mb-3" >
+			<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				<label class="btn btn-outline-primary">
+					<input type="radio" name="options" id="option1" autocomplete="off"> 득점실패
+				</label>
+				<label class="btn btn-outline-primary">
+					<input type="radio" name="options" id="option2" autocomplete="off"> 득점성공
+				</label>
+			</div>
+		</div>
+
+		<!-- 슈팅유형 -->
+		<div class="input-group mb-3" >
+			<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				<label class="btn btn-outline-primary">
+					<input type="radio" name="options" id="option1" autocomplete="off"> 무효슈팅
+				</label>
+				<label class="btn btn-outline-primary">
+					<input type="radio" name="options" id="option2" autocomplete="off"> 유효슈팅
+				</label>
+			</div>
+		</div>
+
+		<!-- 선택사항 -->
+		<hr>
+		<div class="form-group">
+			<p>Optional 선택사항 (득점)</p>
+
+			<!-- 득점관련 세부정보 -->
+			<!-- 득점 플레이 유형 -->
+			<div class="input-group mb-3" >
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<label class="btn btn-outline-primary">
+						<input type="radio" name="options" id="option1" autocomplete="off"> 필드골
+					</label>
+					<label class="btn btn-outline-primary">
+						<input type="radio" name="options" id="option2" autocomplete="off"> 프리킥골
+					</label>
+					<label class="btn btn-outline-primary">
+						<input type="radio" name="options" id="option3" autocomplete="off"> 자책골
+					</label>
+				</div>
+			</div>
+
+			<!-- 득점정보 -->
+			<div class="form-group">
+				<div class="input-group mb-3">
+				<label class="input-group-text" for="inputGroupSelect01">득점정보</label>
+									<input type="text" class="form-control" placeholder="득점선수">
+					<input type="text" class="form-control" placeholder="득점위치">
+
+					<div class="input-group mb-3" >
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-primary">
+								<input type="radio" name="options" id="option1" autocomplete="off"> 오른발
+							</label>
+							<label class="btn btn-outline-primary">
+								<input type="radio" name="options" id="option2" autocomplete="off"> 왼발
+							</label>
+							<label class="btn btn-outline-primary">
+								<input type="radio" name="options" id="option3" autocomplete="off"> 헤더
+							</label>
+							<label class="btn btn-outline-primary">
+								<input type="radio" name="options" id="option4" autocomplete="off"> 기타
+							</label>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- 도움정보 -->
+				<div class="form-group">
+							<div class="input-group mb-3">
+					<label class="input-group-text" for="inputGroupSelect01">도움정보</label>
+									<input type="text" class="form-control" placeholder="도움선수">
+						<input type="text" class="form-control" placeholder="도움위치">
+
+						<div class="input-group mb-3" >
+							<div class="btn-group btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-primary">
+									<input type="checkbox" name="options" id="option1" autocomplete="off"> 상대실책성 플레이
+								</label>
+								<label class="btn btn-outline-primary">
+									<input type="checkbox" name="options" id="option2" autocomplete="off"> 세트피스 플레이
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<!-- 빌드업정 -->
+					<div class="form-group">
+						<div class="input-group mb-3">
+						<label class="input-group-text" for="inputGroupSelect01">빌드업 정보</label>
+							<input type="text" class="form-control" placeholder="빌드업시작 선수">
+							<input type="text" class="form-control" placeholder="빌드업시작 위치">
+						</div>
+					</div>
+				</div>
+
+				
+				<!-- 슈팅관련 세부정보 -->
+				<!-- 슈팅 플레이 정보 -->
+				<p>Optional 선택사항 (슈팅)</p>
+				<div class="input-group mb-3" >
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<label class="btn btn-outline-primary">
+						<input type="radio" name="options" id="option1" autocomplete="off"> 필드 플레이
+					</label>
+					<label class="btn btn-outline-primary">
+						<input type="radio" name="options" id="option2" autocomplete="off"> 프리킥 플레이
+					</label>
+				</div>
+			</div>
+
+				<!-- 득점정보 -->
+			<div class="form-group">
+				<div class="input-group mb-3">
+				<label class="input-group-text" for="inputGroupSelect01">슈팅정보</label>
+					<input type="text" class="form-control" placeholder="슈팅선수">
+					<input type="text" class="form-control" placeholder="슈팅위치">
+
+					<div class="input-group mb-3" >
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-primary">
+								<input type="radio" name="options" id="option1" autocomplete="off"> 오른발
+							</label>
+							<label class="btn btn-outline-primary">
+								<input type="radio" name="options" id="option2" autocomplete="off"> 왼발
+							</label>
+							<label class="btn btn-outline-primary">
+								<input type="radio" name="options" id="option3" autocomplete="off"> 헤더
+							</label>
+							<label class="btn btn-outline-primary">
+								<input type="radio" name="options" id="option4" autocomplete="off"> 기타
+							</label>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- 도움정보 -->
+				<div class="form-group">
+				<div class="input-group mb-3">					
+					<label class="input-group-text" for="inputGroupSelect01">키패스정보</label>
+					<input type="text" class="form-control" placeholder="키패스선수">
+						<input type="text" class="form-control" placeholder="키패스위치">
+
+						<div class="input-group mb-3" >
+							<div class="btn-group btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-primary">
+									<input type="checkbox" name="options" id="option1" autocomplete="off"> 상대실책성 플레이
+								</label>
+								<label class="btn btn-outline-primary">
+									<input type="checkbox" name="options" id="option2" autocomplete="off"> 세트피스 플레이
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<!-- 빌드업정 -->
+					<div class="form-group">
+						<div class="input-group mb-3">
+						<label class="input-group-text" for="inputGroupSelect01">빌드업 정보</label>
+						<input type="text" class="form-control" placeholder="빌드업시작 선수">
+							<input type="text" class="form-control" placeholder="빌드업시작 위치">
+						</div>
+					</div>
+				</div>
+		
+
+		</body>
+
+		</html>

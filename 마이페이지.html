@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- Optional JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"
+  ></script>
+  <script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"
+  ></script>
+
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- 구글폰트 -->
+  <link
+  href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
+  rel="stylesheet">
+  >
+
+  <!-- Webpage Title -->
+  <title>마이페이지</title>
+
+  <style type="text/css">
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+    .wrap {
+      width: 500px;
+      margin: auto;
+    }
+    .header {
+      margin: 20px 5px 20px 5px;
+      text-align: center;
+    }
+    .SubHeader {
+      margin: 20px 5px 20px 5px;
+    }
+    .button {
+      text-align: right;
+    }
+    h1, h2, h3, h4
+    h5 {
+      display: inline;
+    }
+    .contents {
+      text-align: auto;
+    }
+  </style>
+  
+</head>
+
+
+<body>
+  <div class = "wrap">
+
+   <div class="header">
+     <button onclick="()" type="button" class="btn btn-primary">
+      BACK
+    </button>
+    USER MANUAL
+  </div>
+
+  <p>사용 설명서</p>
+  <!-- <div class="row">
+    <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">클럽 만들기</h5>
+        <p class="card-text">클럽이름
+          <br>
+        플레이어정보</p>
+        <a href="#" class="card-link">팀관리</a>
+      </div>
+    </div>
+  </div>
+
+<div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">매치 만들기</h5>
+        <p class="card-text">매치정보
+          <br>
+        게임 추가하기</p>
+        <a href="#" class="card-link">매치만들기</a>
+      </div>
+    </div>
+  </div>
+
+<div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">경기내용 기록하기</h5>
+        <p class="card-text">매치기록
+          <br>
+        매치분석</p>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<!-- <a href="#" class="card-link">팀관리</a> -->
+
+<!-- 이미지로 설명 -->
+<div class="card-deck">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">클럽 만들기</h5>
+      <p>
+        <div class="card-text">클럽이름 등록</div>
+        <div class="card-text">플레이어 등록</div>
+      </p>
+      <a href="#" class="card-link"><small>클럽 만들기</small></a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">매치 만들기</h5>
+      <p>
+        <div class="card-text">매치정보 등록</div>
+        <div class="card-text">게임리스트 등록</div>
+      </p>
+      <a href="#" class="card-link"><small>매치 만들기</small></a>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">경기기록</h5>
+      <p>
+        <div class="card-text">경기내용 기록</div>
+        <div class="card-text">경기 분석</div>
+      </p>
+      <!-- <a href="#" class="card-link"><small>매치 만들기</small></a> -->
+    </div>
+  </div>
+
+<!-- 설명 -->
+<div class="contents">
+<h5>클럽  만들기</h5>
+<p> 클럽팀 이름과 소속 플레이어 이름과 등번호를 입력하세요.
+기록 입력 시 플레이어 리스트에서 빠르고 간편하게 기록을 할 수 있게 됩니다.</p>
+
+
+<h5>매치 만들기</h5>
+<p>매치 기록을 위해 매치 템플릿을 만듭니다. 기본 매치 정보를 입력합니다. 매치는 상대팀수를 기준으로 생성하세요. 매치를 만들고 매치 안에서 다수의 "Game"을 만들 수 있거든요 :) <br>
+매치 만들기가 완료되면 매치리스트에 추가 됩니다. 기록을 위해 원하시는 매치를 선택하세요.</p>
+
+<h5>게임 추가하기</h5>
+<p>매치리스트에서 기록하고 싶은 매치를 선택합니다.
+  우리 아마추어팀은 같은 상대팀과 다수의 게임을 나눠서 진행합니다.
+  각 게임기준으로 기록 가능합니다. 매치안에서 게임을 추가하세요. <br>
+  예를들어, 3파전을 하는 경우 2개의 매치 템플릿을 만들고 각 상대팀과 
+"Game"을 진행한 수 만큼 "Game"을 추가 하시면 됩니다.</p>
+
+<h5>타이머 설정하기</h5>
+<p>정규 경기시간을 설정합니다. 타이머는 정규시간에 알림이 울리고, 화면 우측상단의 [게임종료] 버튼을 누르기 전까지는 시간이 계속 흐릅니다. 게임이 종료가 되면 꼭 [게임종료] 버튼을 눌러주세요.
+그 전까지는 게임시간은 계속 흘러가게 됩니다. ("Injury Time")</p>
+
+<h5>게임 기록하기</h5>
+<p>이제 게임중에 일어나는 일들을 기록해볼까요 :)<br>
+  [슈팅, 코너킥, 오프사이드, 파울]기준으로 나누어 기록합니다. 각 기록은 내용에 맞게 세부정보를 입력이 가능하며, 자세하게 기록 할 수록 더 재미있고 의미있는 기록을 볼 수 있습니다. 매치 기록과 분석은 [매치 오버뷰]탭에서 확인 가능합니다.
+</p>
+<p>
+  [빌드업]이란? 어시스트 또는 키패스를 기록한 플레이어에게 패스한 플레어를 뜻합니다. <br>
+  예) 1득점 시 기록 가능한 내용은 다음과 같습니다.<br>
+  - 슈팅유형득점자 / 득점시간 / 득점방식 / 득점위치<br>
+  - 도움자 / 도움위치 / 상대실책 유,무<br>
+  - 빌드업시작자 / 빌드업시작위치<br>
+</p>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">게임기록 Tips</h5>
+    <p class="card-text">필드에서 플레이하고 있는 팀동료들에게 부탁하세요. 
+      득점 직후 득점자 자신이 어떻게 득점을 했는지 말하고, 어시스터 자신이 어디서 어시스트를했으며, 빌드업에 관여한자가 어디서 패스를 했는지를 말해준다면 빠르고 정확한 기록이 가능하겠죠!
+      <br>
+      몇번 익숙해지면 자신의 기록을 챙기기 위해서 잊지않고 먼저 말하게 될 거에요 :)
+      <br>
+      한가지 더! <br>
+    2인 1조로 기록을 하면 한결 더 여유롭고 정확한 기록을 할 수 있어요. 특히 기록이벤트가 많이 벌어지는 경기는 혼자서 감당하기 어려울 수 있으니 여유가 된다면 2인 1조로! </p>
+  </div>
+</div>
+
+</div>
+
+<div class=header>"회사이름 + 로고 + 서비스명"</div>
+</div>
+
+</body>
+</html>

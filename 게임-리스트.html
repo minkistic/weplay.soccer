@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Webpage Title -->
+  <title>게임리스트</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  <!-- Bootstrap CSS -->
+  <link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous"
+  />
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"
+  ></script>
+  <script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"
+  ></script>
+
+  <!-- 구글폰트 -->
+  <link
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
+  rel="stylesheet">
+  />
+
+  <style type="text/css">
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+    .wrap {
+      width: 500px;
+      margin: auto;
+    }
+    .header {
+      margin: 20px 5px 20px 5px;
+      text-align: center;
+    }
+    .SubHeader {
+      margin: 20px 5px 20px 5px;
+    }
+    .button {
+      text-align: right;
+    }
+    h1, h2, h3, h4
+    h5 {
+      display: inline;
+    }
+    .contents {
+      text-align: auto;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="header">
+
+      <h5>
+        <button onclick="back()" type="button" class="btn btn-primary">
+          <
+        </button>
+        Match#
+        <button onclick="excel_download()" type="button" class="btn btn-primary">
+          엑셀로내보내기
+        </button>
+        <button onclick="edit_gameinfo()" type="button" class="btn btn-primary">
+          게임정보수정
+        </button>
+        <button onclick="add_game()" type="button" class="btn btn-primary">
+          게임추가
+        </button>
+      </h5>
+    </div>
+
+    <div class="SubHeader">
+      <h6>팀이름1</h6> <h3>0</h3>
+      <h6>팀이름2</h6> <h3>0</h3>
+      
+      <!-- <ul class="list-group">
+        <li class="list-group-item">1. Player Name</li>
+        <li class="list-group-item">2. Player Name</li>
+        <li class="list-group-item">3. Player Name</li>
+        <li class="list-group-item">4. Player Name</li>
+        <li class="list-group-item">5. Player Name</li>
+        <li class="list-group-item">6. Player Name</li>
+        <li class="list-group-item">7. Player Name</li>
+        <li class="list-group-item">8. Player Name</li>
+        <li class="list-group-item">9. Player Name</li>
+        <li class="list-group-item">10. Player Name</li>
+      </ul>
+    -->
+
+
+<!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Game</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Match Overview</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+    </div>
+  </div>
+
+  <div class="list-group">
+    <button type="button" class="list-group-item list-group-item-action">
+      Game 1:  0:0          
+    </button>
+
+    <button type="button" class="list-group-item list-group-item-action">
+      Game 2:  0:0
+    </button>
+  </div>
+
+</body>
+</html>
