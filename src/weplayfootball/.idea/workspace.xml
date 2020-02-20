@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9d75afd-24e8-4327-9ee4-ef344e5c2542" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/메인.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ 슈팅기록2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shoot_record2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/게임기록.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/게임기록.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +23,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1XydaDETea7VhtlzYhmz03owVu7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -28,6 +33,30 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="RecordGameStat" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="weplayfootball" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RecordGameStat.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -41,5 +70,55 @@
       <updated>1582022329669</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="820" y="253" key="#Intentions" timestamp="1582197320064">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="820" y="253" key="#Intentions/0.23.1680.1027@0.23.1680.1027" timestamp="1582197320064" />
+    <state x="575" y="282" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582204076131">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="575" y="282" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1582204076131" />
+    <state x="801" y="430" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582196211221">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="801" y="430" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.1027@0.23.1680.1027" timestamp="1582196211221" />
+    <state width="1035" height="292" key="GridCell.Tab.0.bottom" timestamp="1582204377364">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1035" height="292" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1582204377364" />
+    <state width="1035" height="292" key="GridCell.Tab.0.center" timestamp="1582204377364">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1035" height="292" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1582204377364" />
+    <state width="1035" height="292" key="GridCell.Tab.0.left" timestamp="1582204377364">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1035" height="292" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1582204377364" />
+    <state width="1035" height="292" key="GridCell.Tab.0.right" timestamp="1582204377364">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1035" height="292" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1582204377364" />
+    <state width="1035" height="292" key="GridCell.Tab.1.bottom" timestamp="1582204377366">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1035" height="292" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1582204377366" />
+    <state width="1035" height="292" key="GridCell.Tab.1.center" timestamp="1582204377365">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1035" height="292" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1582204377365" />
+    <state width="1035" height="292" key="GridCell.Tab.1.left" timestamp="1582204377365">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1035" height="292" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1582204377365" />
+    <state width="1035" height="292" key="GridCell.Tab.1.right" timestamp="1582204377366">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1035" height="292" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1582204377366" />
+    <state x="648" y="207" key="SettingsEditor" timestamp="1582204146970">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="648" y="207" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1582204146970" />
   </component>
 </project>
