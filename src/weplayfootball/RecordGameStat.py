@@ -4,7 +4,8 @@
 # HTML을 주는 API: 기본 실행
 # HTML을 주는 API: HTML 파일 불러오기 -> render_template
 
-from flask import Flask, render_template, jsonify, request
+import os
+from flask import Flask, render_template, jsonify, request, send_from_directory
 
 from pymongo import MongoClient  # pymongo를 임포트 하기
 
@@ -13,6 +14,10 @@ db = client.dbgamestat  # 'dbsparta'라는 이름의 db를 만듭니다.
 
 app = Flask(__name__)
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/gamestats')
 def gamestat():
@@ -22,11 +27,17 @@ def gamestat():
 @app.route('/gamestat', methods=['POST'])
 def event_post():
     #  db에 저장한다.
+    # print(11111)
     try:  # 이걸 시도해봐 우선
         eventType = request.form['eventType']
         team = request.form['team']
         score = request.form['score']
         shoot = request.form['shoot']
+        playType = request.form['playType']
+        shootMethod = request.form['shootMethod']
+        errorOpponent = request.form['errorOpponent']
+        setpiece = request.form['setpiece']
+
 
         # 4. 그래서 그걸로 doc 을 만들자
         doc = {
@@ -34,6 +45,11 @@ def event_post():
             'team': team,
             'score': score,
             'shoot': shoot,
+            'playType': playType,
+            'shootMethod': shootMethod,
+            'errorOpponent': errorOpponent,
+            'setpiece': setpiece,
+
         }
         db.gamestat.insert_one(doc)
     except:  # 시도한게 안되면 이걸해
@@ -45,7 +61,19 @@ def event_post():
 @app.route('/gamestat', methods=['GET'])
 def event_get():
     # db에서 읽어온다.
-    gamestats = list(db.gamestat.find({}))  # db.bookmarks에서 가져와서 리스트로 만들어라,자동으로 들어가는 _id는 가져오지마라 제이슨으로 못만드니깐
+    gamestats = list(db.gamestat.find({},{'_id':0}))  # db.bookmarks에서 가져와서 리스트로 만들어라,자동으로 들어가는 _id는 가져오지마라 제이슨으로 못만드니깐
+    return jsonify(gamestats)  # 제이슨 형식으로 만들어라
+
+
+# 매치 오버뷰치
+@app.route('/matchoverviews')
+def match_overview():
+    return render_template('Game-MatchOverview.html')
+
+@app.route('/matchoverview', methods=['GET'])
+def eventData_get():
+    # db에서 읽어온다.
+    gamestats = list(db.gamestat.find({},{'_id':False}))  # db.bookmarks에서 가져와서 리스트로 만들어라,자동으로 들어가는 _id는 가져오지마라 제이슨으로 못만드니깐
     return jsonify(gamestats)  # 제이슨 형식으로 만들어라
 
 

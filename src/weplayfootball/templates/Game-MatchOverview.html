@@ -36,7 +36,7 @@
   <link
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
   rel="stylesheet">
-  />
+
 
   <style type="text/css">
     * {
@@ -110,12 +110,33 @@
 
     <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
       <li class="nav-item">
-        <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">Game</a>
+        <a 
+        class="nav-link" 
+        id="pills-home-tab" 
+        data-toggle="pill" 
+        href="#pills-home" 
+        role="tab" 
+        aria-controls="pills-home" 
+        aria-selected="false">
+      Game
+    </a>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">Match Overview</a>
+        <a 
+        class="nav-link active" 
+        id="pills-profile-tab" 
+        data-toggle="pill" 
+        href="#pills-profile" 
+        role="tab" 
+        aria-controls="pills-profile" 
+        aria-selected="true">
+      Match Overview
+    </a>
       </li>
+
     </ul>
 
     <div class="tab-content" id="pills-tabContent">
@@ -128,61 +149,156 @@
   <table class="table table-striped" class= "table table-bordered">
     <tbody>
       <tr>
-       <td>0</td>
+       <td name=totalShots id=totalShots1>0</td>
        <td>TOTAL SHOTS</td>
-       <td>0</td>
+       <td name=totalShots id=totalShot2>0</td>
      </tr>
 
      <tr>
-       <td>0</td>
+       <td name=shotsOnTarget id=shotsOnTarget1>0</td>
        <td>SHOTS ON TARGET</td>
-       <td>0</td>
+       <td name=shotsOnTarget id=shotsOnTaret2>0</td>
      </tr>
 
      <tr>
-       <td>0</td>
+       <td name=shotsOffTarget id=shotsOffTarget1>0</td>
        <td>SHOTS OFF TARGET</td>
-       <td>0</td>
+       <td name=shotsOffTarget id=shotsOffTarget2>0</td>
      </tr>
 
      <tr>
-       <td>0</td>
+       <td name=saves id=saves1>0</td>
        <td>SAVES</td>
-       <td>0</td>
+       <td name=saves id=saves2>0</td>
      </tr>
 
           <tr>
-       <td>0</td>
+       <td name=corners id=corners1>0</td>
        <td>CORNERS</td>
-       <td>0</td>
+       <td naem=corners id=corners2>0</td>
      </tr>
 
      <tr>
-       <td>0</td>
+       <td name=offsides id=offsides1>0</td>
        <td>OFFSIDES</td>
-       <td>0</td>
+       <td name=offsides id=offsides2>0</td>
      </tr>
 
      <tr>
-       <td>0</td>
+       <td name=fouls id=fouls1>0</td>
        <td>FOULS</td>
-       <td>0</td>
+       <td name=fouls id=fouls2>0</td>
      </tr>
 
      <tr>
-       <td>0</td>
+       <td name=cards id=cards1>0</td>
        <td>CARDS</td>
-       <td>0</td>
+       <td name=cards id=cards2>0</td>
      </tr>
+
    </tbody>
  </table>
 <hr>
+
 <div class="SubHeader">
 <h5> Match Detail </h5>
 </div>
 
+<a href="#" class="list-group-item list-group-item-action">Match Detail</a>
+<div class="list-group" id=gameStats>
+
+
+
+<script>
+$(document).ready(function(){
+  listing();
+});
+
+function listing() {
+  $.ajax({
+    type: "GET",
+    url: "/matchoverview",
+    data: {},
+     success: function(response){
+     let gameStats = response;
+     $("#gameStats").html("") // 기존꺼 날려버리기
+     for (let i = 0; i < gameStats.length; i++) {
+      let  matchOverview = make_card(gameStats[i]);
+      $("#gameStats").append(matchOverview);
+     }
+      console.log(response)
+    }
+  })
+}
+
+function make_card(bookmark) {
+return `
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+  <a href="#" class="list-group-item list-group-item-action list-group-item-primary">
+      ${bookmark["team"]}
+      ${bookmark["eventType"]} 
+      ${bookmark["score"]}
+      ${bookmark["shoot"]}
+      ${bookmark["playType"]}
+      ${bookmark["shootMethod"]}
+      ${bookmark["errorOpponent"]}
+      ${bookmark["setpiece"]}
+      
+        </a>
+    </div>
+`;
+}
+    </script>
+
+<!-- 카운트하기
+count = 0
+for 
+if type = "shoot"
+count = count ++1
+ -->
+<!-- 
+<script>
+$(document).ready(function(){
+  listing();
+});
+
+function totalstat() {
+  $.ajax({
+    type: "GET",
+    url: "/matchoverview",
+    data: {},
+     success: function(response){
+     let totalStats = response;
+     $("#totalStats").html("") // 기존꺼 날려버리기
+     for (let i = 0; i < totalStats.length; i++) {
+      let  matchOverview = make_card(totalStats[i]);
+      $("#totalStats").append(matchOverview);
+     }
+      console.log(response)
+    }
+  })
+}
+
+function make_card(bookmark) {
+return `
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action list-group-item-primary">
+      ${bookmark["eventT"]} 
+      ${bookmark["score"]}
+      ${bookmark["shoot"]}
+      ${bookmark["team"]}
+        </a>
+    </div>
+`;
+}
+    </script>
+ -->
+
+
+</body>
+</html>
+
+ <!--  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
 
   
   <a href="#" class="list-group-item list-group-item-action list-group-item-primary">This is a primary list group item</a>
@@ -193,6 +309,4 @@
   <a href="#" class="list-group-item list-group-item-action list-group-item-info">This is a info list group item</a>
   <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a light list group item</a>
   <a href="#" class="list-group-item list-group-item-action list-group-item-dark">This is a dark list group item</a>
-</div>
-</body>
-</html>
+</div> -->
