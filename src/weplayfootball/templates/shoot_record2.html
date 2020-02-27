@@ -487,14 +487,14 @@
 				
 
 				let a = {
-						eventType: input_eventType,
-						team: input_team,
-						score: input_score,
-						shoot: input_shoot,
-						playType: input_playType,
-						shootMethod: input_shootMethod,
-						errorOpponent: input_errorOpponent,								
-						setpiece: input_setpiece
+						eventType: input_eventType || "",
+						team: input_team || "",
+						score: input_score || "",
+						shoot: input_shoot || "",
+						playType: input_playType || "",
+						shootMethod: input_shootMethod || "",
+						errorOpponent: input_errorOpponent || "",	
+						setpiece: input_setpiece || ""
 
 					}
 
@@ -506,14 +506,14 @@
 					type: "POST",
 					url: "/gamestat",
 					data: {
-						eventType: input_eventType,
-						team: input_team,
-						score: input_score,
-						shoot: input_shoot,
-						playType: input_playType,
-						shootMethod: input_shootMethod,
-						errorOpponent: input_errorOpponent,								
-						setpiece: input_setpiece
+						eventType: input_eventType || "",
+						team: input_team || "",
+						score: input_score || "",
+						shoot: input_shoot || "",
+						playType: input_playType || "",
+						shootMethod: input_shootMethod || "",
+						errorOpponent: input_errorOpponent || "",	
+						setpiece: input_setpiece || ""
 
 					},
 					success: function(response){
