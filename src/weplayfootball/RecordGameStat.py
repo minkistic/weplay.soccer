@@ -76,6 +76,9 @@ def eventData_get():
     gamestats = list(db.gamestat.find({},{'_id':False}))  # db.bookmarks에서 가져와서 리스트로 만들어라,자동으로 들어가는 _id는 가져오지마라 제이슨으로 못만드니깐
     return jsonify(gamestats)  # 제이슨 형식으로 만들어라
 
+# @app.route('/playerList')
+# def player_list():
+#     return render_template('player_list.html')
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
