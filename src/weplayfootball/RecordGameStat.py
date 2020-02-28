@@ -37,6 +37,11 @@ def event_post():
         shootMethod = request.form['shootMethod']
         errorOpponent = request.form['errorOpponent']
         setpiece = request.form['setpiece']
+        scorePlayer = request.form['scorePlayer']
+        scoreArea = request.form['scoreArea']
+        assistPlayer = request.form['assistPlayer']
+        assistArea = request.form['assistArea']
+
 
 
         # 4. 그래서 그걸로 doc 을 만들자
@@ -49,6 +54,10 @@ def event_post():
             'shootMethod': shootMethod,
             'errorOpponent': errorOpponent,
             'setpiece': setpiece,
+            'scorePlayer': scorePlayer,
+            'scoreArea': scoreArea,
+            'assistPlayer': assistPlayer,
+            'assistArea': assistArea,
 
         }
         db.gamestat.insert_one(doc)
@@ -65,6 +74,7 @@ def event_get():
     return jsonify(gamestats)  # 제이슨 형식으로 만들어라
 
 
+
 # 매치 오버뷰치
 @app.route('/matchoverviews')
 def match_overview():
@@ -76,6 +86,43 @@ def eventData_get():
     gamestats = list(db.gamestat.find({},{'_id':False}))  # db.bookmarks에서 가져와서 리스트로 만들어라,자동으로 들어가는 _id는 가져오지마라 제이슨으로 못만드니깐
     return jsonify(gamestats)  # 제이슨 형식으로 만들어라
 
+
+
+# 팀관리
+@app.route('/teammanagements')
+def team_management():
+    return render_template('team_manage.html')
+
+
+@app.route('/teammanagement', methods=['POST'])
+def teamlist_post():
+    #  db에 저장한다.
+    # print(11111)
+    try:  # 이걸 시도해봐 우선
+        PlayerNumber: request.form['PlayerNumber']
+        PlayerName: request.form['PlayerName']
+
+        # 4. 그래서 그걸로 doc 을 만들자
+        doc = {
+            'PlayerNumber': PlayerNumber,
+            'PlayerName': PlayerName,
+
+        }
+        db.teammanagement.insert_one(doc)
+    except:  # 시도한게 안되면 이걸해
+        return jsonify({'result': 'fail', 'msg': '이 요청은 POST!'})
+
+    return jsonify({'result': 'success', 'msg': '이 요청은 POST!'})
+
+
+@app.route('/teammanagement', methods=['GET'])
+def teamlist_get():
+    # db에서 읽어온다.
+    teamlist = list(db.teammanagement.find({},{'_id':0}))  # db.bookmarks에서 가져와서 리스트로 만들어라,자동으로 들어가는 _id는 가져오지마라 제이슨으로 못만드니깐
+    return jsonify(teamlist)  # 제이슨 형식으로 만들어라
+
+
+# 선수선택화
 # @app.route('/playerList')
 # def player_list():
 #     return render_template('player_list.html')

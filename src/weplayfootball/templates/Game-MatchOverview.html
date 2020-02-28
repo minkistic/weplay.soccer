@@ -90,8 +90,8 @@
     </div>
 
     <div class="SubHeader">
-      <h6>팀이름1</h6> <h3>0</h3>
-      <h6>팀이름2</h6> <h3>0</h3>
+      <h6>팀이름1</h6> <h3 id=score1>0</h3>
+      <h6>팀이름2</h6> <h3 id=score2>0</h3>
       
       <!-- <ul class="list-group">
         <li class="list-group-item">1. Player Name</li>
@@ -151,13 +151,13 @@
       <tr>
        <td name=totalShots id=totalShots1>0</td>
        <td>TOTAL SHOTS</td>
-       <td name=totalShots id=totalShot2>0</td>
+       <td name=totalShots id=totalShots2>0</td>
      </tr>
 
      <tr>
        <td name=shotsOnTarget id=shotsOnTarget1>0</td>
        <td>SHOTS ON TARGET</td>
-       <td name=shotsOnTarget id=shotsOnTaret2>0</td>
+       <td name=shotsOnTarget id=shotsOnTarget2>0</td>
      </tr>
 
      <tr>
@@ -223,39 +223,65 @@ function listing() {
      let gameStats = response;
      $("#gameStats").html("") // 기존꺼 날려버리기
 
-     let shooting = 0;
-     let shooting2 = 0;
 
+// 합계 카운트
+     let shootOntarget1 = 0;
+     let shootOfftarget1 = 0;
+     let shootOntarget2 = 0;
+     let shootOfftarget2 = 0;
+     let score1 = 0;
+     let score2 = 0;
+
+    console.log(gameStats)
      for (let i = 0; i < gameStats.length; i++) {
 
-        
-        if(gameStats[i]["shoot"] == "유효슈팅") shooting++;
-        if(gameStats[i]["shoot"] == "무효슈팅") shooting2++;
+        if(gameStats[i]["score"] == "득점성공" && gameStats[i]["team"] == "우리팀") score1++;
+        if(gameStats[i]["score"] == "득점성공" && gameStats[i]["team"] == "상대팀") score2++;
 
+        if(gameStats[i]["shoot"] == "유효슈팅" && gameStats[i]["team"] == "우리팀") shootOntarget1++;
+        if(gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "우리팀") shootOfftarget1++;
+        if(gameStats[i]["shoot"] == "유효슈팅" && gameStats[i]["team"] == "상대팀") shootOntarget2++;
+        if(gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "상대팀") shootOfftarget2++;
 
-      let  matchOverview = make_card(gameStats[i]);
-      $("#gameStats").append(matchOverview);
+          let  allRecodList = make_recordList(gameStats[i]);
+          $("#gameStats").append(allRecodList);
      }
 
-      $("#shooting_count").val(shooting)
+      $("#score1").text(score1)
+      $("#score2").text(score2)
 
+      $("#totalShots1").text(shootOntarget1 + shootOfftarget1)
+      $("#totalShots2").text(shootOntarget2 + shootOfftarget2)
+
+      $("#shotsOnTarget1").text(shootOntarget1)
+      $("#shotsOffTarget1").text(shootOfftarget1)     
+      $("#shotsOnTarget2").text(shootOntarget2)
+      $("#shotsOffTarget2").text(shootOfftarget2)
+
+      $("#saves1").text(shootOntarget2)
+      $("#saves2").text(shootOntarget1)
       console.log(response)
     }
   })
 }
 
-function make_card(bookmark) {
+// 매치디테일 이벤트 로그 리스트
+function make_recordList(recordList) {
 return `
 <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-primary">
-      ${bookmark["team"]}
-      ${bookmark["eventType"]} 
-      ${bookmark["score"]}
-      ${bookmark["shoot"]}
-      ${bookmark["playType"]}
-      ${bookmark["shootMethod"]}
-      ${bookmark["errorOpponent"]}
-      ${bookmark["setpiece"]}
+      ${recordList["team"]}
+      ${recordList["eventType"]} 
+      ${recordList["score"]}
+      ${recordList["shoot"]}
+      ${recordList["playType"]}
+      ${recordList["shootMethod"]}
+      ${recordList["errorOpponent"]}
+      ${recordList["setpiece"]}
+      ${recordList["scorePlayer"]}
+      ${recordList["scoreArea"]}
+      ${recordList["assistPlayer"]}
+      ${recordList["assistArea"]}
       
         </a>
     </div>
@@ -263,52 +289,9 @@ return `
 }
     </script>
 
-<!-- 카운트하기
-count = 0
-for 
-if type = "shoot"
-count = count ++1
-
-
-<script>
-$(document).ready(function(){
-  listing();
-});
-
-function totalstat() {
-  $.ajax({
-    type: "GET",
-    url: "/matchoverview",
-    data: {},
-     success: function(response){
-     let totalStats = response;
-     $("#totalStats").html("") // 기존꺼 날려버리기
-     for (let i = 0; i < totalStats.length; i++) {
-      let  matchOverview = make_card(totalStats[i]);
-      $("#totalStats").append(matchOverview);
-     }
-      console.log(response)
-    }
-  })
-}
-
-function make_card(bookmark) {
-return `
-<div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action list-group-item-primary">
-      ${bookmark["eventT"]} 
-      ${bookmark["score"]}
-      ${bookmark["shoot"]}
-      ${bookmark["team"]}
-        </a>
-    </div>
-`;
-}
-    </script>
- -->
-
 
 </body>
+
 </html>
 
  <!--  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>

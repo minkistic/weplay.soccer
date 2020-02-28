@@ -61,21 +61,43 @@
 		.hidden { display: none;
 		}
 
-		#playType {
+		#socreDetail {
+			display: none
+		}
+
+		#shootDetail {
+			display: none
+		}
+
+		/*#playType {
 			display: none;
 		}
 		#scoreInfo {
 			display: none;
 		}
-		#buildupInfo {
+		#assistInfo {
 			display: none;
 		}
-		#assistInfo {
+		#buildupInfo {
+			display: none;
+		}*/
+
+		/*#shootPlayType {
+			display: none;
+		}
+		#shootInfo {
 			display: none;
 		}
 		#shootType {
 			display: none;
 		}
+		#keypassInfo {
+			display: none;
+		}
+		#shootBuildupInfo {
+			display: none;
+		}*/
+
 	</style>
 
 
@@ -88,14 +110,14 @@
 
    <!-- 초기화 / 초기데이터 (ajax, GET, let = "players"변수에 넣기) / 각종 하이드 -->
    <script>
- /*
-   	$(document).ready(function () {
-   		$("#playType").hide();
-   		$("#shootType").hide();
-   		$("#scoreInfo").hide();
-   		$("#assistInfo").hide();
-   		$("#buildupInfo").hide();
-   	})
+ 
+   	// $(document).ready(function () {
+   	// 	$("#playType").hide();
+   	// 	$("#shootType").hide();
+   	// 	$("#scoreInfo").hide();
+   	// 	$("#assistInfo").hide();
+   	// 	$("#buildupInfo").hide();
+   	// })
 
    	// 	loadPlayerList();
    	// })
@@ -212,7 +234,7 @@
 		</div>
 
 		<!-- 득점유무 -->
-		<div class="input-group mb-3" >
+		<div class="input-group mb-3" id="score">
 			<div class="btn-group btn-group-toggle" data-toggle="buttons">
 				<label class="btn btn-outline-primary" onclick="scored()">
 					<input 
@@ -224,14 +246,13 @@
 					득점성공
 				</label>
 
-				<label class="btn btn-outline-primary">
+				<label class="btn btn-outline-primary" onclick="scoredNot()">
 					<input 
 					type="radio" 
 					name="score" 
 					id="score2" 
 					autocomplete="off"
-					value="득점실패"
-					onclick="scoredNot()"/>
+					value="득점실패"/>
 					득점실패
 				</label>
 			</div>
@@ -264,12 +285,13 @@
 
 
 		<!-- 선택사항 -->
-		<div id="optional">
+		<div class="form-group" id="optional">
 			<hr>
-			<div class="form-group">
-				<p>선택사항</p>
+			<p>선택사항</p>
 
-				<!-- 득점관련 세부정보 -->
+			<!-- 득점관련 세부정보 -->
+			<div class="form-group" id="socreDetail">
+
 				<!-- 플레이타입 -->
 				<div class="input-group mb-3" id="playType">
 					<div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -303,42 +325,166 @@
 					</div>
 				</div>
 
-
 				<!-- 득점정보 -->
 				<div class="form-group" id="scoreInfo">
 					<div class="input-group mb-3">
-							<!-- <input 
-							type="text" 
-							class="form-control" 
-							placeholder="득점선수"> -->
+						<div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">득점정보</label>
+							<select class="custom-select" name="scorePlayer" id="scorePlayer">
+								<option selected>득점선수</option>
+								<option value="No.1">No.1</option>
+								<option value="No.2">No.2</option>
+								<option value="No.3">No.3</option>
+							</select>
 
-							<!-- <div class="btn-group">
-							  <button class="btn btn-mini">득점선수</button>
-							  <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
-							    <span class="caret"></span>
-							  </button>
-							  <ul id="playerList" class="dropdown-menu"> 
-							  </ul>
-							</div> -->
-<!-- 
-	<div class="form-group"> -->
+							<select class="custom-select" name="scoreArea" id="scoreArea">
+								<option selected>득점위치</option>
+								<option value="#1">#1</option>
+								<option value="#2">#2</option>
+								<option value="#3">#3</option>
+							</select>
+						</div>
 
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<label class="input-group-text" for="inputGroupSelect01">득점정보</label>
-				<select class="custom-select" id="inputGroupSelect01">
-					<option selected>득점선수</option>
-					<option value="No.1">No.1</option>
-					<option value="No.2">No.2</option>
-					<option value="No.3">No.3</option>
-				</select>
-<!-- 							<input 
-								type="text" 
-								class="form-control" 
-								placeholder="득점위치"/> -->
+						<div class="input-group mb-3" id="shootMethod">
+							<div class="btn-group btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-primary">
+									<input 
+									type="radio" 
+									name="shootMethod" 
+									id="shootMethod1" 
+									autocomplete="off"
+									value="오른발"/>
+									오른발
+								</label>
+								<label class="btn btn-outline-primary">
+									<input 
+									type="radio" 
+									name="shootMethod" 
+									id="shootMethod2" 
+									autocomplete="off"
+									value="왼발"/>
+									왼발
+								</label>
+								<label class="btn btn-outline-primary">
+									<input 
+									type="radio" 
+									name="shootMethod" 
+									id="shootMethod3" 
+									autocomplete="off"
+									value="헤더"/>
+									헤더
+								</label>
+								<label class="btn btn-outline-primary">
+									<input 
+									type="radio" 
+									name="shootMethod" 
+									id="shootMethod4" 
+									autocomplete="off"
+									value="기타"/>
+									기타
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
 
-								<select class="custom-select" id="inputGroupSelect01">
-									<option selected>득점위치</option>
+				<!-- 도움정보 -->
+				<div class="form-group" id="assistInfo">
+					<div class="input-group mb-3">
+						<label class="input-group-text" for="inputGroupSelect01">도움정보</label>
+						<select class="custom-select" name="assistPlayer" id="assistPlayer">
+							<option selected>도움선수</option>
+							<option value="No.1">No.1</option>
+							<option value="No.2">No.2</option>
+							<option value="No.3">No.3</option>
+						</select>
+
+						<select class="custom-select" name="assistArea" id="assistArea">
+							<option selected>도움위치</option>
+							<option value="#1">#1</option>
+							<option value="#2">#2</option>
+							<option value="#3">#3</option>
+						</select>
+
+						<div class="input-group mb-3" >
+							<div class="btn-group btn-group-toggle" data-toggle="buttons" id="otherInfo">
+								<label class="btn btn-outline-primary">
+									<input 
+									type="checkbox" 
+									name="errorOpponent" 
+									id="errorOpponent1" 
+									autocomplete="off"
+									value="상대실책"/>
+									상대실책성 플레이
+								</label>
+								<label class="btn btn-outline-primary">
+									<input 
+									type="checkbox" 
+									name="setpiece" 
+									id="setpiece1" 
+									autocomplete="off"
+									value="세트피스"/>
+									세트피스 플레이
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 빌드업정보 -->
+				<div class="form-group">
+					<div class="form-group" id="buildupInfo">
+						<div class="input-group mb-3">
+							<label class="input-group-text" for="inputGroupSelect01">빌드업 정보</label>
+							<select class="custom-select" name="bulidupPlayer">
+								<option selected>빌드업선수</option>
+								<option value="No.1">No.1</option>
+								<option value="No.2">No.2</option>
+								<option value="No.3">No.3</option>
+							</select>
+
+							<select class="custom-select" name="buildupArea">
+								<option selected>빌드업위치</option>
+								<option value="#1">#1</option>
+								<option value="#2">#2</option>
+								<option value="#3">#3</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- 슈팅관련 세부정보 -->
+			<div class="form-group" id="shootDetail">
+
+				<!-- 슈팅 플레이 정보 -->
+				<div class="input-group mb-3" id=shootPlayType>
+					<div class="btn-group btn-group-toggle" data-toggle="buttons">
+						<label class="btn btn-outline-primary">
+							<input type="radio" name="shootPlayType" id="shootPlayType1" autocomplete="off" value="필드플레이"/> 필드플레이
+						</label>
+						<label class="btn btn-outline-primary">
+							<input type="radio" name="shootPlayType" id="shootPlayType2" autocomplete="off" value="프리킥플레이"/> 프리킥플레이
+						</label>
+					</div>
+				</div>
+
+				<!-- 슈팅정보 -->
+				<div class="form-group">
+					<div class="form-group" id="shootInfo">
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="inputGroupSelect01">슈팅정보</label>
+								<select class="custom-select" name="shootPlayer">
+									<option selected>슈팅선수</option>
+									<option value="No.1">No.1</option>
+									<option value="No.2">No.2</option>
+									<option value="No.3">No.3</option>
+								</select>
+
+								<select class="custom-select" name="shootArea">
+									<option selected>슈팅위치</option>
 									<option value="#1">#1</option>
 									<option value="#2">#2</option>
 									<option value="#3">#3</option>
@@ -388,57 +534,81 @@
 						</div>
 					</div>
 				</div>
-			</div>
 
+				<!-- 키패스 정보 -->
+				<div class="form-group">
+					<div class="form-group" id="keypassInfo">
+						<div class="input-group mb-3">
+							<label class="input-group-text" for="inputGroupSelect01">키패스</label>
+							<select class="custom-select" name="keypassPlayer">
+								<option selected>키패스선수</option>
+								<option value="No.1">No.1</option>
+								<option value="No.2">No.2</option>
+								<option value="No.3">No.3</option>
+							</select>
 
+							<select class="custom-select" name="keypassArea">
+								<option selected>도움위치</option>
+								<option value="#1">#1</option>
+								<option value="#2">#2</option>
+								<option value="#3">#3</option>
+							</select>
 
-			<!-- 도움정보 -->
-			<div class="form-group" id="assistInfo">
-				<div class="input-group mb-3">
-					<label class="input-group-text" for="inputGroupSelect01">도움정보</label>
-					<input type="text" class="form-control" placeholder="도움선수"/>
-					<input type="text" class="form-control" placeholder="도움위치"/>
-
-					<div class="input-group mb-3" >
-						<div class="btn-group btn-group-toggle" data-toggle="buttons" id="otherInfo">
-							<label class="btn btn-outline-primary">
-								<input 
-								type="checkbox" 
-								name="errorOpponent" 
-								id="errorOpponent1" 
-								autocomplete="off"
-								value="상대실책"/>
-								상대실책성 플레이
-							</label>
-							<label class="btn btn-outline-primary">
-								<input 
-								type="checkbox" 
-								name="setpiece" 
-								id="setpiece1" 
-								autocomplete="off"
-								value="세트피스"/>
-								세트피스 플레이
-							</label>
+							<div class="input-group mb-3" >
+								<div class="btn-group btn-group-toggle" data-toggle="buttons" id="otherInfo">
+									<label class="btn btn-outline-primary">
+										<input 
+										type="checkbox" 
+										name="errorOpponent" 
+										id="errorOpponent1" 
+										autocomplete="off"
+										value="상대실책"/>
+										상대실책성 플레이
+									</label>
+									<label class="btn btn-outline-primary">
+										<input 
+										type="checkbox" 
+										name="setpiece" 
+										id="setpiece1" 
+										autocomplete="off"
+										value="세트피스"/>
+										세트피스 플레이
+									</label>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<!-- 빌드업정보 -->
-			<div class="form-group" id="buildupInfo">
-				<div class="input-group mb-3">
-					<label class="input-group-text" for="inputGroupSelect01">빌드업 정보</label>
-					<input type="text" class="form-control" placeholder="빌드업시작 선수"/>
-					<input type="text" class="form-control" placeholder="빌드업시작 위치"/>
-				</div>
+				<!-- 빌드업정 -->
+				<div class="form-group">
+					<div class="form-group" id="shootBuildupInfo">
+						<div class="input-group mb-3">
+							<label class="input-group-text" for="inputGroupSelect01">빌드업 정보</label>
+							<select class="custom-select" name="shootBulidupPlayer">
+								<option selected>빌드업선수</option>
+								<option value="No.1">No.1</option>
+								<option value="No.2">No.2</option>
+								<option value="No.3">No.3</option>
+							</select>
+
+							<select class="custom-select" name="shootBuildupArea">
+								<option selected>빌드업위치</option>
+								<option value="#1">#1</option>
+								<option value="#2">#2</option>
+								<option value="#3">#3</option>
+							</select>
+						</div>
+					</div>
+				</div>	
+
 			</div>
 
 		</div>
-	</div>
 
 
 
-	<script>
+		<script>
 					// $(document).ready(function(){	
 					// 	listing();
 					// 	$("#optional").hide();
@@ -447,33 +617,32 @@
 			// 득점성공
 			function scored() {
 				console.log("scored")
-				$("#shootType").show();
-				$("#playType").show();
-				$("#scoreInfo").show();
-				$("#assistInfo").show();
-				$("#buildupInfo").show();
-				// $("#playType1").attr('checked', true)
+				$('#shootDetail').hide();
+				$('#socreDetail').show();
+
+				// $("#shootType").show();
+				// $("#playType").show();
+				// $("#scoreInfo").show();
+				// $("#assistInfo").show();
+				// $("#buildupInfo").show();
+				// $("#playType1").prop('checked', true)
+
 			}
 
+			// 득점실패
+			function scoredNot() {
+				console.log("scoredNot")
+				$('#socreDetail').hide();
+				$('#shootDetail').show();
 
-			// $(function scored() {
-			// 	if(n==0)
-			// 	$('#playType').removeClass('hidden');
-			// 	$('#scoreInfo').removeClass('hidden');
-			// });
+				// $("#shootType").show();
+				// $("#shootPlayType").show();
+				// $("#shootInfo").show();
+				// $("#keypassInfo").show();
+				// $("#shootBuildupInfo").show();
 
-			// function scored() {
-			// 	if(n==0)
-			// 		$("#playType").show();
-			// 	if(n==1)
-			// 		$("#shoot").hide();
-			// 	$("#optional").show();
-			// }
-
-			// function scored() {
-			// 	$("#optional").hide();
-			// }
-
+			}
+			
 
 			function record_event() {
 				let input_eventType = $("input[name='eventType']:checked").val();
@@ -484,24 +653,36 @@
 				let input_shootMethod = $("input[name='shootMethod']:checked").val();
 				let input_errorOpponent = $("input[name='errorOpponent']:checked").val();
 				let input_setpiece = $("input[name='setpiece']:checked").val();
+
+				let input_scorePlayer = $("#scorePlayer").val();
+				let input_scoreArea = $("#scoreArea").val();
+				let input_assistPlayer = $("#assistPlayer").val();
+				let input_assistArea = $("#assistArea").val();
+				
+				// let input_shootPlayType = $("input[name='shootPlayType']:checked").val();
+				// let input_shootPlayer = $("input[name='shootPlayer']:checked").val();
+				// let input_shootArea = $("input[name='shootArea']:checked").val();
+				// let input_keypassPlayer = $("input[name='keypassPlayer']:checked").val();
+				// let input_keypassArea = $("input[name='keypassArea']:checked").val();
+				// let input_shootBulidupPlayer = $("input[name='shootBulidupPlayer']:checked").val();
+				// let input_shootBuildupArea = $("input[name='shootBuildupArea']:checked").val();
 				
 
-				let a = {
-						eventType: input_eventType || "",
-						team: input_team || "",
-						score: input_score || "",
-						shoot: input_shoot || "",
-						playType: input_playType || "",
-						shootMethod: input_shootMethod || "",
-						errorOpponent: input_errorOpponent || "",	
-						setpiece: input_setpiece || ""
+				// 여기까지 되는지 확인하기위해서
+				// let a = {
+				// 		eventType: input_eventType || "",
+				// 		team: input_team || "",
+				// 		score: input_score || "",
+				// 		shoot: input_shoot || "",
+				// 		playType: input_playType || "",
+				// 		shootMethod: input_shootMethod || "",
+				// 		errorOpponent: input_errorOpponent || "",	
+				// 		setpiece: input_setpiece || ""
 
-					}
+				// 	}
 
-					console.log(a);
+				// 	console.log(a);
 
-				// $("#progress").show();
-				// console.log(input_eventType, input_team, input_score, input_shoot)
 				$.ajax({
 					type: "POST",
 					url: "/gamestat",
@@ -510,39 +691,30 @@
 						team: input_team || "",
 						score: input_score || "",
 						shoot: input_shoot || "",
+						
 						playType: input_playType || "",
 						shootMethod: input_shootMethod || "",
 						errorOpponent: input_errorOpponent || "",	
-						setpiece: input_setpiece || ""
+						setpiece: input_setpiece || "",
+						scorePlayer: input_scorePlayer || "",
+						scoreArea: input_scoreArea || "",
+						assistPlayer: input_assistPlayer || "",
+						assistArea: input_assistArea || "",
+
+						// shootPlayType: input_shootPlayType || "",
+						// shootPlayer: input_shootPlayer || "",
+						// shootArea: input_shootArea || "",
+						// keypassPlayer: input_keypassPlayer || "",
+						// keypassArea: input_keypassArea || "",
+						// shootBulidupPlayer: input_shootBulidupPlayer || "",
+						// shootBuildupArea: input_shootBuildupArea || ""
+
 
 					},
 					success: function(response){
-						$("input[name='eventType']:checked").val("");
-						$("input[name='team']:checked").val("");
-						$("input[name='score']:checked").val("");
-						$("input[name='shoot']:checked").val("");
-						$("input[name='playType']:checked").val("")										
-						$("input[name='shootMethod']:checked").val("");
-						$("input[name='errorOpponent']:checked").val("");
-						$("input[name='setpiece']:checked").val("");
-
-						// $("#progress").hide();
-						listing();
+						window.location.reload()
 					}
 				});
-			}
-
-			function listing() {
-				$.ajax({
-					type: "GET",
-					url: "/gamestat",
-					data: {},
-					success: function(response){
-						let eventStats = response;
-						 $("#eventStat").html("") // 기존꺼 날려버리기
-						 console.log(response)
-						}
-					})
 			}
 		</script>
 
