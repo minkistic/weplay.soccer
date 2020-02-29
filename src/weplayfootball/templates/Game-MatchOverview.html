@@ -33,7 +33,6 @@
   ></script>
 
   <!-- 구글폰트 -->
-  <link
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
   rel="stylesheet">
 
@@ -52,6 +51,7 @@
     }
     .SubHeader {
       margin: 20px 5px 20px 5px;
+      text-align: center;
     }
     .button {
       text-align: right;
@@ -89,24 +89,13 @@
       </h5>
     </div>
 
-    <div class="SubHeader">
-      <h6>팀이름1</h6> <h3 id=score1>0</h3>
-      <h6>팀이름2</h6> <h3 id=score2>0</h3>
-      
-      <!-- <ul class="list-group">
-        <li class="list-group-item">1. Player Name</li>
-        <li class="list-group-item">2. Player Name</li>
-        <li class="list-group-item">3. Player Name</li>
-        <li class="list-group-item">4. Player Name</li>
-        <li class="list-group-item">5. Player Name</li>
-        <li class="list-group-item">6. Player Name</li>
-        <li class="list-group-item">7. Player Name</li>
-        <li class="list-group-item">8. Player Name</li>
-        <li class="list-group-item">9. Player Name</li>
-        <li class="list-group-item">10. Player Name</li>
-      </ul>
-    -->
-
+    <div class="wrap">
+      <div class="input-group mb-3">
+        <h3>팀이름A</h3>&nbsp; &nbsp;&nbsp; &nbsp;<h3 id=score1>0</h3>
+        &nbsp; &nbsp;<h3>:</h3>&nbsp; &nbsp;
+        <h3 id=score2>0</h3> &nbsp; &nbsp;&nbsp; &nbsp; <h3>팀이름B</h3>
+      </div>
+    </div>
 
     <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -120,33 +109,35 @@
         role="tab" 
         aria-controls="pills-home" 
         aria-selected="false">
-      Game
-    </a>
-      </li>
+        Game
+      </a>
+    </li>
 
-      <li class="nav-item">
-        <a 
-        class="nav-link active" 
-        id="pills-profile-tab" 
-        data-toggle="pill" 
-        href="#pills-profile" 
-        role="tab" 
-        aria-controls="pills-profile" 
-        aria-selected="true">
+    <li class="nav-item">
+      <a 
+      class="nav-link active" 
+      id="pills-profile-tab" 
+      data-toggle="pill" 
+      href="#pills-profile" 
+      role="tab" 
+      aria-controls="pills-profile" 
+      aria-selected="true">
       Match Overview
     </a>
-      </li>
+  </li>
 
-    </ul>
+</ul>
 
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-    </div>
-  </div>
+<!-- <div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+</div>
+</div> -->
 
+<div class="SubHeader">
   <table class="table table-striped" class= "table table-bordered">
+
     <tbody>
       <tr>
        <td name=totalShots id=totalShots1>0</td>
@@ -172,7 +163,7 @@
        <td name=saves id=saves2>0</td>
      </tr>
 
-          <tr>
+     <tr>
        <td name=corners id=corners1>0</td>
        <td>CORNERS</td>
        <td naem=corners id=corners2>0</td>
@@ -195,117 +186,118 @@
        <td>CARDS</td>
        <td name=cards id=cards2>0</td>
      </tr>
-
    </tbody>
- </table>
-<hr>
 
-<div class="SubHeader">
-<h5> Match Detail </h5>
+ </table>
 </div>
 
-<a href="#" class="list-group-item list-group-item-action">Match Detail</a>
-<div class="list-group" id=gameStats>
+<br>
+<h6> Match Detail </h6>
 
+<!-- <a href="#" class="list-group-item list-group-item-action">Match Detail</a> -->
+<!-- <div class="list-group" id=gameStats>-->  
+  <div class="list-group-item list-group-item-action" id=gameStats>None
+  </div>
+</div>
 
 
 <script>
-$(document).ready(function(){
-  listing();
-});
+  $(document).ready(function(){
+    listing();
+  });
 
-function listing() {
-  $.ajax({
-    type: "GET",
-    url: "/matchoverview",
-    data: {},
-     success: function(response){
-     let gameStats = response;
+  function listing() {
+    $.ajax({
+      type: "GET",
+      url: "/matchoverview",
+      data: {},
+      success: function(response){
+       let gameStats = response;
      $("#gameStats").html("") // 기존꺼 날려버리기
 
 
 // 합계 카운트
-     let score1 = 0;
-     let score2 = 0;
+let score1 = 0;
+let score2 = 0;
 
-     let shootOntarget1 = 0;
-     let shootOfftarget1 = 0;
-     let shootOntarget2 = 0;
-     let shootOfftarget2 = 0;
+let shootOntarget1 = 0;
+let shootOfftarget1 = 0;
+let shootOntarget2 = 0;
+let shootOfftarget2 = 0;
 
 
-    console.log(gameStats)
-     for (let i = 0; i < gameStats.length; i++) {
+console.log(gameStats)
+for (let i = 0; i < gameStats.length; i++) {
 
-        if(gameStats[i]["score"] == "득점성공" && gameStats[i]["team"] == "우리팀") score1++;
-        if(gameStats[i]["score"] == "득점성공" && gameStats[i]["team"] == "상대팀") score2++;
+  if(gameStats[i]["score"] == "득점성공" && gameStats[i]["team"] == "우리팀") score1++;
+  if(gameStats[i]["score"] == "득점성공" && gameStats[i]["team"] == "상대팀") score2++;
 
-        if(gameStats[i]["shoot"] == "유효슈팅" && gameStats[i]["team"] == "우리팀") shootOntarget1++;
-        if(gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "우리팀") shootOfftarget1++;
-        if(gameStats[i]["shoot"] == "유효슈팅" && gameStats[i]["team"] == "상대팀") shootOntarget2++;
-        if(gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "상대팀") shootOfftarget2++;
+  if(gameStats[i]["shoot"] == "유효슈팅" && gameStats[i]["team"] == "우리팀") shootOntarget1++;
+  if(gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "우리팀") shootOfftarget1++;
+  if(gameStats[i]["shoot"] == "유효슈팅" && gameStats[i]["team"] == "상대팀") shootOntarget2++;
+  if(gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "상대팀") shootOfftarget2++;
 
-          let  allRecodList = make_recordList(gameStats[i]);
-          $("#gameStats").append(allRecodList);
-     }
-
-      $("#score1").text(score1)
-      $("#score2").text(score2)
-
-      $("#totalShots1").text(shootOntarget1 + shootOfftarget1)
-      $("#totalShots2").text(shootOntarget2 + shootOfftarget2)
-
-      $("#shotsOnTarget1").text(shootOntarget1)
-      $("#shotsOffTarget1").text(shootOfftarget1)     
-      $("#shotsOnTarget2").text(shootOntarget2)
-      $("#shotsOffTarget2").text(shootOfftarget2)
-
-      $("#saves1").text(shootOntarget2 - score2)
-      $("#saves2").text(shootOntarget1 - score1)
-      console.log(response)
-    }
-  })
+  let  allRecodList = make_recordList(gameStats[i]);
+  $("#gameStats").append(allRecodList);
 }
+
+$("#score1").text(score1)
+$("#score2").text(score2)
+
+$("#totalShots1").text(shootOntarget1 + shootOfftarget1)
+$("#totalShots2").text(shootOntarget2 + shootOfftarget2)
+
+$("#shotsOnTarget1").text(shootOntarget1)
+$("#shotsOffTarget1").text(shootOfftarget1)     
+$("#shotsOnTarget2").text(shootOntarget2)
+$("#shotsOffTarget2").text(shootOfftarget2)
+
+$("#saves1").text(shootOntarget2 - score2)
+$("#saves2").text(shootOntarget1 - score1)
+console.log(response)
+}
+})
+  }
 
 // 매치디테일 이벤트 로그 리스트
 function make_recordList(recordList) {
-return `
-<div class="list-group">
+  return `
+  <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-primary">
-      ${recordList["eventTime"]}
+  ${recordList["eventTime"]}
 
-      ${recordList["team"]}
-      ${recordList["eventType"]} 
-      ${recordList["score"]}
-      ${recordList["shoot"]}
-      ${recordList["playType"]}
+  ${recordList["team"]}
+  ${recordList["eventType"]} 
+  ${recordList["score"]}
+  ${recordList["shoot"]}
 
-      // 득점성공
-      ${recordList["scorePlayer"]}
-      ${recordList["scoreArea"]}
-      ${recordList["shootMethod"]}
-      ${recordList["assistPlayer"]}
-      ${recordList["assistArea"]}
-      ${recordList["errorOpponent"]}
-      ${recordList["setpiece"]}
-      ${recordList["bulidupPlayer"]}
-      ${recordList["buildupArea"]}
+  ${recordList["playType"]}
+  ${recordList["scorePlayer"]}
+  ${recordList["scoreArea"]}
+  ${recordList["shootMethod"]}
+  ${recordList["assistPlayer"]}
+  ${recordList["assistArea"]}
+  ${recordList["errorOpponent"]}
+  ${recordList["setpiece"]}
+  ${recordList["bulidupPlayer"]}
+  ${recordList["buildupArea"]}
 
-      //득점실패
-      ${recordList["shootPlayType"]}
-      ${recordList["shootPlayer"]}
-      ${recordList["shootArea"]}
-      ${recordList["keypassPlayer"]}
-      ${recordList["keypassArea"]}
-      ${recordList["shootBuildupPlayer"]}
-      ${recordList["shootBuildupArea"]}
+  ${recordList["shootPlayType"]}
+  ${recordList["shootPlayer"]}
+  ${recordList["shootArea"]}
+  ${recordList["shootshootMethod"]}
+  ${recordList["shooterrorOpponent"]}
+  ${recordList["shootsetpiece"]}
+  ${recordList["keypassPlayer"]}
+  ${recordList["keypassArea"]}
+  ${recordList["shootBuildupPlayer"]}
+  ${recordList["shootBuildupArea"]}
 
-        </a>
-    </div>
-`;
+  </a>
+  </div>
+  `;
 }
-    </script>
-
+</script>
 
 </body>
 

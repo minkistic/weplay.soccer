@@ -28,16 +28,16 @@ def event_post():
     #  db에 저장한다.
     print(11111)
     try:  # 이걸 시도해봐 우선
-        # eventTime = request.form['eventTime']
+        eventTime = request.form['eventTime']
         eventType = request.form['eventType']
         team = request.form['team']
         score = request.form['score']
         shoot = request.form['shoot']
-        playType = request.form['playType']
-        shootMethod = request.form['shootMethod']
 
+        playType = request.form['playType']
         scorePlayer = request.form['scorePlayer']
         scoreArea = request.form['scoreArea']
+        shootMethod = request.form['shootMethod']
         assistPlayer = request.form['assistPlayer']
         assistArea = request.form['assistArea']
         errorOpponent = request.form['errorOpponent']
@@ -48,23 +48,26 @@ def event_post():
         shootPlayType = request.form['shootPlayType']
         shootPlayer = request.form['shootPlayer']
         shootArea = request.form['shootArea']
+        shootshootMethod = request.form['shootshootMethod']
         keypassPlayer = request.form['keypassPlayer']
         keypassArea = request.form['keypassArea']
+        shooterrorOpponent = request.form['shooterrorOpponent']
+        shootsetpiece = request.form['shootsetpiece']
         shootBuildupPlayer = request.form['shootBuildupPlayer']
         shootBuildupArea = request.form['shootBuildupArea']
 
         # 4. 그래서 그걸로 doc 을 만들자
         doc = {
-            # 'eventTime': eventTime,
+            'eventTime': eventTime,
             'eventType': eventType,
             'team': team,
             'score': score,
             'shoot': shoot,
-            'playType': playType,
-            'shootMethod': shootMethod,
 
+            'playType': playType,
             'scorePlayer': scorePlayer,
             'scoreArea': scoreArea,
+            'shootMethod': shootMethod,
             'assistPlayer': assistPlayer,
             'assistArea': assistArea,
             'errorOpponent': errorOpponent,
@@ -75,11 +78,14 @@ def event_post():
             'shootPlayType': shootPlayType,
             'shootPlayer': shootPlayer,
             'shootArea': shootArea,
+            'shootshootMethod': shootshootMethod,
             'keypassPlayer': keypassPlayer,
             'keypassArea': keypassArea,
+            'shooterrorOpponent': shooterrorOpponent,
+            'shootsetpiece': shootsetpiece,
             'shootBuildupPlayer': shootBuildupPlayer,
             'shootBuildupArea': shootBuildupArea,
-
+        }
         db.gamestat.insert_one(doc)
     except:  # 시도한게 안되면 이걸해
         return jsonify({'result': 'fail', 'msg': '이 요청은 POST!'})
