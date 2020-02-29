@@ -225,12 +225,14 @@ function listing() {
 
 
 // 합계 카운트
+     let score1 = 0;
+     let score2 = 0;
+
      let shootOntarget1 = 0;
      let shootOfftarget1 = 0;
      let shootOntarget2 = 0;
      let shootOfftarget2 = 0;
-     let score1 = 0;
-     let score2 = 0;
+
 
     console.log(gameStats)
      for (let i = 0; i < gameStats.length; i++) {
@@ -258,8 +260,8 @@ function listing() {
       $("#shotsOnTarget2").text(shootOntarget2)
       $("#shotsOffTarget2").text(shootOfftarget2)
 
-      $("#saves1").text(shootOntarget2)
-      $("#saves2").text(shootOntarget1)
+      $("#saves1").text(shootOntarget2 - score2)
+      $("#saves2").text(shootOntarget1 - score1)
       console.log(response)
     }
   })
@@ -270,19 +272,34 @@ function make_recordList(recordList) {
 return `
 <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-primary">
+      ${recordList["eventTime"]}
+
       ${recordList["team"]}
       ${recordList["eventType"]} 
       ${recordList["score"]}
       ${recordList["shoot"]}
       ${recordList["playType"]}
-      ${recordList["shootMethod"]}
-      ${recordList["errorOpponent"]}
-      ${recordList["setpiece"]}
+
+      // 득점성공
       ${recordList["scorePlayer"]}
       ${recordList["scoreArea"]}
+      ${recordList["shootMethod"]}
       ${recordList["assistPlayer"]}
       ${recordList["assistArea"]}
-      
+      ${recordList["errorOpponent"]}
+      ${recordList["setpiece"]}
+      ${recordList["bulidupPlayer"]}
+      ${recordList["buildupArea"]}
+
+      //득점실패
+      ${recordList["shootPlayType"]}
+      ${recordList["shootPlayer"]}
+      ${recordList["shootArea"]}
+      ${recordList["keypassPlayer"]}
+      ${recordList["keypassArea"]}
+      ${recordList["shootBuildupPlayer"]}
+      ${recordList["shootBuildupArea"]}
+
         </a>
     </div>
 `;

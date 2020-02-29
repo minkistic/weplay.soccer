@@ -80,7 +80,7 @@
 		}
 		#buildupInfo {
 			display: none;
-		}*/
+			}*/
 
 		/*#shootPlayType {
 			display: none;
@@ -96,10 +96,37 @@
 		}
 		#shootBuildupInfo {
 			display: none;
-		}*/
+			}*/
 
-	</style>
+			/*타이버*/
+			#stopwatch {
+				background: #eee;
+				border: 1px solid #999;
+				padding: 10px;
+				border-radius: 10px;
+				max-width:280px;
+				margin-bottom: 20px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			#sw-time {
+				font-size: 40px;
+				font-weight: bold;
+				text-align: center;
+			}
+			#sw-rst, #sw-go {
+				width: 120px;
+				box-sizing: padding-box;
+				padding: 10px;
+				display: inline-block;
+				background: #aa2f2f;
+				border: 0;
+				color: #fff;
+			}
+		</style>
 
+		<link href="stopwatch.css" rel="stylesheet">
+		<script src="stopwatch.js"></script>
 
 <!-- <script language="JavaScript">
        function setVisibility(id, visibility) {
@@ -110,7 +137,7 @@
 
    <!-- 초기화 / 초기데이터 (ajax, GET, let = "players"변수에 넣기) / 각종 하이드 -->
    <script>
- 
+
    	// $(document).ready(function () {
    	// 	$("#playType").hide();
    	// 	$("#shootType").hide();
@@ -141,6 +168,8 @@
    	// 		}
    	// 	})
    	// }
+
+
    </script>
 
 
@@ -160,8 +189,23 @@
 				CONFIRM
 			</button>
 		</div>
+
 		<!-- 타이머 -->
-		<h5 class="form-group">Timer 00:00:00</h5>
+<!-- 		<h5 class="form-group">
+			<button onclick="gamestart_event()" type="button" class="btn btn-primary">Game Start</button>
+			<span id="minutes"></span>:<span id="seconds"></span>
+		</h5>
+ -->
+
+		<div id="stopwatch">
+			<!-- [DISPLAY TIMER] -->
+			<div id="sw-time">00:00:00</div>
+			<!-- [RESET BUTTON] -->
+			<input type="button" value="Reset" id="sw-rst" disabled/>
+			<!-- [START/STOP BUTTON] -->
+			<input type="button" value="Start" id="sw-go" disabled/>
+		</div>
+
 
 		<!-- 이벤트 타입 -->
 		<div class="input-group mb-3">
@@ -327,23 +371,22 @@
 
 				<!-- 득점정보 -->
 				<div class="form-group" id="scoreInfo">
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<label class="input-group-text" for="inputGroupSelect01">득점정보</label>
-							<select class="custom-select" name="scorePlayer" id="scorePlayer">
-								<option selected>득점선수</option>
-								<option value="No.1">No.1</option>
-								<option value="No.2">No.2</option>
-								<option value="No.3">No.3</option>
-							</select>
 
-							<select class="custom-select" name="scoreArea" id="scoreArea">
-								<option selected>득점위치</option>
-								<option value="#1">#1</option>
-								<option value="#2">#2</option>
-								<option value="#3">#3</option>
-							</select>
-						</div>
+					<div class="input-group mb-3">
+						<label class="input-group-text" for="inputGroupSelect01">득점정보</label>
+						<select class="custom-select" name="scorePlayer" id="scorePlayer">
+							<option selected>득점선수</option>
+							<option value="No.1">No.1</option>
+							<option value="No.2">No.2</option>
+							<option value="No.3">No.3</option>
+						</select>
+
+						<select class="custom-select" name="scoreArea" id="scoreArea">
+							<option selected>득점위치</option>
+							<option value="#1">#1</option>
+							<option value="#2">#2</option>
+							<option value="#3">#3</option>
+						</select>
 
 						<div class="input-group mb-3" id="shootMethod">
 							<div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -436,14 +479,14 @@
 					<div class="form-group" id="buildupInfo">
 						<div class="input-group mb-3">
 							<label class="input-group-text" for="inputGroupSelect01">빌드업 정보</label>
-							<select class="custom-select" name="bulidupPlayer">
+							<select class="custom-select" name="bulidupPlayer" id="bulidupPlayer">
 								<option selected>빌드업선수</option>
 								<option value="No.1">No.1</option>
 								<option value="No.2">No.2</option>
 								<option value="No.3">No.3</option>
 							</select>
 
-							<select class="custom-select" name="buildupArea">
+							<select class="custom-select" name="buildupArea" id="buildupArea">
 								<option selected>빌드업위치</option>
 								<option value="#1">#1</option>
 								<option value="#2">#2</option>
@@ -474,22 +517,20 @@
 				<div class="form-group">
 					<div class="form-group" id="shootInfo">
 						<div class="input-group mb-3">
-							<div class="input-group-prepend">
-								<label class="input-group-text" for="inputGroupSelect01">슈팅정보</label>
-								<select class="custom-select" name="shootPlayer">
-									<option selected>슈팅선수</option>
-									<option value="No.1">No.1</option>
-									<option value="No.2">No.2</option>
-									<option value="No.3">No.3</option>
-								</select>
+							<label class="input-group-text" for="inputGroupSelect01">슈팅정보</label>
+							<select class="custom-select" name="shootPlayer">
+								<option selected>슈팅선수</option>
+								<option value="No.1">No.1</option>
+								<option value="No.2">No.2</option>
+								<option value="No.3">No.3</option>
+							</select>
 
-								<select class="custom-select" name="shootArea">
-									<option selected>슈팅위치</option>
-									<option value="#1">#1</option>
-									<option value="#2">#2</option>
-									<option value="#3">#3</option>
-								</select>
-							</div>
+							<select class="custom-select" name="shootArea">
+								<option selected>슈팅위치</option>
+								<option value="#1">#1</option>
+								<option value="#2">#2</option>
+								<option value="#3">#3</option>
+							</select>
 
 							<div class="input-group mb-3" id="shootMethod">
 								<div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -585,7 +626,7 @@
 					<div class="form-group" id="shootBuildupInfo">
 						<div class="input-group mb-3">
 							<label class="input-group-text" for="inputGroupSelect01">빌드업 정보</label>
-							<select class="custom-select" name="shootBulidupPlayer">
+							<select class="custom-select" name="shootBuildupPlayer">
 								<option selected>빌드업선수</option>
 								<option value="No.1">No.1</option>
 								<option value="No.2">No.2</option>
@@ -613,6 +654,90 @@
 					// 	listing();
 					// 	$("#optional").hide();
 					// });
+
+		  	// 타이머
+		   	// function gamestart_event() {
+		   	// 	var sec = 0;
+		   	// 	function pad ( val ) { return val > 9 ? val : "0" + val; }
+		   	// 	setInterval( function(){
+		   	// 		$("#seconds").html(pad(++sec%60));
+		   	// 		$("#minutes").html(pad(parseInt(sec/60,10)));
+		   	// 	}, 1000);
+		   	// }
+
+		   	var sw = {
+		   		/* [INIT] */
+			  etime : null, // holds HTML time display
+			  erst : null, // holds HTML reset button
+			  ego : null, // holds HTML start/stop button
+			  timer : null, // timer object
+			  now : 0, // current timer
+			  init : function () {
+			    // Get HTML elements
+			    sw.etime = document.getElementById("sw-time");
+			    sw.erst = document.getElementById("sw-rst");
+			    sw.ego = document.getElementById("sw-go");
+
+			    // Attach listeners
+			    sw.erst.addEventListener("click", sw.reset);
+			    sw.erst.disabled = false;
+			    sw.ego.addEventListener("click", sw.start);
+			    sw.ego.disabled = false;
+			},
+
+			/* [ACTIONS] */
+			tick : function () {
+			  // tick() : update display if stopwatch running
+
+			    // Calculate hours, mins, seconds
+			    sw.now++;
+			    var remain = sw.now;
+			    var hours = Math.floor(remain / 3600);
+			    remain -= hours * 3600;
+			    var mins = Math.floor(remain / 60);
+			    remain -= mins * 60;
+			    var secs = remain;
+
+			    // Update the display timer
+			    if (hours<10) { hours = "0" + hours; }
+			    if (mins<10) { mins = "0" + mins; }
+			    if (secs<10) { secs = "0" + secs; }
+			    sw.etime.innerHTML = hours + ":" + mins + ":" + secs;
+			},
+
+			start : function () {
+			  // start() : start the stopwatch
+
+			  sw.timer = setInterval(sw.tick, 1000);
+			  sw.ego.value = "Stop";
+			  sw.ego.removeEventListener("click", sw.start);
+			  sw.ego.addEventListener("click", sw.stop);
+			},
+
+			stop  : function () {
+			  // stop() : stop the stopwatch
+
+			  clearInterval(sw.timer);
+			  sw.timer = null;
+			  sw.ego.value = "Start";
+			  sw.ego.removeEventListener("click", sw.stop);
+			  sw.ego.addEventListener("click", sw.start);
+			},
+
+			reset : function () {
+			  // reset() : reset the stopwatch
+
+			    // Stop if running
+			    if (sw.timer != null) { sw.stop(); }
+
+			    // Reset time
+			    sw.now = -1;
+			    sw.tick();
+			}
+		};
+
+		window.addEventListener("load", sw.init);
+
 
 			// 득점성공
 			function scored() {
@@ -645,28 +770,37 @@
 			
 
 			function record_event() {
+				// 타이머
+				let input_eventTime = $("#sw-time").val();
+
 				let input_eventType = $("input[name='eventType']:checked").val();
 				let input_team = $("input[name='team']:checked").val();
 				let input_score = $("input[name='score']:checked").val();
 				let input_shoot = $("input[name='shoot']:checked").val();
 				let input_playType = $("input[name='playType']:checked").val();
 				let input_shootMethod = $("input[name='shootMethod']:checked").val();
-				let input_errorOpponent = $("input[name='errorOpponent']:checked").val();
-				let input_setpiece = $("input[name='setpiece']:checked").val();
 
-				let input_scorePlayer = $("#scorePlayer").val();
-				let input_scoreArea = $("#scoreArea").val();
-				let input_assistPlayer = $("#assistPlayer").val();
-				let input_assistArea = $("#assistArea").val();
-				
-				// let input_shootPlayType = $("input[name='shootPlayType']:checked").val();
-				// let input_shootPlayer = $("input[name='shootPlayer']:checked").val();
-				// let input_shootArea = $("input[name='shootArea']:checked").val();
-				// let input_keypassPlayer = $("input[name='keypassPlayer']:checked").val();
-				// let input_keypassArea = $("input[name='keypassArea']:checked").val();
-				// let input_shootBulidupPlayer = $("input[name='shootBulidupPlayer']:checked").val();
-				// let input_shootBuildupArea = $("input[name='shootBuildupArea']:checked").val();
-				
+				// 선택사항
+					// 득점성공
+					let input_scorePlayer = $("#scorePlayer").val();
+					let input_scoreArea = $("#scoreArea").val();
+					let input_assistPlayer = $("#assistPlayer").val();
+					let input_assistArea = $("#assistArea").val();
+					let input_errorOpponent = $("input[name='errorOpponent']:checked").val();
+					let input_setpiece = $("input[name='setpiece']:checked").val();
+					let input_bulidupPlayer = $("#bulidupPlayer").val();
+					let input_buildupArea = $("#buildupArea").val();
+
+
+					// 득점실패
+					let input_shootPlayType = $("input[name='shootPlayType']:checked").val();
+					let input_shootPlayer = $("input[name='shootPlayer']:checked").val();
+					let input_shootArea = $("input[name='shootArea']:checked").val();
+					let input_keypassPlayer = $("input[name='keypassPlayer']:checked").val();
+					let input_keypassArea = $("input[name='keypassArea']:checked").val();
+					let input_shootBuildupPlayer = $("input[name='shootBuildupPlayer']:checked").val();
+					let input_shootBuildupArea = $("input[name='shootBuildupArea']:checked").val();
+
 
 				// 여기까지 되는지 확인하기위해서
 				// let a = {
@@ -687,27 +821,33 @@
 					type: "POST",
 					url: "/gamestat",
 					data: {
+						eventTime: input_eventTime || "",
 						eventType: input_eventType || "",
 						team: input_team || "",
 						score: input_score || "",
 						shoot: input_shoot || "",
-						
 						playType: input_playType || "",
 						shootMethod: input_shootMethod || "",
-						errorOpponent: input_errorOpponent || "",	
-						setpiece: input_setpiece || "",
+						
+					// 선택사항
+						// 득점성공
 						scorePlayer: input_scorePlayer || "",
 						scoreArea: input_scoreArea || "",
 						assistPlayer: input_assistPlayer || "",
 						assistArea: input_assistArea || "",
+						errorOpponent: input_errorOpponent || "",	
+						setpiece: input_setpiece || "",
+						bulidupPlayer: input_bulidupPlayer || "",	
+						buildupArea: input_buildupArea || "",
 
-						// shootPlayType: input_shootPlayType || "",
-						// shootPlayer: input_shootPlayer || "",
-						// shootArea: input_shootArea || "",
-						// keypassPlayer: input_keypassPlayer || "",
-						// keypassArea: input_keypassArea || "",
-						// shootBulidupPlayer: input_shootBulidupPlayer || "",
-						// shootBuildupArea: input_shootBuildupArea || ""
+						//득점실패
+						shootPlayType: input_shootPlayType || "",
+						shootPlayer: input_shootPlayer || "",
+						shootArea: input_shootArea || "",
+						keypassPlayer: input_keypassPlayer || "",
+						keypassArea: input_keypassArea || "",
+						shootBuildupPlayer: input_shootBuildupPlayer || "",
+						shootBuildupArea: input_shootBuildupArea || ""
 
 
 					},

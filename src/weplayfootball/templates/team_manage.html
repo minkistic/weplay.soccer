@@ -34,9 +34,7 @@
 
 		function PlayerAdd() {
 			let PlayerNumber = $("#PlayerAdd_PlayerNumber").val();
-			let PlayerName = $("#PlayerAdd_PlayerName").val();
-
-			// let playerlistUpdate = [] //insert to DB
+			let PlayerName = $("#PlayerAdd_PlayerName").val();	
 			
 			if (PlayerNumber == "") {
 				alert("등번호를 입력해 주세요");
@@ -53,7 +51,6 @@
 				PlayerName: PlayerName,
 			};
 			playerlist.push(list);
-			playerlistUpdate.push(list) // insert to DB
 			UpdateList();
 		}
 
@@ -85,6 +82,8 @@
 						window.location.reload()
 					}
 				});
+
+
 		function UpdateList() {
 			$("#players-box").html("");
 			playerListing();
