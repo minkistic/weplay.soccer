@@ -4,8 +4,9 @@
     <list default="true" id="f9d75afd-24e8-4327-9ee4-ef344e5c2542" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RecordGameStat.py" beforeDir="false" afterPath="$PROJECT_DIR$/RecordGameStat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teaminfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/teaminfo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Game-MatchOverview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Game-MatchOverview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shoot_record2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shoot_record2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/team_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/team_manage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,25 +125,25 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="801" y="430" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.1027@0.23.1680.1027" timestamp="1582196211221" />
-    <state width="1164" height="185" key="GridCell.Tab.0.bottom" timestamp="1582987132876">
+    <state width="1164" height="185" key="GridCell.Tab.0.bottom" timestamp="1583247152779">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1164" height="185" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1582987132876" />
+    <state width="1164" height="185" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1583247152779" />
     <state width="1035" height="292" key="GridCell.Tab.0.bottom/1920.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1582245096742" />
-    <state width="1164" height="185" key="GridCell.Tab.0.center" timestamp="1582987132875">
+    <state width="1164" height="185" key="GridCell.Tab.0.center" timestamp="1583247152778">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1164" height="185" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1582987132875" />
+    <state width="1164" height="185" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1583247152778" />
     <state width="1035" height="292" key="GridCell.Tab.0.center/1920.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1582245096741" />
-    <state width="1164" height="185" key="GridCell.Tab.0.left" timestamp="1582987132874">
+    <state width="1164" height="185" key="GridCell.Tab.0.left" timestamp="1583247152778">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1164" height="185" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1582987132874" />
+    <state width="1164" height="185" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1583247152778" />
     <state width="1035" height="292" key="GridCell.Tab.0.left/1920.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1582245096740" />
-    <state width="1164" height="185" key="GridCell.Tab.0.right" timestamp="1582987132875">
+    <state width="1164" height="185" key="GridCell.Tab.0.right" timestamp="1583247152778">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1164" height="185" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1582987132875" />
+    <state width="1164" height="185" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1583247152778" />
     <state width="1035" height="292" key="GridCell.Tab.0.right/1920.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1582245096742" />
     <state width="1164" height="252" key="GridCell.Tab.1.bottom" timestamp="1582983368545">
       <screen x="0" y="23" width="1680" height="1027" />
@@ -184,11 +185,6 @@
           <url>file://$PROJECT_DIR$/../../../../sparta/sparta.py/database.py</url>
           <line>10</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/teaminfo.py</url>
-          <line>6</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

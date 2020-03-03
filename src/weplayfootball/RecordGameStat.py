@@ -11,6 +11,8 @@ from pymongo import MongoClient  # pymongo를 임포트 하기
 
 client = MongoClient('localhost', 27017)  # mongoDB는 27017 포트로 돌아갑니다.
 db = client.dbgamestat  # 'dbsparta'라는 이름의 db를 만듭니다.
+#  
+client.dbplayerlist
 
 app = Flask(__name__)
 
@@ -125,10 +127,12 @@ def eventData_get():
 #     #  db에 저장한다.
 #     # print(11111)
 #     try:  # 이걸 시도해봐 우선
-#         PlayerNumber: request.form['PlayerNumber']
-#         PlayerName: request.form['PlayerName']
+#         playerlist = request.form['playerlist']
 #
-#         # 4. 그래서 그걸로 doc 을 만들자
+
+# .drop 으로 여기서 페이지 갱신 후 돌면서 다시 넣기
+#
+#        # 4. 그래서 그걸로 doc 을 만들자
 #         doc = {
 #             'PlayerNumber': PlayerNumber,
 #             'PlayerName': PlayerName,
