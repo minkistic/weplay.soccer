@@ -115,6 +115,7 @@
       </h5>
     </div>
 
+
     <div id="stopwatch">
       <!-- [DISPLAY TIMER] -->
       <div id="sw-time">00:00:00</div>
@@ -280,6 +281,18 @@
 
 
 <script>
+
+
+        // function form_submit() {
+
+        // document.id.action="link_page.html";
+
+        // document.id.submit();
+
+        // }
+
+
+
         // 타이머
 
         var sw = {
@@ -392,7 +405,7 @@
 
           if(gameStats[i]['score'] == '득점성공') {
             if(gameStats[i]["team"] == "우리팀") {
-              let allRecodList = make_recordList_score(gameStats[i], 'success');
+              let allRecodList = make_recordList_score(gameStats[i], 'info');
               $("#gameStats").append(allRecodList);  
             } else {
               let allRecodList = make_recordList_score(gameStats[i], 'danger');
@@ -400,7 +413,7 @@
             }
           } else {
             if(gameStats[i]["team"] == "우리팀") {
-              let allRecodList = make_recordList_scoreNot(gameStats[i], 'success');
+              let allRecodList = make_recordList_scoreNot(gameStats[i], 'info');
               $("#gameStats").append(allRecodList);  
             } else {
               let allRecodList = make_recordList_scoreNot(gameStats[i], 'danger');
