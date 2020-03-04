@@ -212,7 +212,7 @@
 			</button>
 		</div>
 
-	<!-- 기본사항 -->
+		<!-- 기본사항 -->
 
 		<!-- 이벤크 발생 시간 -->
 		<div class= "SubHeader" id="event_time">
@@ -289,7 +289,7 @@
 
 		</div>
 
-	<!-- 상세사항 -->
+		<!-- 상세사항 -->
 		<hr> 
 
 		<!-- 슈팅 세부정보-->
@@ -665,10 +665,10 @@
 			<div class="input-group mb-3" >
 				<div class="btn-group btn-group-toggle" data-toggle="buttons">
 					<label class="btn btn-outline-primary">
-						<input type="radio" name="cornerkick" id="cornerkick1" autocomplete="off"> 오른쪽
+						<input type="radio" name="cornerkick" id="cornerkick1" autocomplete="off" value="오른쪽"> 오른쪽
 					</label>
 					<label class="btn btn-outline-primary">
-						<input type="radio" name="cornerkick" id="cornerkick2" autocomplete="off"> 왼쪽
+						<input type="radio" name="cornerkick" id="cornerkick2" autocomplete="off" value="왼쪽"> 왼쪽
 					</label>
 				</div>
 			</div>
@@ -739,10 +739,10 @@
 			<div class="input-group mb-3" >
 				<div class="btn-group btn-group-toggle" data-toggle="buttons">
 					<label class="btn btn-outline-primary">
-						<input type="radio" name="foulCard" id="foulCard1" autocomplete="off"> 옐로우
+						<input type="radio" name="foulCard" id="foulCard1" autocomplete="off" value="옐로우"> 옐로우
 					</label>
 					<label class="btn btn-outline-primary">
-						<input type="radio" name="foulCard" id="foulCard2" autocomplete="off"> 레드
+						<input type="radio" name="foulCard" id="foulCard2" autocomplete="off" value="레드"> 레드
 					</label>
 				</div>
 			</div>
@@ -942,96 +942,136 @@
 			function record_event() {
 				// 타이머
 				let input_eventTime = $("#sw-time").val();
-				//필수사항
+				//기본사항
 				let input_eventType = $("input[name='eventType']:checked").val();
 				let input_team = $("input[name='team']:checked").val();
-				let input_score = $("input[name='score']:checked").val();
-				let input_shoot = $("input[name='shoot']:checked").val();
+				
 
-				// 선택사항
-					// 득점성공
-					let input_playType = $("input[name='playType']:checked").val();
-					let input_scorePlayer = $("#scorePlayer").val();
-					let input_scoreArea = $("#scoreArea").val();
-					let input_shootMethod = $("input[name='shootMethod']:checked").val();
-					let input_assistPlayer = $("#assistPlayer").val();
-					let input_assistArea = $("#assistArea").val();
-					let input_errorOpponent = $("input[name='errorOpponent']:checked").val();
-					let input_setpiece = $("input[name='setpiece']:checked").val();
-					let input_bulidupPlayer = $("#bulidupPlayer").val();
-					let input_buildupArea = $("#buildupArea").val();
+				// 상세사항
+					// 슈팅이벤트 상세사항
+					let input_score = $("input[name='score']:checked").val();
+					let input_shoot = $("input[name='shoot']:checked").val();
 
-
-					// 득점실패
-					let input_shootPlayType = $("input[name='shootPlayType']:checked").val();
-					let input_shootPlayer = $("#shootPlayer").val();
-					let input_shootArea = $("#shootArea").val();
-					let input_shootshootMethod = $("input[name='shootshootMethod']:checked").val();
-					let input_shooterrorOpponent = $("input[name='shooterrorOpponent']:checked").val();
-					let input_shootsetpiece = $("input[name='shootsetpiece']:checked").val();		
-					let input_keypassPlayer = $("#keypassPlayer").val();
-					let input_keypassArea = $("#keypassArea").val();
-					let input_shootBuildupPlayer = $("#shootBuildupPlayer").val();
-					let input_shootBuildupArea = $("#shootBuildupArea").val();
+						// 득점성공
+						let input_playType = $("input[name='playType']:checked").val();
+						let input_scorePlayer = $("#scorePlayer").val();
+						let input_scoreArea = $("#scoreArea").val();
+						let input_shootMethod = $("input[name='shootMethod']:checked").val();
+						let input_assistPlayer = $("#assistPlayer").val();
+						let input_assistArea = $("#assistArea").val();
+						let input_errorOpponent = $("input[name='errorOpponent']:checked").val();
+						let input_setpiece = $("input[name='setpiece']:checked").val();
+						let input_bulidupPlayer = $("#bulidupPlayer").val();
+						let input_buildupArea = $("#buildupArea").val();
 
 
-				// 여기까지 되는지 확인하기위해서
+						// 득점실패
+						let input_shootPlayType = $("input[name='shootPlayType']:checked").val();
+						let input_shootPlayer = $("#shootPlayer").val();
+						let input_shootArea = $("#shootArea").val();
+						let input_shootshootMethod = $("input[name='shootshootMethod']:checked").val();
+						let input_shooterrorOpponent = $("input[name='shooterrorOpponent']:checked").val();
+						let input_shootsetpiece = $("input[name='shootsetpiece']:checked").val();		
+						let input_keypassPlayer = $("#keypassPlayer").val();
+						let input_keypassArea = $("#keypassArea").val();
+						let input_shootBuildupPlayer = $("#shootBuildupPlayer").val();
+						let input_shootBuildupArea = $("#shootBuildupArea").val();
+
+					// 코너킥 상세사항
+					let input_cornerkick = $("input[name='cornerkick']:checked").val();
+					let input_kicker = $("#kicker").val();
+
+					// 오프사이드 상세사항
+					let input_offsidePlayer = $("#offsidePlayer").val();
+					let input_offsideArea = $("#offsideArea").val();
+					let input_badCallOffside = $("input[name='badCallOffside']:checked").val();
+
+					// 파울 상세사항
+					let input_foulPlayer = $("#foulPlayer").val();
+					let input_foulArea = $("#foulArea").val();
+					let input_foulCard = $("input[name='foulCard']:checked").val();
+					let input_badCall = $("input[name='badCall']:checked").val();
+
+
+				// // 여기까지 되는지 확인하기위해서
 				// let a = {
-				// 		eventType: input_eventType || "",
-				// 		team: input_team || "",
-				// 		score: input_score || "",
-				// 		shoot: input_shoot || "",
-				// 		playType: input_playType || "",
-				// 		shootMethod: input_shootMethod || "",
-				// 		errorOpponent: input_errorOpponent || "",	
-				// 		setpiece: input_setpiece || ""
+				// // 코너킥 이벤트
+				// 		cornerkick: input_cornerkick || "",
+				// 		kicker: input_kicker || "",
 
-				// 	}
+				// 		// 오프사이드 이벤트
+				// 		offsidePlayer: input_offsidePlayer || "",
+				// 		offsideArea: input_offsideArea || "",
+				// 		badCallOffside: input_badCallOffside || "",
 
-				// 	console.log(a);
+				// 		// 파울 이벤트
+				// 		foulPlayer: input_foulPlayer || "",
+				// 		foulArea: input_foulArea || "",
+				// 		foulCard: input_foulCard || "",
+				// 		badCall: input_badCall || ""
+				// }
+
+				// console.log(a);
 
 				$.ajax({
 					type: "POST",
 					url: "/gamestat",
 					data: {
+					// 기본사항
 						eventTime: input_eventTime || "",
 						eventType: input_eventType || "",
 						team: input_team || "",
-						score: input_score || "",
-						shoot: input_shoot || "",
+						
 						
 					// 선택사항
-						// 득점성공
-						playType: input_playType || "",
-						scorePlayer: input_scorePlayer || "",
-						scoreArea: input_scoreArea || "",
-						shootMethod: input_shootMethod || "",
-						assistPlayer: input_assistPlayer || "",
-						assistArea: input_assistArea || "",
-						errorOpponent: input_errorOpponent || "",	
-						setpiece: input_setpiece || "",
-						bulidupPlayer: input_bulidupPlayer || "",	
-						buildupArea: input_buildupArea || "",
+						// 슈팅 이벤트
+						score: input_score || "",
+						shoot: input_shoot || "",
+							// 득점성공
+							playType: input_playType || "",
+							scorePlayer: input_scorePlayer || "",
+							scoreArea: input_scoreArea || "",
+							shootMethod: input_shootMethod || "",
+							assistPlayer: input_assistPlayer || "",
+							assistArea: input_assistArea || "",
+							errorOpponent: input_errorOpponent || "",	
+							setpiece: input_setpiece || "",
+							bulidupPlayer: input_bulidupPlayer || "",	
+							buildupArea: input_buildupArea || "",
 
-						//득점실패
-						shootPlayType: input_shootPlayType || "",
-						shootPlayer: input_shootPlayer || "",
-						shootArea: input_shootArea || "",
-						shootshootMethod: input_shootshootMethod || "",				
-						keypassPlayer: input_keypassPlayer || "",
-						keypassArea: input_keypassArea || "",
-						shooterrorOpponent: input_shooterrorOpponent || "",
-						shootsetpiece: input_shootsetpiece || "",
-						shootBuildupPlayer: input_shootBuildupPlayer || "",
-						shootBuildupArea: input_shootBuildupArea || ""
+							//득점실패
+							shootPlayType: input_shootPlayType || "",
+							shootPlayer: input_shootPlayer || "",
+							shootArea: input_shootArea || "",
+							shootshootMethod: input_shootshootMethod || "",				
+							keypassPlayer: input_keypassPlayer || "",
+							keypassArea: input_keypassArea || "",
+							shooterrorOpponent: input_shooterrorOpponent || "",
+							shootsetpiece: input_shootsetpiece || "",
+							shootBuildupPlayer: input_shootBuildupPlayer || "",
+							shootBuildupArea: input_shootBuildupArea || "",
 
+						// 코너킥 이벤트
+						cornerkick: input_cornerkick || "",
+						kicker: input_kicker || "",
+
+						// 오프사이드 이벤트
+						offsidePlayer: input_offsidePlayer || "",
+						offsideArea: input_offsideArea || "",
+						badCallOffside: input_badCallOffside || "",
+
+						// 파울 이벤트
+						foulPlayer: input_foulPlayer || "",
+						foulArea: input_foulArea || "",
+						foulCard: input_foulCard || "",
+						badCall: input_badCall || ""
 
 					},
-					success: function(response){
-						window.location.reload()
-					}
+
 				});
+			
 			}
+
 		</script>
 
 	</body>
@@ -1050,7 +1090,9 @@
 
 	<script>
 /*
-	
+						success: function(response){
+						window.location.reload()
+					}
 			<!-- 슈팅관련 세부정보 -->
 			<!-- 슈팅 플레이 정보 -->
 			<p>Optional 선택사항 (슈팅)</p>
