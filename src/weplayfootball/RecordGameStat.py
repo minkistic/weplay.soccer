@@ -33,9 +33,8 @@ def event_post():
         eventTime = request.form['eventTime']
         eventType = request.form['eventType']
         team = request.form['team']
-        score = request.form['score']
-        shoot = request.form['shoot']
 
+        score = request.form['score']
         playType = request.form['playType']
         scorePlayer = request.form['scorePlayer']
         scoreArea = request.form['scoreArea']
@@ -47,6 +46,7 @@ def event_post():
         bulidupPlayer = request.form['bulidupPlayer']
         buildupArea = request.form['buildupArea']
 
+        shoot = request.form['shoot']
         shootPlayType = request.form['shootPlayType']
         shootPlayer = request.form['shootPlayer']
         shootArea = request.form['shootArea']
@@ -57,6 +57,19 @@ def event_post():
         shootsetpiece = request.form['shootsetpiece']
         shootBuildupPlayer = request.form['shootBuildupPlayer']
         shootBuildupArea = request.form['shootBuildupArea']
+
+        cornerkick = request.form['cornerkick']
+        kicker = request.form['kicker']
+
+        offsidePlayer = request.form['offsidePlayer']
+        offsideArea = request.form['offsideArea']
+        badCallOffside = request.form['badCallOffside']
+
+        foulPlayer = request.form['foulPlayer']
+        foulArea = request.form['foulArea']
+        foulCard = request.form['foulCard']
+        badCall = request.form['badCall']
+
 
         # 4. 그래서 그걸로 doc 을 만들자
         doc = {
@@ -87,6 +100,19 @@ def event_post():
             'shootsetpiece': shootsetpiece,
             'shootBuildupPlayer': shootBuildupPlayer,
             'shootBuildupArea': shootBuildupArea,
+
+            'cornerkick': cornerkick,
+            'kicker': kicker,
+
+            'offsidePlayer': offsidePlayer,
+            'offsideArea': offsideArea,
+            'badCallOffside': badCallOffside,
+
+            'foulPlayer': foulPlayer,
+            'foulArea': foulArea,
+            'foulCard': foulCard,
+            'badCall': badCall,
+
         }
         db.gamestat.insert_one(doc)
     except:  # 시도한게 안되면 이걸해
@@ -103,7 +129,7 @@ def event_get():
 
 
 
-# 매치 오버뷰치
+# 매치 오버뷰
 @app.route('/matchoverviews')
 def match_overview():
     return render_template('Game-MatchOverview.html')

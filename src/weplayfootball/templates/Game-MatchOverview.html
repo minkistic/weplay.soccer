@@ -128,7 +128,7 @@
     <!-- 이벤트 타입 -->
     <div class="input-group mb-3">
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-outline-primary">
+        <label class="btn btn-outline-primary" onclick="eventType_goGameStats('shooting')">
           <input 
           type="radio" 
           name="eventType" 
@@ -293,7 +293,7 @@
 
 
 
-        // 타이머
+        // 타이머: https://code-boxx.com/simple-javascript-stopwatch/
 
         var sw = {
           /* [INIT] */
@@ -372,6 +372,14 @@
     listing();
   });
 
+
+function eventType_goGameStats(type) {
+  let time = $('#sw-time').html()
+// 주소? 타입 &
+  window.open('/gamestats?type='+type+'&time='+time); //새창열기
+}
+
+
   function listing() {
     $.ajax({
       type: "GET",
@@ -391,8 +399,8 @@
         let shootOntarget2 = 0;
         let shootOfftarget2 = 0;
 
-
         console.log(gameStats)
+
         for (let i = 0; i < gameStats.length; i++) {
 
           if(gameStats[i]["score"] == "득점성공" && gameStats[i]["team"] == "우리팀") score1++;
@@ -403,44 +411,78 @@
           if(gameStats[i]["shoot"] == "유효슈팅" && gameStats[i]["team"] == "상대팀") shootOntarget2++;
           if(gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "상대팀") shootOfftarget2++;
 
-          if(gameStats[i]['score'] == '득점성공') {
-            if(gameStats[i]["team"] == "우리팀") {
-              let allRecodList = make_recordList_score(gameStats[i], 'info');
-              $("#gameStats").append(allRecodList);  
+          // 이벤트에 따라서 보여질 기록 로그 설정
+          if (gameStats[i]["eventType"] == "슈팅") {
+            if(gameStats[i]['score'] == '득점성공') {
+              if(gameStats[i]["team"] == "우리팀") {
+                let allRecodList = make_recordList_score(gameStats[i], 'info');
+                $("#gameStats").append(allRecodList);  
+              } else {
+                let allRecodList = make_recordList_score(gameStats[i], 'danger');
+                $("#gameStats").append(allRecodList);
+              }
             } else {
-              let allRecodList = make_recordList_score(gameStats[i], 'danger');
-              $("#gameStats").append(allRecodList);
+              if(gameStats[i]["team"] == "우리팀") {
+                let allRecodList = make_recordList_scoreNot(gameStats[i], 'info');
+                $("#gameStats").append(allRecodList);  
+              } else {
+                let allRecodList = make_recordList_scoreNot(gameStats[i], 'danger');
+                $("#gameStats").append(allRecodList);
+              }
             }
-          } else {
-            if(gameStats[i]["team"] == "우리팀") {
-              let allRecodList = make_recordList_scoreNot(gameStats[i], 'info');
-              $("#gameStats").append(allRecodList);  
-            } else {
-              let allRecodList = make_recordList_scoreNot(gameStats[i], 'danger');
-              $("#gameStats").append(allRecodList);
-            }
-            // let allRecodList = make_recordList_scoreNot(gameStats[i], 'primary');
-            // $("#gameStats").append(allRecodList);
           }
-        }
+          // 여기까지가 슈팅 이벤트
+          else if (gameStats[i]["eventType"] == "코너킥") {
+            if(gameStats[i]["team"] == "우리팀") {
+              let allRecodList = make_recordList_cornerkick (gameStats[i], 'info');
+              $("#gameStats").append(allRecodList);
+            } else {
+              let allRecodList = make_recordList_cornerkick (gameStats[i], 'danger');
+              $("#gameStats").append(allRecodList);
+            }
+          }
 
-        $("#score1").text(score1)
-        $("#score2").text(score2)
+          else if (gameStats[i]["eventType"] == "오프사이드") {
+            if(gameStats[i]["team"] == "우리팀") {
+              let allRecodList = make_recordList_offside (gameStats[i], 'danger');
+              $("#gameStats").append(allRecodList);
+            } else {
+              let allRecodList = make_recordList_offside (gameStats[i], 'info');
+              $("#gameStats").append(allRecodList);
+            }
+          }
 
-        $("#totalShots1").text(shootOntarget1 + shootOfftarget1)
-        $("#totalShots2").text(shootOntarget2 + shootOfftarget2)
+          else if (gameStats[i]["eventType"] == "파울") {
+            if(gameStats[i]["team"] == "우리팀") {
+              let allRecodList = make_recordList_foul (gameStats[i], 'danger');
+              $("#gameStats").append(allRecodList);
+            } else {
+              let allRecodList = make_recordList_foul (gameStats[i], 'info');
+              $("#gameStats").append(allRecodList);
+            }
+          }
 
-        $("#shotsOnTarget1").text(shootOntarget1)
-        $("#shotsOffTarget1").text(shootOfftarget1)     
-        $("#shotsOnTarget2").text(shootOntarget2)
-        $("#shotsOffTarget2").text(shootOfftarget2)
+      // 합게 카운트 결과 값
+      $("#score1").text(score1)
+      $("#score2").text(score2)
 
-        $("#saves1").text(shootOntarget2 - score2)
-        $("#saves2").text(shootOntarget1 - score1)
-        console.log(response)
-      }
-    })
+      $("#totalShots1").text(shootOntarget1 + shootOfftarget1)
+      $("#totalShots2").text(shootOntarget2 + shootOfftarget2)
+
+      $("#shotsOnTarget1").text(shootOntarget1)
+      $("#shotsOffTarget1").text(shootOfftarget1)     
+      $("#shotsOnTarget2").text(shootOntarget2)
+      $("#shotsOffTarget2").text(shootOfftarget2)
+
+      $("#saves1").text(shootOntarget2 - score2)
+      $("#saves2").text(shootOntarget1 - score1)
+      console.log(response)
+
+    }
   }
+})
+  }
+
 // end of listing
 
 function make_recordList_score(recordList, color) {
@@ -492,6 +534,60 @@ function make_recordList_scoreNot(recordList, color) {
   ${recordList["shootBuildupPlayer"]}
   ${recordList["shootBuildupArea"]}
 
+  </a>
+  </div>
+  `;
+}
+
+function make_recordList_cornerkick(recordList, color) {
+    return `
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
+  ${recordList["eventTime"]}
+
+  ${recordList["team"]}
+  ${recordList["eventType"]} 
+  
+  ${recordList["cornerkick"]}
+  ${recordList["kicker"]}
+
+  </a>
+  </div>
+  `;
+}
+
+function make_recordList_offside(recordList, color) {
+    return `
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
+  ${recordList["eventTime"]}
+
+  ${recordList["team"]}
+  ${recordList["eventType"]} 
+  
+  ${recordList["offsidePlayer"]}
+  ${recordList["offsideArea"]}
+  ${recordList["badCallOffside"]}
+  
+  </a>
+  </div>
+  `;
+}
+
+function make_recordList_foul(recordList, color) {
+    return `
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
+  ${recordList["eventTime"]}
+
+  ${recordList["team"]}
+  ${recordList["eventType"]} 
+  
+  ${recordList["foulPlayer"]}
+  ${recordList["foulArea"]}
+  ${recordList["foulCard"]}
+  ${recordList["badCall"]}
+  
   </a>
   </div>
   `;

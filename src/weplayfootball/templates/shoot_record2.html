@@ -159,13 +159,23 @@
    <!-- 초기화 / 초기데이터 (ajax, GET, let = "players"변수에 넣기) / 각종 하이드 -->
    <script>
 
-   	// $(document).ready(function () {
-   	// 	$("#playType").hide();
-   	// 	$("#shootType").hide();
-   	// 	$("#scoreInfo").hide();
-   	// 	$("#assistInfo").hide();
-   	// 	$("#buildupInfo").hide();
-   	// })
+   	$(document).ready(function () {
+   		let type = getParameterByName('type');
+   		let time = getParameterByName('time');
+
+   		$('#sw_time').html(time);
+
+   		console.log(type);
+
+   		if (type == 'shooting') {
+   		//슈팅선택
+   		$("input:radio[name='eventType']:radio[value='슈팅']").attr("checked", true);
+   		console.log('mingi')
+   	} else if(type =='foul'){
+
+   	}
+   })
+
 
    	// 	loadPlayerList();
    	// })
@@ -216,7 +226,7 @@
 
 		<!-- 이벤크 발생 시간 -->
 		<div class= "SubHeader" id="event_time">
-			<a href="#" class="list-group-item list-group-item-action">00:00:00</a>
+			<a href="#" id="sw_time" class="list-group-item list-group-item-action">00:00:00</a>
 		</div>
 
 		<!-- 이벤트 타입 -->
@@ -708,7 +718,7 @@
 			<!-- 오심여부 -->
 			<div class="btn-group btn-group-toggle" data-toggle="buttons">
 				<label class="btn btn-outline-primary">
-					<input type="radio" name="badCall" id="badCallOffside" autocomplete="off" value="오심"> 오심
+					<input type="radio" name="badCallOffside" id="badCallOffside" autocomplete="off" value="오심"> 오심
 				</label>
 			</div>
 
@@ -941,7 +951,7 @@
 			// 서버에 기록하기
 			function record_event() {
 				// 타이머
-				let input_eventTime = $("#sw-time").val();
+				let input_eventTime = $("#sw_time").html();
 				//기본사항
 				let input_eventType = $("input[name='eventType']:checked").val();
 				let input_team = $("input[name='team']:checked").val();
@@ -994,35 +1004,70 @@
 
 
 				// // 여기까지 되는지 확인하기위해서
-				// let a = {
-				// // 코너킥 이벤트
-				// 		cornerkick: input_cornerkick || "",
-				// 		kicker: input_kicker || "",
+				console.log("hey")
 
-				// 		// 오프사이드 이벤트
-				// 		offsidePlayer: input_offsidePlayer || "",
-				// 		offsideArea: input_offsideArea || "",
-				// 		badCallOffside: input_badCallOffside || "",
+				let a = {
+					eventTime: input_eventTime || "",
+					eventType: input_eventType || "",
+					team: input_team || "",
 
-				// 		// 파울 이벤트
-				// 		foulPlayer: input_foulPlayer || "",
-				// 		foulArea: input_foulArea || "",
-				// 		foulCard: input_foulCard || "",
-				// 		badCall: input_badCall || ""
-				// }
 
-				// console.log(a);
+					// 선택사항
+						// 슈팅 이벤트
+						score: input_score || "",
+						shoot: input_shoot || "",
+							// 득점성공
+							playType: input_playType || "",
+							scorePlayer: input_scorePlayer || "",
+							scoreArea: input_scoreArea || "",
+							shootMethod: input_shootMethod || "",
+							assistPlayer: input_assistPlayer || "",
+							assistArea: input_assistArea || "",
+							errorOpponent: input_errorOpponent || "",	
+							setpiece: input_setpiece || "",
+							bulidupPlayer: input_bulidupPlayer || "",	
+							buildupArea: input_buildupArea || "",
 
-				$.ajax({
-					type: "POST",
-					url: "/gamestat",
-					data: {
+							//득점실패
+							shootPlayType: input_shootPlayType || "",
+							shootPlayer: input_shootPlayer || "",
+							shootArea: input_shootArea || "",
+							shootshootMethod: input_shootshootMethod || "",				
+							keypassPlayer: input_keypassPlayer || "",
+							keypassArea: input_keypassArea || "",
+							shooterrorOpponent: input_shooterrorOpponent || "",
+							shootsetpiece: input_shootsetpiece || "",
+							shootBuildupPlayer: input_shootBuildupPlayer || "",
+							shootBuildupArea: input_shootBuildupArea || "",
+
+						// 코너킥 이벤트
+						cornerkick: input_cornerkick || "",
+						kicker: input_kicker || "",
+
+						// 오프사이드 이벤트
+						offsidePlayer: input_offsidePlayer || "",
+						offsideArea: input_offsideArea || "",
+						badCallOffside: input_badCallOffside || "",
+
+						// 파울 이벤트
+						foulPlayer: input_foulPlayer || "",
+						foulArea: input_foulArea || "",
+						foulCard: input_foulCard || "",
+						badCall: input_badCall || ""
+					}
+
+					console.log(a);
+
+					$.ajax({
+						type: "POST",
+						url: "/gamestat",
+						data: {
 					// 기본사항
-						eventTime: input_eventTime || "",
-						eventType: input_eventType || "",
-						team: input_team || "",
-						
-						
+					eventTime: input_eventTime || "",
+					eventType: input_eventType || "",
+					team: input_team || "",
+
+
 					// 선택사항
 						// 슈팅 이벤트
 						score: input_score || "",
@@ -1067,16 +1112,27 @@
 						badCall: input_badCall || ""
 
 					},
-
+					success: function(response){
+						window.location.reload()
+					}
 				});
-			
-			}
 
-		</script>
+				}
 
-	</body>
+//
 
-	</html>
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+</script>
+
+</body>
+
+</html>
 
 
 
@@ -1088,8 +1144,9 @@
 
 
 
-	<script>
-/*
+<script>
+/* 
+						성공하면 밑에걸 실행 시켜라
 						success: function(response){
 						window.location.reload()
 					}
