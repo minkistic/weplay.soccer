@@ -6,10 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- 구글폰트 -->
-	<link
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
 	rel="stylesheet">
-	/>
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -73,7 +71,7 @@
 				$.ajax({
 					type: "POST",
 					url: "/teammanagement",
-					data: { playerlist : playerlist },
+					data: { playerlist },
 					success: function(response){
 						window.location.reload()
 					}
@@ -114,7 +112,7 @@
 					font-family: 'Roboto', sans-serif;
 				}
 				.wrap {
-					width: 500px;
+					width: 100%;
 					margin: auto;
 				}
 				.header {
@@ -159,6 +157,7 @@
 					type="text"
 					class="form-control"
 					placeholder="우리팀 이름"
+					id="teamname"
 					aria-describedby="basic-addon3"
 					/>
 

@@ -42,7 +42,7 @@
       font-family: 'Roboto', sans-serif;
     }
     .wrap {
-      width: 500px;
+      width: 100%;
       margin: auto;
     }
     .header {
@@ -66,17 +66,19 @@
 
     /*타이머*/
     #stopwatch {
-      background: #eee;
-      border: 1px solid #999;
+      background: #fff;
+      border: 1px solid #000;
       padding: 10px;
       border-radius: 10px;
       max-width:280px;
+      margin-top: 20px;
       margin-bottom: 20px;
       margin-left: auto;
       margin-right: auto;
+      text-align:center;
     }
     #sw-time {
-      font-size: 40px;
+      font-size: 30px;
       font-weight: bold;
       text-align: center;
     }
@@ -85,7 +87,7 @@
       box-sizing: padding-box;
       padding: 10px;
       display: inline-block;
-      background: #aa2f2f;
+      background: #000;
       border: 0;
       color: #fff;
     }
@@ -96,24 +98,24 @@
 <body>
   <div class="wrap">
 
-    <div class="header">
+<!--     <div class="header"> -->
 
       <h5>
-        <button onclick="back()" type="button" class="btn btn-primary">
-          BACK
+        <button onclick="back()" type="button" class="btn btn-dark">
+          <
         </button>
         MATCH#
-        <button onclick="excel_download()" type="button" class="btn btn-primary">
-          엑셀로내보내기
+        <button onclick="excel_download()" type="button" class="btn btn-dark">
+          Excel
         </button>
-        <button onclick="edit_gameinfo()" type="button" class="btn btn-primary">
-          게임정보수정
+        <button onclick="edit_gameinfo()" type="button" class="btn btn-dark">
+          Edit
         </button>
-        <button onclick="add_game()" type="button" class="btn btn-primary">
-          게임추가
+        <button onclick="add_game()" type="button" class="btn btn-dark">
+          + Game
         </button>
       </h5>
-    </div>
+ <!--    </div> -->
 
 
     <div id="stopwatch">
@@ -127,8 +129,8 @@
 
     <!-- 이벤트 타입 -->
     <div class="input-group mb-3">
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-outline-primary" onclick="eventType_goGameStats('shooting')">
+      <div class="btn-group-toggle" data-toggle="buttons" style = "margin:0 auto">
+        <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('shooting')">
           <input 
           type="radio" 
           name="eventType" 
@@ -138,7 +140,7 @@
           슈팅
         </label>
 
-        <label class="btn btn-outline-primary">
+        <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('foul')">
           <input 
           type="radio" 
           name="eventType" 
@@ -148,7 +150,7 @@
           파울
         </label>
 
-        <label class="btn btn-outline-primary">
+        <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('cornerkick')">
           <input 
           type="radio" 
           name="eventType" 
@@ -158,7 +160,7 @@
           코너킥
         </label>
 
-        <label class="btn btn-outline-primary">
+        <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('offside')">
           <input 
           type="radio" 
           name="eventType" 
@@ -399,7 +401,21 @@ function eventType_goGameStats(type) {
         let shootOntarget2 = 0;
         let shootOfftarget2 = 0;
 
-        console.log(gameStats)
+        let corners1 = 0;
+        let corners2 = 0;
+
+        let offsides1 = 0;
+        let offsides2 = 0;
+
+        let fouls1 = 0;
+        let fouls2 = 0;
+
+        let cards1Yellow = 0;
+        let cards2Yellow = 0;
+        let cards1Red = 0;
+        let cards2Red = 0;
+
+        // console.log(gameStats)
 
         for (let i = 0; i < gameStats.length; i++) {
 
@@ -410,6 +426,20 @@ function eventType_goGameStats(type) {
           if(gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "우리팀") shootOfftarget1++;
           if(gameStats[i]["shoot"] == "유효슈팅" && gameStats[i]["team"] == "상대팀") shootOntarget2++;
           if(gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "상대팀") shootOfftarget2++;
+
+          if(gameStats[i]["eventType"] == "코너킥" && gameStats[i]["team"] == "우리팀") corners1++;
+          if(gameStats[i]["eventType"] == "코너킥" && gameStats[i]["team"] == "상대팀") corners2++;
+
+          if(gameStats[i]["eventType"] == "오프사이드" && gameStats[i]["team"] == "우리팀") offsides1++;
+          if(gameStats[i]["eventType"] == "오프사이드" && gameStats[i]["team"] == "상대팀") offsides2++;
+
+          if(gameStats[i]["eventType"] == "파울" && gameStats[i]["team"] == "우리팀") fouls1++;
+          if(gameStats[i]["eventType"] == "파울" && gameStats[i]["team"] == "상대팀") fouls2++;  
+
+          if(gameStats[i]["foulCard"] == "옐로우" && gameStats[i]["team"] == "우리팀") cards1Yellow++;
+          if(gameStats[i]["foulCard"] == "옐로우" && gameStats[i]["team"] == "상대팀") cards2Yellow++;  
+          if(gameStats[i]["foulCard"] == "레드" && gameStats[i]["team"] == "우리팀") cards1Red++;
+          if(gameStats[i]["foulCard"] == "레드" && gameStats[i]["team"] == "상대팀") cards2Red++;  
 
           // 이벤트에 따라서 보여질 기록 로그 설정
           if (gameStats[i]["eventType"] == "슈팅") {
@@ -462,20 +492,34 @@ function eventType_goGameStats(type) {
             }
           }
 
-      // 합게 카운트 결과 값
+    // 합게 카운트 결과 값
+      //득점
       $("#score1").text(score1)
       $("#score2").text(score2)
-
+      //전체슈팅
       $("#totalShots1").text(shootOntarget1 + shootOfftarget1)
       $("#totalShots2").text(shootOntarget2 + shootOfftarget2)
-
+      //유효, 무효 슈팅
       $("#shotsOnTarget1").text(shootOntarget1)
       $("#shotsOffTarget1").text(shootOfftarget1)     
       $("#shotsOnTarget2").text(shootOntarget2)
       $("#shotsOffTarget2").text(shootOfftarget2)
-
+      // 세이브
       $("#saves1").text(shootOntarget2 - score2)
       $("#saves2").text(shootOntarget1 - score1)
+      // 코너킥
+      $("#corners1").text(corners1)
+      $("#corners2").text(corners2)
+      // 오프사이드
+      $("#offsides1").text(offsides1)
+      $("#offsides2").text(offsides2)
+      // 파울 (오프사이드포함안함)
+      $("#fouls1").text(fouls1)
+      $("#fouls2").text(fouls2)   
+      // 카드
+      $("#cards1").text(cards1Yellow + cards1Red)
+      $("#cards2").text(cards2Yellow + cards2Red)
+
       console.log(response)
 
     }
@@ -485,6 +529,7 @@ function eventType_goGameStats(type) {
 
 // end of listing
 
+// 이벤트 타입에 따라 리스팅하는 정보 고르기
 function make_recordList_score(recordList, color) {
   return `
   <div class="list-group">

@@ -12,7 +12,8 @@ from pymongo import MongoClient  # pymongo를 임포트 하기
 client = MongoClient('localhost', 27017)  # mongoDB는 27017 포트로 돌아갑니다.
 db = client.dbgamestat  # 'dbsparta'라는 이름의 db를 만듭니다.
 #
-client.dbplayerlist
+teaminfo = client.dbteaminfo
+
 
 app = Flask(__name__)
 
@@ -143,39 +144,47 @@ def eventData_get():
 
 
 # # 팀관리
-# @app.route('/teammanagements')
-# def team_management():
-#     return render_template('team_manage.html')
-#
-#
-# @app.route('/teammanagement', methods=['POST'])
-# def teamlist_post():
-#     #  db에 저장한다.
-#     # print(11111)
-#     try:  # 이걸 시도해봐 우선
-#         playerlist = request.form['playerlist']
+@app.route('/teammanagements')
+def team_management():
+    return render_template('team_manage.html')
+
+
+@app.route('/teammanagement', methods=['POST'])
+def teaminfo_post():
+    #  db에 저장한다.
+    # print(11111)
+    try:  # 이걸 시도해봐 우선
+        # teamname = request.form['teamname']
+        # backnumber = request.form['PlayerNumber']
+        # playername = request.form['PlayerName']
+        playerlist = request.form['playerlist']
+
 #
 
 # .drop 으로 여기서 페이지 갱신 후 돌면서 다시 넣기
 #
 #        # 4. 그래서 그걸로 doc 을 만들자
 #         doc = {
-#             'PlayerNumber': PlayerNumber,
-#             'PlayerName': PlayerName,
+#             'teamname': teamname,
+#             'backnumber': backnumber,
+#             'playername': playername,
 #
 #         }
-#         db.teammanagement.insert_one(doc)
-#     except:  # 시도한게 안되면 이걸해
-#         return jsonify({'result': 'fail', 'msg': '이 요청은 POST!'})
+        doc = {
+            playerlist : playerlist
+        }
+        teaminfo.teaminfo.insert_one(doc)
+    except:  # 시도한게 안되면 이걸해
+        return jsonify({'result': 'fail', 'msg': '이 요청은 POST!'})
+
+    return jsonify({'result': 'success', 'msg': '이 요청은 POST!'})
 #
-#     return jsonify({'result': 'success', 'msg': '이 요청은 POST!'})
 #
-#
-# @app.route('/teammanagement', methods=['GET'])
-# def teamlist_get():
-#     # db에서 읽어온다.
-#     teamlist = list(db.teammanagement.find({},{'_id':0}))  # db.bookmarks에서 가져와서 리스트로 만들어라,자동으로 들어가는 _id는 가져오지마라 제이슨으로 못만드니깐
-#     return jsonify(teamlist)  # 제이슨 형식으로 만들어라
+@app.route('/teammanagement', methods=['GET'])
+def teamlist_get():
+    # db에서 읽어온다.
+    teaminfo = list(db.teaminfo.find({},{'_id':0}))  # db.bookmarks에서 가져와서 리스트로 만들어라,자동으로 들어가는 _id는 가져오지마라 제이슨으로 못만드니깐
+    return jsonify(teaminfo)  # 제이슨 형식으로 만들어라
 
 
 # 선수선택화

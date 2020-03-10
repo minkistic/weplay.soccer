@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Webpage Title -->
+  <title>위치선택기</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  <!-- Bootstrap CSS -->
+  <link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous"
+  />
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"
+  ></script>
+  <script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"
+  ></script>
+
+  <!-- 구글폰트 -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
+  rel="stylesheet">
+
+
+  <style type="text/css">
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+    .wrap {
+      width: 100%;
+      margin: auto;
+    }
+    .header {
+      margin: 20px 5px 20px 5px;
+      text-align: center;
+    }
+    .SubHeader {
+      margin: 20px 5px 20px 5px;
+      text-align: center;
+    }
+    .button {
+      text-align: right;
+    }
+    h1, h2, h3, h4
+    h5 {
+      display: inline;
+    }
+    .contents {
+      text-align: auto;
+    }
+
+    #fieldArea {
+      display: grid;
+      height: auto;
+      grid-template-rows: auto;
+      background-color: green;
+      border: 1px solid white;
+      text-align: center;
+      font-size: auto; 
+    }
+
+    #fieldAreaEach {
+      border: 1px dotted black;
+    }
+
+    #areaA {
+      background-color: lime;
+    }
+
+    #areaB {
+      background-color: yellow;
+    }
+
+
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+  <div class="container" id="fieldArea">
+    <div class="row align-items-start">
+      <div class="col" id="fieldAreaEach">16</div>
+      <div class="col-xs" id="fieldAreaEach">16 Left</div>
+      <div class="col bg-success" id="fieldAreaEach">17</div>
+      <div class="col-xs" id="fieldAreaEach">18 Right</div>
+      <div class="col" id="fieldAreaEach">18</div>
+    </div>
+
+    <div class="row">
+      <div class="col" id="fieldAreaEach">13</div>
+      <div class="col-xs" id="fieldAreaEach">13 Left</div>
+      <div class="col bg-success" id="fieldAreaEach">14</div>
+      <div class="col-xs" id="fieldAreaEach">15 Right</div>
+      <div class="col" id="fieldAreaEach">15</div>
+    </div>
+
+    <div class="row">
+      <div class="col">10</div>
+      <div class="col-xs" id="fieldAreaEach">10 Left</div>
+      <div class="col bg-success" id="fieldAreaEach">11</div>
+      <div class="col-xs" id="fieldAreaEach">12 Right</div>
+      <div class="col" id="fieldAreaEach">12</div>
+    </div>
+
+    <div class="row">
+      <div class="col" id="fieldAreaEach">10</div>
+      <div class="col-xs" id="fieldAreaEach">10 Left</div>
+      <div class="col bg-success" id="fieldAreaEach">11</div>
+      <div class="col-xs" id="fieldAreaEach">12 Right</div>
+      <div class="col" id="fieldAreaEach">12</div>
+    </div>
+
+    <div class="row">
+      <div class="col" id="fieldAreaEach">7</div>
+      <div class="col-xs"id="fieldAreaEach">7 Left</div>
+      <div class="col bg-success" id="fieldAreaEach">8</div>
+      <div class="col-xs" id="fieldAreaEach">9 Right</div>
+      <div class="col" id="fieldAreaEach">9</div>
+    </div>
+
+    <div class="row">
+      <div class="col" id="fieldAreaEach">4</div>
+      <div class="col-xs" id="fieldAreaEach">4Left</div>
+      <div class="col bg-success" id="fieldAreaEach">5</div>
+      <div class="col-xs" id="fieldAreaEach">6 Right</div>
+      <div class="col" id="fieldAreaEach">6</div>
+    </div>
+
+        <div class="row">
+      <div class="col" id="fieldAreaEach">1</div>
+      <div class="col-xs" id="fieldAreaEach">1Left</div>
+      <div class="col bg-success" id="fieldAreaEach">2</div>
+      <div class="col-xs" id="fieldAreaEach">3 Right</div>
+      <div class="col" id="fieldAreaEach">3</div>
+    </div>
+
+
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+      <!-- <div class="row">
+        <div class="col-6 col-md-4">0000.col-6 .col-md-4</div>
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+      </div> -->
+
+      <!-- Columns are always 50% wide, on mobile and desktop -->
+<!--       <div class="row">
+        <div class="col-6">.col-6</div>
+        <div class="col-6">.col-6</div>
+      </div> -->
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>

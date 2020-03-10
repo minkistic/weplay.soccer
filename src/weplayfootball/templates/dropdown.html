@@ -1,0 +1,45 @@
+<script>
+
+
+
+  $(document).ready(function () {
+
+      //초기화
+      //각종 view.hide()
+
+      //초기데이터
+      loadPlayerList();
+  })
+
+  function loadPlayerList() {
+      $.ajax({
+          url: '/getPlayerList',
+          method: 'GET',
+          data : {},
+          success: function (response) {
+              response = [
+                  'A', 'B', 'C'
+              ]
+
+              $('#playerDropDown').html('');
+              for(let player: response) {
+                  $('#playerDropDown').append(
+                      `<li>${player}</li>`
+                  )
+              }
+          }
+      })
+  }
+</script>
+
+<div class="btn-group">
+  <button class="btn btn-mini">득점선수</button>
+  <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <ul id="playerDropDown" class="dropdown-menu">
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+  </ul>
+</div>
