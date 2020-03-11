@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Webpage Title -->
+	<title>위치선택기</title>
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no"
+	/>
+
+	<!-- Bootstrap CSS -->
+	<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous"
+	/>
+
+	<!-- JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"
+	></script>
+	<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"
+	></script>
+
+	<!-- 구글폰트 -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
+	rel="stylesheet">
+
+</head>
+
+<style>
+	.clearfix::after {
+		content: "";
+		clear: both;
+		display: block;
+	}
+	.box {
+		float: left;
+
+
+	}
+	.box-container {
+		display: flex;
+		text-align: center;
+		text-height: center;
+		height: 80px;
+		background-color: green;
+		justify-content:space-around;
+		align-items: stretch;
+	}
+
+	.box-container1 {
+		display: flex;
+		text-align: center;
+		height: 100%;
+		background-color: blue;
+		justify-content:space-between;
+	}
+
+	.flex-container {
+		flex-wrap:wrap-reverse;
+
+	}
+	.row-container {
+		display: flex;
+	}
+
+	.item {
+		flex: 2;
+		align-items: stretch;
+	}
+
+	.item_B {
+		flex: 1;
+		align-items: stretch;
+
+	</style>
+
+	<body>
+
+		<div class="flex-container">
+
+			<div class="box-container">
+				<div class="item">16</div>
+				<!-- <div class="item_B">16B</div> -->
+				<div class="item bg-success">17</div>
+				<!-- <div class="item_B">18B</div> -->
+				<div class="item">18</div>
+			</div>
+
+			<div class="box-container">
+				<div class="item">13</div>
+				<!-- <div class="item_B">13B</div> -->
+				<div class="item bg-success">14</div>
+				<!-- <div class="item_B">15B</div> -->
+				<div class="item">15</div>
+			</div>
+
+			<div class="box-container">
+				<div class="item">10</div>
+				<div class="item bg-success">11</div>
+				<div class="item">12</div>
+			</div>
+
+			<div class="box-container">
+				<div class="item">7</div>
+				<div class="item bg-success">8</div>
+				<div class="item">9</div>
+			</div>
+
+			<div class="box-container">
+				<div class="item">4</div>
+				<!-- <div class="item_B">4B</div> -->
+				<div class="item bg-success">5</div>
+				<!-- <div class="item_B">6B</div> -->
+				<div class="item">6</div>
+			</div>
+
+			<div class="box-container">
+				<div class="item">1</div>
+				<!-- <div class="item_B">1B</div> -->
+				<div class="item bg-success">2</div>
+				<!-- <div class="item_B">3B</div> -->
+				<div class="item">3</div>
+			</div>
+
+
+
+
+
+		</body>
+		</html>
+
+	<!-- 
+
+flex-wrap:nowrap;	모든 Itmes를 여러 줄로 묶지 않음(한 줄에 표시)
+flex-wrap:wrap-reverse;	Items를 wrap의 역 방향으로 여러 줄로 묶음
+
+justify-content:space-between;	시작 Item은 시작점에, 마지막 Item은 끝점에 정렬되고 나머지 Items는 사이에 고르게 정렬됨
+
+order: 순서;
+flex-grow: 증가너비;
+-->

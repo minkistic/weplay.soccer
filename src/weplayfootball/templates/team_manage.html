@@ -68,43 +68,54 @@
 
 				// 	console.log(a);
 
-				$.ajax({
-					type: "POST",
-					url: "/teammanagement",
-					data: { playerlist },
-					success: function(response){
-						window.location.reload()
+				// $.ajax({
+				// 	type: "POST",
+				// 	url: "/teammanagement",
+				// 	data: { playerlist },
+				// 	success: function(response){
+				// 		window.location.reload()
+				// 	}
+				// });
+
+
+				function UpdateList() {
+					$("#players-box").html("");
+					playerListing();
+				}
+
+				function playerListing() {
+					for (let i = 0; i < playerlist.length; i++) {
+						make_list(
+							playerlist[i]["PlayerNumber"],
+							playerlist[i]["PlayerName"],
+							);
 					}
-				});
+				}
 
+				function make_list(PlayerNumber, PlayerName) {
+					let temp_html =
+					"<tr>\
+					<td>" +
+					PlayerNumber +
+					"</td>\
+					<td>" +
+					PlayerName +
+					"</td>\
+					</tr>";
+					$("#players-box").append(temp_html);
+				}
 
-		function UpdateList() {
-			$("#players-box").html("");
-			playerListing();
-		}
+				function record_event() {
+					$.ajax({
+						type: "POST",
+						url: "/teammanagement",
+						data: { playerlist },
+						success: function(response){
+							window.location.reload()
+						}
+					});
 
-		function playerListing() {
-			for (let i = 0; i < playerlist.length; i++) {
-				make_list(
-					playerlist[i]["PlayerNumber"],
-					playerlist[i]["PlayerName"],
-					);
-			}
-		}
-
-		function make_list(PlayerNumber, PlayerName) {
-			let temp_html =
-			"<tr>\
-			<td>" +
-			PlayerNumber +
-			"</td>\
-			<td>" +
-			PlayerName +
-			"</td>\
-			</tr>";
-			$("#players-box").append(temp_html);
-		}
-
+				}
 			</script>
 
 			<style type="text/css">

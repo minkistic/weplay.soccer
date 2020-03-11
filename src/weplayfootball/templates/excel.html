@@ -2,27 +2,107 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+ <!-- JS -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script
+ src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+ integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+ crossorigin="anonymous"
+ ></script>
+ <script
+ src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+ integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+ crossorigin="anonymous"
+ ></script>
+
+ <script src='excelexportjs.js'></script>
+
 </head>
-var _url = '/testApi/';
-var _jsonData = {
-  name: 'webisfree',
-  url: 'webisfree.com'
-};
+<body>
 
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    var _data = this.response;
-    var _blob = new Blob([_data], {type : 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+<script>
+  <div id="dvjson"></div>
+var data = [
+    {"firstName":"John", "lastName":"Doe"}, 
+    {"firstName":"Anna", "lastName":"Smith"},
+    {"firstName":"Peter", "lastName":"Jones"}
+]
+$("#dvjson").excelexportjs({
+  containerid: "dvjson", 
+  datatype: 'json', 
+  dataset: data, 
+  columns: getColumns(data)     
+});
 
-    var link = document.createElement('a');
-    link.href = window.URL.createObjectURL(_blob);
-    link.download = 'text.xlsx';
-    link.click();
-  };
-};
+<table id='tableData'>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Yoshi Tannamuri</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
 
-xhr.open('POST', _url);
-xhr.responseType = 'blob';
-xhr.setRequestHeader('Content-type', 'application/json');
-xhr.send(_jsonData);
+$("#el").excelexportjs({
+
+  // container ID
+  containerid: null, 
+
+  // 'table','JSON','XML', or 'jq<a href="https://www.jqueryscript.net/tags.php?/grid/">grid</a>'
+  datatype: 'table', 
+
+  // data set
+  dataset: null, 
+
+  // columns
+  columns: null, 
+
+  // returns URI?
+  returnUri: false, 
+
+  // file name
+  worksheetName: "My Worksheet", 
+
+  // encoding
+  encoding: "utf-8",
+
+  // language
+  locale: 'en-US' 
+  
+});
+</script>
+
+
+</body>
+</html>
+
