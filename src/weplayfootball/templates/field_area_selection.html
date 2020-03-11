@@ -36,140 +36,175 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
   rel="stylesheet">
 
+    <style>
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          font-family:'Roboto', sans-serif;
+          font: inherit;
+          font-size:14px;
+          color:#484848;
+          letter-spacing: -0.04em;
+          vertical-align: baseline;
+          box-sizing: border-box;
+      }
+      .field_wrap {
+        padding:20px;
+        background-color:#009933;
+    }
+    .field_wrap .field {
+        border-top:1px solid #000;
+        border-left:1px solid #000;
+    }
+    .box_wrap {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        border-right:1px solid #000;
+        border-bottom:1px solid #000;
+        background-color:#afcd83;
+    }
+    .box_wrap .box {
+        display:flex;
+        justify-content:space-between;
+        width:100%;
+        height:100px;
+        border-right:1px solid #000;
+    }
+    .box_wrap .box:last-child {border-right:none;}
+    .box_wrap .box .inner {
+        width:100%;
+    }
+    .box_wrap .box .inner01 {
+        width:30%;
+        border-left:1px solid #000;
+        background-color:#d0f0a2;
+    }
+    .box_wrap .box .inner02 {
+        width:30%;
+        border-right:1px solid #000;
+        background-color:#d0f0a2;
+    }
 
-  <style type="text/css">
-    * {
-      font-family: 'Roboto', sans-serif;
+    .gaolArea {
+        text-align: center;
+        font-size: 10px;
+        width: 50px;
+        height: 15px;
+        border: 1px solid white;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
     }
-    .wrap {
-      width: 100%;
-      margin: auto;
-    }
-    .header {
-      margin: 20px 5px 20px 5px;
-      text-align: center;
-    }
-    .SubHeader {
-      margin: 20px 5px 20px 5px;
-      text-align: center;
-    }
-    .button {
-      text-align: right;
-    }
-    h1, h2, h3, h4
-    h5 {
-      display: inline;
-    }
-    .contents {
-      text-align: auto;
-    }
-
-    #fieldArea {
-      display: grid;
-      height: auto;
-      grid-template-rows: auto;
-      background-color: green;
-      border: 1px solid white;
-      text-align: center;
-      font-size: auto; 
-    }
-
-    #fieldAreaEach {
-      border: 1px dotted black;
-    }
-
-    #areaA {
-      background-color: lime;
-    }
-
-    #areaB {
-      background-color: yellow;
-    }
-
-
-
-  </style>
-
+</style>
 </head>
 
-<body>
 
-  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-  <div class="container" id="fieldArea">
-    <div class="row align-items-start">
-      <div class="col" id="fieldAreaEach">16</div>
-      <div class="col-xs" id="fieldAreaEach">16 Left</div>
-      <div class="col bg-success" id="fieldAreaEach">17</div>
-      <div class="col-xs" id="fieldAreaEach">18 Right</div>
-      <div class="col" id="fieldAreaEach">18</div>
+<div class="field_wrap">
+    
+    <div class="gaolArea"> 상대팀 </div>
+    <div class="field">
+
+        <div class="box_wrap">
+            <div class="box box16">
+                <div class="inner">16</div>
+                <div class="inner01">16-1</div>
+            </div>
+            <div class="box box17">
+                <div class="inner">17</div>
+            </div>
+            <div class="box box18">
+                <div class="inner02">18-1</div>
+                <div class="inner">18</div>
+            </div>
+        </div>
+
+        <div class="box_wrap">
+            <div class="box box13">
+                <div class="inner">13</div>
+                <div class="inner01">13-1</div>
+            </div>
+            <div class="box box14">
+                <div class="inner">14</div>
+            </div>
+            <div class="box box15">
+                <div class="inner02">15-1</div>
+                <div class="inner">15</div>
+            </div>
+        </div>
+
+        <div class="box_wrap">
+            <div class="box box10">
+                <div class="inner">10</div>
+            </div>
+            <div class="box box11">
+                <div class="inner">11</div>
+            </div>
+            <div class="box box12">
+                <div class="inner">12</div>
+            </div>
+        </div>
+
+        <div class="box_wrap">
+            <div class="box box07">
+                <div class="inner">7</div>
+            </div>
+            <div class="box box08">
+                <div class="inner">8</div>
+            </div>
+            <div class="box box09">
+                <div class="inner">9</div>
+            </div>
+        </div>
+
+        <div class="box_wrap">
+            <div class="box box04">
+                <div class="inner">4</div>
+                <div class="inner01">4-1</div>
+            </div>
+            <div class="box box05">
+                <div class="inner">5</div>
+            </div>
+            <div class="box box06">
+                <div class="inner02">6-1</div>
+                <div class="inner">6</div>
+            </div>
+        </div>
+
+        <div class="box_wrap">
+            <div class="box box01">
+                <div class="inner">1</div>
+                <div class="inner01">1-1</div>
+            </div>
+            <div class="box box02">
+                <div class="inner">2</div>
+            </div>
+            <div class="box box03">
+                <div class="inner02">3-1</div>
+                <div class="inner">3</div>
+            </div>
+        </div>
+
     </div>
 
-    <div class="row">
-      <div class="col" id="fieldAreaEach">13</div>
-      <div class="col-xs" id="fieldAreaEach">13 Left</div>
-      <div class="col bg-success" id="fieldAreaEach">14</div>
-      <div class="col-xs" id="fieldAreaEach">15 Right</div>
-      <div class="col" id="fieldAreaEach">15</div>
-    </div>
+    <div class="gaolArea"> 우리팀 </div>
+</div>
+<script>
 
-    <div class="row">
-      <div class="col">10</div>
-      <div class="col-xs" id="fieldAreaEach">10 Left</div>
-      <div class="col bg-success" id="fieldAreaEach">11</div>
-      <div class="col-xs" id="fieldAreaEach">12 Right</div>
-      <div class="col" id="fieldAreaEach">12</div>
-    </div>
-
-    <div class="row">
-      <div class="col" id="fieldAreaEach">10</div>
-      <div class="col-xs" id="fieldAreaEach">10 Left</div>
-      <div class="col bg-success" id="fieldAreaEach">11</div>
-      <div class="col-xs" id="fieldAreaEach">12 Right</div>
-      <div class="col" id="fieldAreaEach">12</div>
-    </div>
-
-    <div class="row">
-      <div class="col" id="fieldAreaEach">7</div>
-      <div class="col-xs"id="fieldAreaEach">7 Left</div>
-      <div class="col bg-success" id="fieldAreaEach">8</div>
-      <div class="col-xs" id="fieldAreaEach">9 Right</div>
-      <div class="col" id="fieldAreaEach">9</div>
-    </div>
-
-    <div class="row">
-      <div class="col" id="fieldAreaEach">4</div>
-      <div class="col-xs" id="fieldAreaEach">4Left</div>
-      <div class="col bg-success" id="fieldAreaEach">5</div>
-      <div class="col-xs" id="fieldAreaEach">6 Right</div>
-      <div class="col" id="fieldAreaEach">6</div>
-    </div>
-
-    <div class="row">
-      <div class="col" id="fieldAreaEach">1</div>
-      <div class="col-xs" id="fieldAreaEach">1Left</div>
-      <div class="col bg-success" id="fieldAreaEach">2</div>
-      <div class="col-xs" id="fieldAreaEach">3 Right</div>
-      <div class="col" id="fieldAreaEach">3</div>
-    </div>
-
-
-    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
-      <!-- <div class="row">
-        <div class="col-6 col-md-4">0000.col-6 .col-md-4</div>
-        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
-        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
-      </div> -->
-
-      <!-- Columns are always 50% wide, on mobile and desktop -->
-<!--       <div class="row">
-        <div class="col-6">.col-6</div>
-        <div class="col-6">.col-6</div>
-      </div> -->
-    </div>
-  </div>
-
-
+</script>
 
 </body>
-
 </html>
