@@ -145,15 +145,11 @@
 				color: #fff;
 			}
 		</style>
-
+<!-- 
 		<link href="stopwatch.css" rel="stylesheet">
 		<script src="stopwatch.js"></script>
+ -->
 
-<!-- <script language="JavaScript">
-       function setVisibility(id, visibility) {
-       document.getElementById(id).style.display = visibility;
-       }
-   </script> -->
 
 
    <!-- 초기화 / 초기데이터 (ajax, GET, let = "players"변수에 넣기) / 각종 하이드 -->
@@ -617,7 +613,7 @@
 						</select>
 
 						<select class="custom-select" name="keypassArea" id="keypassArea">
-							<option>도움위치</option>
+							<option>키패스위치</option>
 							<option value="#1">#1</option>
 							<option value="#2">#2</option>
 							<option value="#3">#3</option>
@@ -723,7 +719,7 @@
 			<!-- 오심여부 -->
 			<div class="btn-group btn-group-toggle" data-toggle="buttons">
 				<label class="btn btn-outline-primary">
-					<input type="radio" name="badCallOffside" id="badCallOffside" autocomplete="off" value="오심"> 오심
+					<input type="checkbox" name="badCallOffside" id="badCallOffside" autocomplete="off" value="오심"> 오심
 				</label>
 			</div>
 
@@ -754,10 +750,10 @@
 			<div class="input-group mb-3" >
 				<div class="btn-group btn-group-toggle" data-toggle="buttons">
 					<label class="btn btn-outline-primary">
-						<input type="radio" name="foulCard" id="foulCard1" autocomplete="off" value="옐로우"> 옐로우
+						<input type="checkbox" name="foulCard" id="foulCard1" autocomplete="off" value="옐로우"> 옐로우
 					</label>
 					<label class="btn btn-outline-primary">
-						<input type="radio" name="foulCard" id="foulCard2" autocomplete="off" value="레드"> 레드
+						<input type="checkbox" name="foulCard" id="foulCard2" autocomplete="off" value="레드"> 레드
 					</label>
 				</div>
 			</div>
@@ -765,7 +761,7 @@
 			<!-- 오심여부 -->
 			<div class="btn-group btn-group-toggle" data-toggle="buttons">
 				<label class="btn btn-outline-primary">
-					<input type="radio" name="badCall" id="badCall" autocomplete="off" value="오심"> 오심
+					<input type="checkbox" name="badCall" id="badCall" autocomplete="off" value="오심"> 오심
 				</label>
 			</div>
 		</div>

@@ -98,7 +98,7 @@
 <body>
   <div class="wrap">
 
-<!--     <div class="header"> -->
+    <!--     <div class="header"> -->
 
       <h5>
         <button onclick="back()" type="button" class="btn btn-dark">
@@ -115,70 +115,72 @@
           + Game
         </button>
       </h5>
- <!--    </div> -->
+      <!--    </div> -->
 
 
-    <div id="stopwatch">
-      <!-- [DISPLAY TIMER] -->
-      <div id="sw-time">00:00:00</div>
-      <!-- [RESET BUTTON] -->
-      <input type="button" value="Reset" id="sw-rst" disabled/>
-      <!-- [START/STOP BUTTON] -->
-      <input type="button" value="Start" id="sw-go" disabled/>
-    </div>
-
-    <!-- 이벤트 타입 -->
-    <div class="input-group mb-3">
-      <div class="btn-group-toggle" data-toggle="buttons" style = "margin:0 auto">
-        <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('shooting')">
-          <input 
-          type="radio" 
-          name="eventType" 
-          id="eventType1" 
-          autocomplete="off" 
-          value="슈팅"/> 
-          슈팅
-        </label>
-
-        <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('foul')">
-          <input 
-          type="radio" 
-          name="eventType" 
-          id="eventType2" 
-          autocomplete="off"
-          value="파울"/>
-          파울
-        </label>
-
-        <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('cornerkick')">
-          <input 
-          type="radio" 
-          name="eventType" 
-          id="eventType3" 
-          autocomplete="off"
-          value="코너킥"/>
-          코너킥
-        </label>
-
-        <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('offside')">
-          <input 
-          type="radio" 
-          name="eventType" 
-          id="eventType4" 
-          autocomplete="off"
-          value="오프사이드"/>
-          오프사이드
-        </label>
+      <div id="stopwatch">
+        <!-- [DISPLAY TIMER] -->
+        <div id="sw-time">00:00:00</div>
+        <!-- [RESET BUTTON] -->
+        <input type="button" value="Reset" id="sw-rst" disabled/>
+        <!-- [START/STOP BUTTON] -->
+        <input type="button" value="Start" id="sw-go" disabled/>
       </div>
-    </div>
 
-    <div class="SubHeader">
-      <h3>TEAM A</h3>&nbsp; &nbsp;&nbsp; &nbsp;<h3 id=score1>0</h3>
-      &nbsp; &nbsp;<h3>vs</h3>&nbsp; &nbsp;
-      <h3 id=score2>0</h3> &nbsp; &nbsp;&nbsp; &nbsp; <h3>TEAM B</h3>
-    </div>
+      <!-- 이벤트 타입 -->
+      <div id="eventTypeAll">
+        <div class="input-group mb-3">
+          <div class="btn-group-toggle" data-toggle="buttons" style = "margin:0 auto">
+            <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('shooting')">
+              <input 
+              type="radio" 
+              name="eventType" 
+              id="eventType1" 
+              autocomplete="off" 
+              value="슈팅"/> 
+              슈팅
+            </label>
 
-    <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
+            <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('foul')">
+              <input 
+              type="radio" 
+              name="eventType" 
+              id="eventType2" 
+              autocomplete="off"
+              value="파울"/>
+              파울
+            </label>
+
+            <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('cornerkick')">
+              <input 
+              type="radio" 
+              name="eventType" 
+              id="eventType3" 
+              autocomplete="off"
+              value="코너킥"/>
+              코너킥
+            </label>
+
+            <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('offside')">
+              <input 
+              type="radio" 
+              name="eventType" 
+              id="eventType4" 
+              autocomplete="off"
+              value="오프사이드"/>
+              오프사이드
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="SubHeader">
+        <h3>TEAM A</h3>&nbsp; &nbsp;&nbsp; &nbsp;<h3 id=score1>0</h3>
+        &nbsp; &nbsp;<h3>vs</h3>&nbsp; &nbsp;
+        <h3 id=score2>0</h3> &nbsp; &nbsp;&nbsp; &nbsp; <h3>TEAM B</h3>
+      </div>
+
+      <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
 <!--     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
       <li class="nav-item">
@@ -375,20 +377,21 @@
   });
 
 
-function eventType_goGameStats(type) {
-  let time = $('#sw-time').html()
+  function eventType_goGameStats(type) {
+    let time = $('#sw-time').html()
 // 주소? 타입 &
   window.open('/gamestats?type='+type+'&time='+time); //새창열기
+  $('#eventTypeAll').load(location.href + '#eventTypeAll');
 }
 
 
-  function listing() {
-    $.ajax({
-      type: "GET",
-      url: "/matchoverview",
-      data: {},
-      success: function(response) {
-        let gameStats = response;
+function listing() {
+  $.ajax({
+    type: "GET",
+    url: "/matchoverview",
+    data: {},
+    success: function(response) {
+      let gameStats = response;
         $("#gameStats").html("") // 기존꺼 날려버리기
 
 
@@ -525,7 +528,7 @@ function eventType_goGameStats(type) {
     }
   }
 })
-  }
+}
 
 // end of listing
 
@@ -535,23 +538,28 @@ function make_recordList_score(recordList, color) {
   <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
   ${recordList["eventTime"]}
-
   ${recordList["team"]}
   ${recordList["eventType"]} 
+  <div>
   ${recordList["score"]}
   ${recordList["shoot"]}
-
   ${recordList["playType"]}
+  </div>
+  <div> <득점> 
   ${recordList["scorePlayer"]}
   ${recordList["scoreArea"]}
   ${recordList["shootMethod"]}
+  </div>
+  <div> <도움>
   ${recordList["assistPlayer"]}
   ${recordList["assistArea"]}
   ${recordList["errorOpponent"]}
   ${recordList["setpiece"]}
+  </div>
+  <div> <빌드업>
   ${recordList["bulidupPlayer"]}
   ${recordList["buildupArea"]}
-
+  </div>
   </a>
   </div>
   `;
@@ -562,22 +570,29 @@ function make_recordList_scoreNot(recordList, color) {
   <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
   ${recordList["eventTime"]}
-
   ${recordList["team"]}
-  ${recordList["eventType"]} 
+  ${recordList["eventType"]}
+  <div>
   ${recordList["score"]}
   ${recordList["shoot"]}
-
   ${recordList["shootPlayType"]}
+  </div>
+  <div> <슈팅> 
   ${recordList["shootPlayer"]}
   ${recordList["shootArea"]}
   ${recordList["shootshootMethod"]}
-  ${recordList["shooterrorOpponent"]}
-  ${recordList["shootsetpiece"]}
+
+  </div>
+  <div> <키패스>
   ${recordList["keypassPlayer"]}
   ${recordList["keypassArea"]}
-  ${recordList["shootBuildupPlayer"]}
+  ${recordList["shooterrorOpponent"]}
+  ${recordList["shootsetpiece"]}
+  </div>
+   <div> <빌드업>
+  ${recordList["shootBuildupPlayer"]} |
   ${recordList["shootBuildupArea"]}
+  </div>
 
   </a>
   </div>
@@ -585,58 +600,58 @@ function make_recordList_scoreNot(recordList, color) {
 }
 
 function make_recordList_cornerkick(recordList, color) {
-    return `
-<div class="list-group">
+  return `
+  <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
   ${recordList["eventTime"]}
-
   ${recordList["team"]}
   ${recordList["eventType"]} 
-  
+  <div>
   ${recordList["cornerkick"]}
   ${recordList["kicker"]}
-
+  </div>
   </a>
   </div>
   `;
 }
 
 function make_recordList_offside(recordList, color) {
-    return `
-<div class="list-group">
+  return `
+  <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
   ${recordList["eventTime"]}
-
   ${recordList["team"]}
-  ${recordList["eventType"]} 
-  
+  ${recordList["eventType"]}
+  (${recordList[("badCallOffside")]})
+  <div>
   ${recordList["offsidePlayer"]}
   ${recordList["offsideArea"]}
-  ${recordList["badCallOffside"]}
-  
+  </div>
   </a>
   </div>
   `;
 }
 
 function make_recordList_foul(recordList, color) {
-    return `
-<div class="list-group">
+  return `
+  <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
   ${recordList["eventTime"]}
-
   ${recordList["team"]}
-  ${recordList["eventType"]} 
-  
+  ${recordList["eventType"]}
+  (${recordList["badCall"]})
+  <div>
   ${recordList["foulPlayer"]}
   ${recordList["foulArea"]}
   ${recordList["foulCard"]}
-  ${recordList["badCall"]}
-  
+  </div>
   </a>
   </div>
   `;
 }
+
+var reListing
+reListing = setInterval(listing, 3000);
 
 </script>
 

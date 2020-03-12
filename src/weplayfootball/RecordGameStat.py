@@ -193,5 +193,10 @@ def teamlist_get():
 #     return render_template('player_list.html')
 
 
+# 필드영역 선택기
+@app.route('/fieldAreaSelection')
+def fieldAreaSelection_get():
+    return render_template('field_area_selection.html')
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
