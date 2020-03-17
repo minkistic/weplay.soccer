@@ -381,7 +381,7 @@
   function eventType_goGameStats(type) {
     let time = $('#sw-time').html()
 // 주소? 타입 &
-  window.open('/recordevent?type='+type+'&time='+time); //새창열기
+  window.open('/gamestats?type='+type+'&time='+time); //새창열기
   // $('#eventTypeAll').load(location.href + '#eventTypeAll');
 }
 
@@ -389,7 +389,7 @@
 function listing() {
   $.ajax({
     type: "GET",
-    url: "/gameoverview",
+    url: "/matchoverview",
     data: {},
     success: function(response) {
       let gameStats = response;

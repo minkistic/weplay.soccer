@@ -22,9 +22,9 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-@app.route('/gamestats')
+@app.route('/recordevent')
 def gamestat():
-    return render_template('shoot_record2.html')
+    return render_template('record_event.html')
 
 @app.route('/gamestat', methods=['POST'])
 def event_post():
@@ -130,12 +130,12 @@ def event_get():
 
 
 
-# 매치 오버뷰
-@app.route('/matchoverviews')
-def match_overview():
-    return render_template('Game-MatchOverview.html')
+# 게임 오버뷰
+@app.route('/gameoverviews')
+def game_overview():
+    return render_template('game_overview.html')
 
-@app.route('/matchoverview', methods=['GET'])
+@app.route('/gameoverview', methods=['GET'])
 def eventData_get():
     # db에서 읽어온다.
     gamestats = list(db.gamestat.find({},{'_id':False}))  # db.bookmarks에서 가져와서 리스트로 만들어라,자동으로 들어가는 _id는 가져오지마라 제이슨으로 못만드니깐
@@ -203,6 +203,22 @@ def playerlist_get():
 @app.route('/fieldAreaSelection')
 def fieldAreaSelection_get():
     return render_template('field_area_selection.html')
+
+# 매치 리스트
+@app.route('/matchlist')
+def matchList_get():
+    return render_template('matchList.html')
+
+# 매치 오버뷰
+@app.route('/matchoverviews')
+def matchOverview_get():
+    return render_template('match_overview.html')
+
+# 매치 만들
+@app.route('/makematch')
+def makeMatch_get():
+    return render_template('make_match.html')
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
