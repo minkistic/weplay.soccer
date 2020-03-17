@@ -6,10 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- 구글폰트 -->
-	<link
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
 	rel="stylesheet">
-	/>
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -59,6 +57,43 @@
 	</style>
 </head>
 
+<script>
+
+	function listing() {
+		$.ajax({
+			type: "GET",
+			url: "/playerList",
+			data: {},
+			success: function(response) {
+				let playerlist = response;
+        // $("#playerlist").html("") // 기존꺼 날려버리기
+
+        // for (let i = 0; i < playerlist.length; i++) {
+
+        // 	let allPlayerList = make_playerlit(gameStats[i]);
+        // 	$("#playerlist").append(allPlayerList);  
+        // } 
+
+        function make_playerlit(playerlist) {
+        	return `
+        	
+			<div>
+        	${playerlist["number"]}
+			${playerlist["playername"]}
+			</div>
+
+        
+
+        	`;
+        }
+        // console.log(response)
+    }
+})
+	}
+
+
+</script>
+
 <body>
 	<div class="wrap">
 
@@ -76,48 +111,26 @@
 		</div>
 
 
-
-		<!-- <ul class="list-group">
-			<li class="list-group-item">1. Player Name</li>
-			<li class="list-group-item">2. Player Name</li>
-			<li class="list-group-item">3. Player Name</li>
-			<li class="list-group-item">4. Player Name</li>
-			<li class="list-group-item">5. Player Name</li>
-			<li class="list-group-item">6. Player Name</li>
-			<li class="list-group-item">7. Player Name</li>
-			<li class="list-group-item">8. Player Name</li>
-			<li class="list-group-item">9. Player Name</li>
-			<li class="list-group-item">10. Player Name</li>
-		</ul>
-	-->
-
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th scope="col">No.</th>
-				<th scope="col">Player Name</th>
-				<th scope="col"></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th scope="row">1</th>
-				<td>Mark</td>
-				<td> <button  type="button" class="btn btn-primary">Select</td>
-				</tr>
+	<div id="playerlist">
+		<table class="table table-striped">
+			<thead>
 				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
+					<th scope="col">No.</th>
+					<th scope="col">Player Name</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row" id="number"></th>
+					<td id="playername"></td>
 					<td> <button  type="button" class="btn btn-primary">Select</td>
 					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>Larry</td>
-						<td> <button  type="button" class="btn btn-primary">Select</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+				</tbody>
+			</table>
+		</div>
 
-		</body>
-		</html>
+	</body>
+
+
+	</html>

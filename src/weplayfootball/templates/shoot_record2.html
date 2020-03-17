@@ -33,7 +33,7 @@
 	<!-- Webpage Title -->
 	<title>이벤트 기록</title>
 
-<!-- CSS -->
+	<!-- CSS -->
 	<style type="text/css">
 		* {
 			font-family: 'Roboto', sans-serif;
@@ -203,8 +203,6 @@ $(document).ready(function () {
    	// }
 
 
-
-
    </script>
 
 
@@ -216,7 +214,7 @@ $(document).ready(function () {
 	<div class = "wrap">
 
 		<!-- 헤더 -->
-		<!-- 		<div class="header"> -->
+		<!-- <div class="header"> -->
 			<button type="button" class="btn btn-dark">
 				<
 			</button>
@@ -225,11 +223,11 @@ $(document).ready(function () {
 			<button onclick="record_event()" type="button" class="btn btn-success">
 				CONFIRM
 			</button>
-			<!-- 		</div> -->
+			<!-- </div> -->
 
 			<!-- 기본사항 -->
 
-			<!-- 이벤크 발생 시간 -->
+			<!-- 이벤트 발생 시간 -->
 			<div class= "SubHeader" id="event_time">
 				<a href="#" id="sw_time" class="list-group-item list-group-item-action">00:00:00</a>
 			</div>
@@ -404,19 +402,9 @@ $(document).ready(function () {
 
 						<div class="input-group mb-3">
 							<label class="input-group-text" for="inputGroupSelect01">득점정보</label>
-							<select class="custom-select" name="scorePlayer" id="scorePlayer">
-								<option>득점선수</option>
-								<option value="No.1">No.1</option>
-								<option value="No.2">No.2</option>
-								<option value="No.3">No.3</option>
-							</select>
+							<input class="custom-select" name="scorePlayer" id="scorePlayer" placeholder="선수" onclick="window.open('/playerList','playerList','width=320,height=500,location=no,status=no,scrollbars=yes');">
 
-							<select class="custom-select" name="scoreArea" id="scoreArea">
-								<option>득점위치</option>
-								<option value="#1">#1</option>
-								<option value="#2">#2</option>
-								<option value="#3">#3</option>
-							</select>
+							<input class="custom-select" name="scoreArea" id="scoreArea" placeholder="위치" onclick="window.open('/fieldAreaSelection','fieldAreaSelection','width=320,height=500,location=no,status=no,scrollbars=yes');">
 
 							<div class="input-group mb-3" id="shootMethod">
 								<div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -465,19 +453,9 @@ $(document).ready(function () {
 					<div class="form-group" id="assistInfo">
 						<div class="input-group mb-3">
 							<label class="input-group-text" for="inputGroupSelect01">도움정보</label>
-							<select class="custom-select" name="assistPlayer" id="assistPlayer">
-								<option>도움선수</option>
-								<option value="No.1">No.1</option>
-								<option value="No.2">No.2</option>
-								<option value="No.3">No.3</option>
-							</select>
+							<input class="custom-select" name="assistPlayer" id="assistPlayer" placeholder="선수" onclick="window.open('/playerList','playerList','width=320,height=500,location=no,status=no,scrollbars=yes');">
 
-							<select class="custom-select" name="assistArea" id="assistArea">
-								<option>도움위치</option>
-								<option value="#1">#1</option>
-								<option value="#2">#2</option>
-								<option value="#3">#3</option>
-							</select>
+							<input class="custom-select" name="assistArea" id="assistArea" placeholder="위치" onclick="window.open('/fieldAreaSelection','fieldAreaSelection','width=320,height=500,location=no,status=no,scrollbars=yes');">
 
 							<div class="input-group mb-3" >
 								<div class="btn-group btn-group-toggle" data-toggle="buttons" id="otherInfo">
@@ -509,19 +487,9 @@ $(document).ready(function () {
 						<div class="form-group" id="buildupInfo">
 							<div class="input-group mb-3">
 								<label class="input-group-text" for="inputGroupSelect01">빌드업 정보</label>
-								<select class="custom-select" name="bulidupPlayer" id="bulidupPlayer">
-									<option>빌드업선수</option>
-									<option value="No.1">No.1</option>
-									<option value="No.2">No.2</option>
-									<option value="No.3">No.3</option>
-								</select>
+								<input class="custom-select" name="bulidupPlayer" id="bulidupPlayer" placeholder="선수" onclick="window.open('/playerList','playerList','width=320,height=500,location=no,status=no,scrollbars=yes');">
 
-								<select class="custom-select" name="buildupArea" id="buildupArea">
-									<option>빌드업위치</option>
-									<option value="#1">#1</option>
-									<option value="#2">#2</option>
-									<option value="#3">#3</option>
-								</select>
+								<input class="custom-select" name="buildupArea" id="buildupArea" placeholder="위치" onclick="window.open('/fieldAreaSelection','fieldAreaSelection','width=320,height=500,location=no,status=no,scrollbars=yes');">
 							</div>
 						</div>
 					</div>
@@ -548,19 +516,9 @@ $(document).ready(function () {
 
 						<div class="input-group mb-3">
 							<label class="input-group-text" for="inputGroupSelect01">슈팅정보</label>
-							<select class="custom-select" name="shootPlayer" id="shootPlayer">
-								<option>슈팅선수</option>
-								<option value="No.1">No.1</option>
-								<option value="No.2">No.2</option>
-								<option value="No.3">No.3</option>
-							</select>
+							<input class="custom-select" name="shootPlayer" id="shootPlayer" placeholder="선수" onclick="window.open('/playerList','playerList','width=320,height=500,location=no,status=no,scrollbars=yes');">
 
-							<select class="custom-select" name="shootArea" id="shootArea">
-								<option>슈팅위치</option>
-								<option value="#1">#1</option>
-								<option value="#2">#2</option>
-								<option value="#3">#3</option>
-							</select>
+							<input class="custom-select" name="shootArea" id="shootArea" placeholder="위치" onclick="window.open('/fieldAreaSelection','fieldAreaSelection','width=320,height=500,location=no,status=no,scrollbars=yes');">
 
 							<div class="input-group mb-3" id="shootshootMethod">
 								<div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -610,19 +568,9 @@ $(document).ready(function () {
 					<div class="form-group" id="keypassInfo">
 						<div class="input-group mb-3">
 							<label class="input-group-text" for="inputGroupSelect01">키패스</label>
-							<select class="custom-select" name="keypassPlayer" id="keypassPlayer">
-								<option>키패스선수</option>
-								<option value="No.1">No.1</option>
-								<option value="No.2">No.2</option>
-								<option value="No.3">No.3</option>
-							</select>
+							<input class="custom-select" name="keypassPlayer" id="keypassPlayer" placeholder="선수" onclick="window.open('/playerList','playerList','width=320,height=500,location=no,status=no,scrollbars=yes');">
 
-							<select class="custom-select" name="keypassArea" id="keypassArea">
-								<option>키패스위치</option>
-								<option value="#1">#1</option>
-								<option value="#2">#2</option>
-								<option value="#3">#3</option>
-							</select>
+							<input class="custom-select" name="keypassArea" id="keypassArea" placeholder="위치" onclick="window.open('/fieldAreaSelection','fieldAreaSelection','width=320,height=500,location=no,status=no,scrollbars=yes');">
 
 							<div class="input-group mb-3" >
 								<div class="btn-group btn-group-toggle" data-toggle="buttons" id="otherInfo">
@@ -654,19 +602,9 @@ $(document).ready(function () {
 					<div class="form-group" id="shootBuildupInfo">
 						<div class="input-group mb-3">
 							<label class="input-group-text" for="inputGroupSelect01">빌드업 정보</label>
-							<select class="custom-select" name="shootBuildupPlayer" id="shootBuildupPlayer">
-								<option>빌드업선수</option>
-								<option value="No.1">No.1</option>
-								<option value="No.2">No.2</option>
-								<option value="No.3">No.3</option>
-							</select>
+							<input class="custom-select" name="shootBuildupPlayer" id="shootBuildupPlayer" placeholder="선수" onclick="window.open('/playerList','playerList','width=320,height=500,location=no,status=no,scrollbars=yes');">
 
-							<select class="custom-select" name="shootBuildupArea" id="shootBuildupArea">
-								<option>빌드업위치</option>
-								<option value="#1">#1</option>
-								<option value="#2">#2</option>
-								<option value="#3">#3</option>
-							</select>
+							<input class="custom-select" name="shootBuildupArea" id="shootBuildupArea" placeholder="위치" onclick="window.open('/fieldAreaSelection','fieldAreaSelection','width=320,height=500,location=no,status=no,scrollbars=yes');">
 						</div>
 					</div>
 
@@ -691,12 +629,7 @@ $(document).ready(function () {
 
 				<div class="input-group mb-3">
 					<label class="input-group-text" for="inputGroupSelect01">코너킥정보</label>
-					<select class="custom-select" name="kicker" id="kicker">
-						<option>키커</option>
-						<option value="No.1">No.1</option>
-						<option value="No.2">No.2</option>
-						<option value="No.3">No.3</option>
-					</select>
+					<input class="custom-select" name="kicker" id="kicker" placeholder="선수" onclick="window.open('/playerList','playerList','width=320,height=500,location=no,status=no,scrollbars=yes');">
 				</div>
 
 			</div>
@@ -706,19 +639,9 @@ $(document).ready(function () {
 
 				<div class="input-group mb-3">
 					<label class="input-group-text" for="inputGroupSelect01">오프사이드정보</label>
-					<select class="custom-select" name="offsidePlayer" id="offsidePlayer">
-						<option>파울선수</option>
-						<option value="No.1">No.1</option>
-						<option value="No.2">No.2</option>
-						<option value="No.3">No.3</option>
-					</select>
+					<input class="custom-select" name="offsidePlayer" id="offsidePlayer" placeholder="선수" onclick="window.open('/playerList','playerList','width=320,height=500,location=no,status=no,scrollbars=yes');">
 
-					<select class="custom-select" name="offsideArea" id="offsideArea">
-						<option>파울위치</option>
-						<option value="#1">#1</option>
-						<option value="#2">#2</option>
-						<option value="#3">#3</option>
-					</select>
+					<input class="custom-select" name="offsideArea" id="offsideArea" placeholder="위치" onclick="window.open('/fieldAreaSelection','fieldAreaSelection','width=320,height=500,location=no,status=no,scrollbars=yes');">
 				</div>
 
 				<!-- 오심여부 -->
@@ -736,19 +659,9 @@ $(document).ready(function () {
 				<!-- 파울정보 -->
 				<div class="input-group mb-3">
 					<label class="input-group-text" for="inputGroupSelect01">파울정보</label>
-					<select class="custom-select" name="foulPlayer" id="foulPlayer">
-						<option>파울선수</option>
-						<option value="No.1">No.1</option>
-						<option value="No.2">No.2</option>
-						<option value="No.3">No.3</option>
-					</select>
-
-					<select class="custom-select" name="foulArea" id="foulArea">
-						<option>파울위치</option>
-						<option value="#1">#1</option>
-						<option value="#2">#2</option>
-						<option value="#3">#3</option>
-					</select>
+					<input class="custom-select" name="foulPlayer" id="foulPlayer" placeholder="선수" onclick="window.open('/playerList','playerList','width=320,height=500,location=no,status=no,scrollbars=yes');">
+					<input class="custom-select" name="foulArea" id="foulArea" 
+					placeholder="위치" onclick="window.open('/fieldAreaSelection','fieldAreaSelection','width=320,height=500,location=no,status=no,scrollbars=yes');">
 				</div>
 
 				<!-- 경고카드 선택 -->
@@ -780,6 +693,7 @@ $(document).ready(function () {
 		</div>
 
 		<script>
+
 
 // 1. ajax get -> data (축구 선수 목록)
 // 2. ajax 성공 -> select에 option
@@ -1063,84 +977,6 @@ function getParameterByName(name) {
 
 
 
-
-
-
-
-
 <script>
-/* 
-						성공하면 밑에걸 실행 시켜라
-						success: function(response){
-						window.location.reload()
-					}
-			<!-- 슈팅관련 세부정보 -->
-			<!-- 슈팅 플레이 정보 -->
-			<p>Optional 선택사항 (슈팅)</p>
-			<div class="input-group mb-3" >
-				<div class="btn-group btn-group-toggle" data-toggle="buttons">
-					<label class="btn btn-outline-primary">
-						<input type="radio" name="options" id="option1" autocomplete="off"> 필드 플레이
-					</label>
-					<label class="btn btn-outline-primary">
-						<input type="radio" name="options" id="option2" autocomplete="off"> 프리킥 플레이
-					</label>
-				</div>
-			</div>
 
-			<!-- 슈팅정보 -->
-			<div class="form-group">
-				<div class="input-group mb-3">
-					<label class="input-group-text" for="inputGroupSelect01">슈팅정보</label>
-					<input type="text" class="form-control" placeholder="슈팅선수">
-					<input type="text" class="form-control" placeholder="슈팅위치">
-
-					<div class="input-group mb-3" >
-						<div class="btn-group btn-group-toggle" data-toggle="buttons">
-							<label class="btn btn-outline-primary">
-								<input type="radio" name="options" id="option1" autocomplete="off"> 오른발
-							</label>
-							<label class="btn btn-outline-primary">
-								<input type="radio" name="options" id="option2" autocomplete="off"> 왼발
-							</label>
-							<label class="btn btn-outline-primary">
-								<input type="radio" name="options" id="option3" autocomplete="off"> 헤더
-							</label>
-							<label class="btn btn-outline-primary">
-								<input type="radio" name="options" id="option4" autocomplete="off"> 기타
-							</label>
-						</div>
-					</div>
-				</div>
-
-
-				<!-- 도움정보 -->
-				<div class="form-group">
-					<div class="input-group mb-3">					
-						<label class="input-group-text" for="inputGroupSelect01">키패스정보</label>
-						<input type="text" class="form-control" placeholder="키패스선수">
-						<input type="text" class="form-control" placeholder="키패스위치">
-
-						<div class="input-group mb-3" >
-							<div class="btn-group btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-primary">
-									<input type="checkbox" name="options" id="option1" autocomplete="off"> 상대실책성 플레이
-								</label>
-								<label class="btn btn-outline-primary">
-									<input type="checkbox" name="options" id="option2" autocomplete="off"> 세트피스 플레이
-								</label>
-							</div>
-						</div>
-					</div>
-
-					<!-- 빌드업정 -->
-					<div class="form-group">
-						<div class="input-group mb-3">
-							<label class="input-group-text" for="inputGroupSelect01">빌드업 정보</label>
-							<input type="text" class="form-control" placeholder="빌드업시작 선수">
-							<input type="text" class="form-control" placeholder="빌드업시작 위치">
-						</div>
-					</div>
-				</div>
-				*/
-			</script>
+</script>

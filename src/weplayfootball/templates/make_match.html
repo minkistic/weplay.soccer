@@ -29,6 +29,7 @@
   href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
   rel="stylesheet">
   >
+  
 
   <!-- Webpage Title -->
   <title>매치만들기</title>
@@ -64,6 +65,9 @@
 
 <script>
   $('#datetimepicker').data("DateTimePicker").FUNCTION()
+
+  </script>
+
 </script>
 
 <body>
@@ -84,26 +88,34 @@
     <div class="input-group mb-3" >
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-outline-primary">
-          <input type="radio" name="options" id="option1" autocomplete="off"> 홈
+          <input type="radio" name="matchHomeAway" id="matchHomeAway1" autocomplete="off" value="홈"> 홈
         </label>
         <label class="btn btn-outline-primary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> 어웨이
+          <input type="radio" name="matchHomeAway" id="matchHomeAway2" autocomplete="off" value="원정"> 원정
         </label>
         <label class="btn btn-outline-primary">
-          <input type="radio" name="options" id="option3" autocomplete="off"> 중립
+          <input type="radio" name="matchHomeAway" id="matchHomeAway3" autocomplete="off" value="중립"> 중립
         </label>
       </div>
     </div>
 
 <div class="form-group">
-    <input type="text" class="form-control" placeholder="우리팀 이름">
+    <input type="text" class="form-control" placeholder="우리팀 이름" id="teamName">
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="상대팀 이름">
+    <input type="text" class="form-control" placeholder="상대팀 이름" id="teamNameOpponent">
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="매치날짜">
+    <input type="text" class="form-control" placeholder="매치날짜" id="matchDate">
 </div>
+
+
+<!--Default date and time picker -->
+<!-- <div class="form-group pmd-textfield pmd-textfield-floating-label">
+  <label class="control-label" for="datetimepicker-default">Select Date and Time</label>
+  <input type="text" id="datetimepicker-default" class="form-control" />
+</div> -->
+
 
 <!-- 매치날짜, 시간 -->
 <!-- https://eonasdan.github.io/bootstrap-datetimepicker/ --><!-- 
@@ -130,6 +142,11 @@
 </div>
 
 </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
 
 </body>
 
