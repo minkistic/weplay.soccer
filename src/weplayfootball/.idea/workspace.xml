@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f9d75afd-24e8-4327-9ee4-ef344e5c2542" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RecordGameStat.py" beforeDir="false" afterPath="$PROJECT_DIR$/RecordGameStat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game_overview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game_overview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shoot_record2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/메인(매치리스트).html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +113,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

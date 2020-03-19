@@ -79,13 +79,13 @@
       BACK
     </button>
    CREATE A MATCH
-    <button onclick="()" type="button" class="btn btn-primary">
+    <button onclick="makeMatch()" type="button" class="btn btn-primary">
       CONFIRM
     </button>
   </div>
 
     <!-- 이벤트 타입 -->
-    <div class="input-group mb-3" >
+    <div class="input-group mb-3" id="matchHomeAway">
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-outline-primary">
           <input type="radio" name="matchHomeAway" id="matchHomeAway1" autocomplete="off" value="홈"> 홈
@@ -142,10 +142,21 @@
 </div>
 
 </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
+        <script>
+            // $(function () {
+            //     $('#datetimepicker1').datetimepicker();
+            // });
+
+  // 파라미터 보내기 (매치오버뷰로)
+  function makeMatch() {
+    let matchHomeAway = $('#matchHomeAway').html()
+    let teamNameOpponent = $('#teamNameOpponent').html()
+    let matchDate = $('#matchDate').html()
+// 여러가지 정보 &
+  window.open('/matchoverviews?matchHomeAway='+matchHomeAway+'&teamNameOpponent='+teamNameOpponent+'&matchDate='+teamNameOpponent); //새창열기
+}
+
+
         </script>
 
 </body>

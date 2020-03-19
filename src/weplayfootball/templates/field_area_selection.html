@@ -1,134 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- Webpage Title -->
-  <title>위치선택기</title>
+    <!-- Webpage Title -->
+    <title>위치선택기</title>
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <!-- Bootstrap CSS -->
-  <link
-  rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-  crossorigin="anonymous"
-  />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
-  <!-- JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-  crossorigin="anonymous"
-  ></script>
-  <script
-  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-  crossorigin="anonymous"
-  ></script>
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
-  <!-- 구글폰트 -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
-  rel="stylesheet">
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
     <style>
-        html, body, div, span, applet, object, iframe,
-        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-        a, abbr, acronym, address, big, cite, code,
-        del, dfn, em, img, ins, kbd, q, s, samp,
-        small, strike, strong, sub, sup, tt, var,
-        b, u, i, center,
-        dl, dt, dd, ol, ul, li,
-        fieldset, form, label, legend,
-        table, caption, tbody, tfoot, thead, tr, th, td,
-        article, aside, canvas, details, embed, 
-        figure, figcaption, footer, header, hgroup, 
-        menu, nav, output, ruby, section, summary,
-        time, mark, audio, video {
-          margin: 0;
-          padding: 0;
-          border: 0;
-          font-family:'Roboto', sans-serif;
-          font: inherit;
-          font-size:14px;
-          color:#484848;
-          letter-spacing: -0.04em;
-          vertical-align: baseline;
-          box-sizing: border-box;
-      }
-      .field_wrap {
-        padding:20px;
-        background-color:#009933;
-    }
-    .field_wrap .field {
-        border-top:1px solid #000;
-        border-left:1px solid #000;
-    }
-    .box_wrap {
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        border-right:1px solid #000;
-        border-bottom:1px solid #000;
-        background-color:#afcd83;
-    }
-    .box_wrap .box {
-        display:flex;
-        justify-content:space-between;
-        width:100%;
-        height:100px;
-        border-right:1px solid #000;
-    }
-    .box_wrap .box:last-child {border-right:none;}
-    .box_wrap .box .inner {
-        width:100%;
-    }
-    .box_wrap .box .inner01 {
-        width:30%;
-        border-left:1px solid #000;
-        background-color:#d0f0a2;
-    }
-    .box_wrap .box .inner02 {
-        width:30%;
-        border-right:1px solid #000;
-        background-color:#d0f0a2;
-    }
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-family: 'Roboto', sans-serif;
+            font: inherit;
+            font-size: 14px;
+            color: #484848;
+            letter-spacing: -0.04em;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
 
-    .gaolArea {
-        text-align: center;
-        font-size: 10px;
-        width: 50px;
-        height: 15px;
-        border: 1px solid white;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: white;
-    }
-</style>
+        .field_wrap {
+            padding: 20px;
+            background-color: #009933;
+        }
+
+        .field_wrap .field {
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+        }
+
+        .box_wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+            background-color: #afcd83;
+        }
+
+        .box_wrap .box {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 100px;
+            border-right: 1px solid #000;
+        }
+
+        .box_wrap .box:last-child {
+            border-right: none;
+        }
+
+        .box_wrap .box .inner {
+            width: 100%;
+        }
+
+        .box_wrap .box .inner01 {
+            width: 30%;
+            border-left: 1px solid #000;
+            background-color: #d0f0a2;
+        }
+
+        .box_wrap .box .inner02 {
+            width: 30%;
+            border-right: 1px solid #000;
+            background-color: #d0f0a2;
+        }
+
+        .gaolArea {
+            text-align: center;
+            font-size: 10px;
+            width: 50px;
+            height: 15px;
+            border: 1px solid white;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+        }
+    </style>
 </head>
-
+<!-- 
+<button onclick="select_zoneNumber()" type="button" class="btn btn-dark">
+    Confirm
+  </button> -->
 
 <div class="field_wrap">
-    
-    <div class="gaolArea"> 상대팀 </div>
+
+    <div class="goalArea"> 상대팀 </div>
     <div class="field">
 
         <div class="box_wrap">
             <div class="box box16">
-                <div class="inner">16</div>
-                <div class="inner01">16-1</div>
+                <div class="inner">16
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-dark">
+                            <input type="radio" name="zoneNumber" id="zoneNumber16" autocomplete="off" value="16"/>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="inner01">16-1
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-dark">
+                            <input type="radio" name="zoneNumber" id="zoneNumber16-1" autocomplete="off" value="16-1"/>
+                        </label>
+                    </div>
+                </div>
             </div>
+
             <div class="box box17">
-                <div class="inner">17</div>
+                <div class="inner">17
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-dark">
+                            <input type="radio" name="zoneNumber" id="zoneNumber17" autocomplete="off" value="17"/>
+                        </label>
+                    </div>
+                </div>
             </div>
             <div class="box box18">
-                <div class="inner02">18-1</div>
-                <div class="inner">18</div>
+                <div class="inner02">18-1
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-dark">
+                            <input type="radio" name="zoneNumber" id="zoneNumber18-1" autocomplete="off" value="18-1"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="inner">18
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-dark">
+                            <input type="radio" name="zoneNumber" id="zoneNumber18" autocomplete="off" value="18"/>
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -200,11 +302,76 @@
 
     </div>
 
-    <div class="gaolArea"> 우리팀 </div>
+    <div class="goalArea"> 우리팀 </div>
 </div>
+
 <script>
+			// // 서버에 기록하기
+			// function select_zoneNumber() {
+
+			// 	let input_zoneNumber = $("input[name='zoneNumber']:checked").val();
+
+			
+			// 	$.ajax({
+			// 		type: "POST",
+			// 		url: "/gamestat",
+			// 		data: {
+			// 		// 기본사항
+			// 		eventTime: input_eventTime || "",
+			// 		eventType: input_eventType || "",
+			// 		team: input_team || "",
+
+			// 		// 선택사항
+			// 			// 슈팅 이벤트
+			// 			score: input_score || "",
+			// 			shoot: input_shoot || "",
+			// 				// 득점성공
+			// 				playType: input_playType || "",
+			// 				scorePlayer: input_scorePlayer || "",
+			// 				scoreArea: input_scoreArea || "",
+			// 				shootMethod: input_shootMethod || "",
+			// 				assistPlayer: input_assistPlayer || "",
+			// 				assistArea: input_assistArea || "",
+			// 				errorOpponent: input_errorOpponent || "",	
+			// 				setpiece: input_setpiece || "",
+			// 				bulidupPlayer: input_bulidupPlayer || "",	
+			// 				buildupArea: input_buildupArea || "",
+
+			// 				//득점실패
+			// 				shootPlayType: input_shootPlayType || "",
+			// 				shootPlayer: input_shootPlayer || "",
+			// 				shootArea: input_shootArea || "",
+			// 				shootshootMethod: input_shootshootMethod || "",				
+			// 				keypassPlayer: input_keypassPlayer || "",
+			// 				keypassArea: input_keypassArea || "",
+			// 				shooterrorOpponent: input_shooterrorOpponent || "",
+			// 				shootsetpiece: input_shootsetpiece || "",
+			// 				shootBuildupPlayer: input_shootBuildupPlayer || "",
+			// 				shootBuildupArea: input_shootBuildupArea || "",
+
+			// 			// 코너킥 이벤트
+			// 			cornerkick: input_cornerkick || "",
+			// 			kicker: input_kicker || "",
+
+			// 			// 오프사이드 이벤트
+			// 			offsidePlayer: input_offsidePlayer || "",
+			// 			offsideArea: input_offsideArea || "",
+			// 			badCallOffside: input_badCallOffside || "",
+
+			// 			// 파울 이벤트
+			// 			foulPlayer: input_foulPlayer || "",
+			// 			foulArea: input_foulArea || "",
+			// 			foulCard: input_foulCard || "",
+			// 			badCall: input_badCall || ""
+
+			// 		},
+			// 		success: function(response){
+			// 			window.close()
+			// 		}
+			// 	});
 
 </script>
 
 </body>
+
 </html>
