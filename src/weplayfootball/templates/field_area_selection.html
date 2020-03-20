@@ -79,6 +79,7 @@
         form,
         label,
         legend,
+        button,
         table,
         caption,
         tbody,
@@ -110,7 +111,7 @@
             margin: 0;
             padding: 0;
             border: 0;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'notokr', 'Helvetica', sans-serif;
             font: inherit;
             font-size: 14px;
             color: #484848;
@@ -152,6 +153,7 @@
 
         .box_wrap .box .inner {
             width: 100%;
+            background: none;
         }
 
         .box_wrap .box .inner01 {
@@ -166,7 +168,7 @@
             background-color: #d0f0a2;
         }
 
-        .gaolArea {
+        .goalArea {
             text-align: center;
             font-size: 10px;
             width: 50px;
@@ -184,126 +186,87 @@
   </button> -->
 
 <div class="field_wrap">
-
     <div class="goalArea"> 상대팀 </div>
     <div class="field">
-
-        <div class="box_wrap">
-            <div class="box box16">
-                <div class="inner">16
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-outline-dark">
-                            <input type="radio" name="zoneNumber" id="zoneNumber16" autocomplete="off" value="16"/>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="inner01">16-1
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-outline-dark">
-                            <input type="radio" name="zoneNumber" id="zoneNumber16-1" autocomplete="off" value="16-1"/>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="box box17">
-                <div class="inner">17
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-outline-dark">
-                            <input type="radio" name="zoneNumber" id="zoneNumber17" autocomplete="off" value="17"/>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="box box18">
-                <div class="inner02">18-1
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-outline-dark">
-                            <input type="radio" name="zoneNumber" id="zoneNumber18-1" autocomplete="off" value="18-1"/>
-                        </label>
-                    </div>
-                </div>
-                <div class="inner">18
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-outline-dark">
-                            <input type="radio" name="zoneNumber" id="zoneNumber18" autocomplete="off" value="18"/>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="box_wrap">
-            <div class="box box13">
-                <div class="inner">13</div>
-                <div class="inner01">13-1</div>
-            </div>
-            <div class="box box14">
-                <div class="inner">14</div>
-            </div>
-            <div class="box box15">
-                <div class="inner02">15-1</div>
-                <div class="inner">15</div>
-            </div>
-        </div>
-
-        <div class="box_wrap">
-            <div class="box box10">
-                <div class="inner">10</div>
-            </div>
-            <div class="box box11">
-                <div class="inner">11</div>
-            </div>
-            <div class="box box12">
-                <div class="inner">12</div>
-            </div>
-        </div>
-
-        <div class="box_wrap">
-            <div class="box box07">
-                <div class="inner">7</div>
-            </div>
-            <div class="box box08">
-                <div class="inner">8</div>
-            </div>
-            <div class="box box09">
-                <div class="inner">9</div>
-            </div>
-        </div>
-
-        <div class="box_wrap">
-            <div class="box box04">
-                <div class="inner">4</div>
-                <div class="inner01">4-1</div>
-            </div>
-            <div class="box box05">
-                <div class="inner">5</div>
-            </div>
-            <div class="box box06">
-                <div class="inner02">6-1</div>
-                <div class="inner">6</div>
-            </div>
-        </div>
-
         <div class="box_wrap">
             <div class="box box01">
-                <div class="inner">1</div>
-                <div class="inner01">1-1</div>
+                <button type="button" class="inner">1</button>
+                <button type="button" class="inner01">1-1</button>
             </div>
             <div class="box box02">
-                <div class="inner">2</div>
+                <button type="button" class="inner">2</button>
             </div>
             <div class="box box03">
-                <div class="inner02">3-1</div>
-                <div class="inner">3</div>
+                <button type="button" class="inner02">3-1</button>
+                <button type="button" class="inner">3</button>
             </div>
         </div>
-
+        <div class="box_wrap">
+            <div class="box box04">
+                <button type="button" class="inner">4</button>
+                <button type="button" class="inner01">4-1</button>
+            </div>
+            <div class="box box05">
+                <button type="button" class="inner">5</button>
+            </div>
+            <div class="box box06">
+                <button type="button" class="inner02">6-1</button>
+                <button type="button" class="inner">6</button>
+            </div>
+        </div>
+        <div class="box_wrap">
+            <div class="box box07">
+                <button type="button" class="inner">7</button>
+            </div>
+            <div class="box box08">
+                <button type="button" class="inner">8</button>
+            </div>
+            <div class="box box09">
+                <button type="button" class="inner">9</button>
+            </div>
+        </div>
+        <div class="box_wrap">
+            <div class="box box10">
+                <button type="button" class="inner">10</button>
+            </div>
+            <div class="box box11">
+                <button type="button" class="inner">11</button>
+            </div>
+            <div class="box box12">
+                <button type="button" class="inner">12</button>
+            </div>
+        </div>
+        <div class="box_wrap">
+            <div class="box box13">
+                <button type="button" class="inner">13</button>
+                <button type="button" class="inner01">13-1</button>
+            </div>
+            <div class="box box14">
+                <button type="button" class="inner">14</button>
+            </div>
+            <div class="box box15">
+                <button type="button" class="inner02">15-1</button>
+                <button type="button" class="inner">15</button>
+            </div>
+        </div>
+        <div class="box_wrap">
+            <div class="box box16">
+                <button type="button" class="inner">16</button>
+                <button type="button" class="inner01">16-1</button>
+            </div>
+            <div class="box box17">
+                <button type="button" class="inner">17</button>
+            </div>
+            <div class="box box18">
+                <button type="button" class="inner02">18-1</button>
+                <button type="button" class="inner">18</button>
+            </div>
+        </div>
     </div>
-
     <div class="goalArea"> 우리팀 </div>
 </div>
+
+
 
 <script>
 			// // 서버에 기록하기
@@ -311,7 +274,7 @@
 
 			// 	let input_zoneNumber = $("input[name='zoneNumber']:checked").val();
 
-			
+
 			// 	$.ajax({
 			// 		type: "POST",
 			// 		url: "/gamestat",

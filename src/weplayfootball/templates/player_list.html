@@ -1,25 +1,28 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- 구글폰트 -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
-	rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script
-	src="https://code.jquery.com/jquery-3.4.1.min.js"
-	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-	crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 
 
 	<title>선수선택</title>
@@ -27,110 +30,113 @@
 </head>
 
 <body>
-	
+
 
 	<style type="text/css">
 		* {
 			font-family: 'Roboto', sans-serif;
 		}
+
 		.wrap {
 			width: 500px;
 			margin: auto;
 		}
+
 		.header {
 			margin: 20px 5px 20px 5px;
 			text-align: center;
 		}
+
 		.SubHeader {
 			margin: 20px 5px 20px 5px;
 		}
+
 		.button {
 			text-align: right;
 		}
-		h1, h2, h3, h4
-		h5 {
+
+		h1,
+		h2,
+		h3,
+		h4 h5 {
 			display: inline;
 		}
+
 		.contents {
 			text-align: auto;
 		}
 	</style>
-</head>
+	</head>
 
-<script>
 
-	function listing() {
-		$.ajax({
-			type: "GET",
-			url: "/playerList",
-			data: {},
-			success: function(response) {
-				let playerlist = response;
-        // $("#playerlist").html("") // 기존꺼 날려버리기
 
-        // for (let i = 0; i < playerlist.length; i++) {
+	<body>
+		<div class="wrap">
 
-        // 	let allPlayerList = make_playerlit(gameStats[i]);
-        // 	$("#playerlist").append(allPlayerList);  
-        // } 
+			<div class="header">
 
-        function make_playerlit(playerlist) {
-        	return `
-        	
-			<div>
-        	${playerlist["number"]}
-			${playerlist["playername"]}
+				<h5>
+					<button onclick="back()" type="button" class="btn btn-primary">
+						< </button>
+							PLAYER LIST
+							<button onclick="confirm()" type="button" class="btn btn-primary">
+								Confirm
+							</button>
+				</h5>
 			</div>
 
-        
 
-        	`;
-        }
-        // console.log(response)
-    }
-})
-	}
+			<div id="playerlist">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">No.</th>
+							<th scope="col">Player Name</th>
+							<!-- <th scope="col"></th> -->
+						</tr>
+					</thead>
+					<tbody id="player-list">
+						<!-- <tr>
+							<th scope="row" id="number"></th>
+							<td id="playername"></td>
+							<td> <button type="button" class="btn btn-primary">Select</td>
+						</tr> -->
+					</tbody>
+				</table>
+			</div>
 
-
-</script>
-
-<body>
-	<div class="wrap">
-
-		<div class="header">
-			
-			<h5>
-				<button onclick="back()" type="button" class="btn btn-primary">
-					<
-				</button>
-				PLAYER LIST
-				<button onclick="confirm()" type="button" class="btn btn-primary">
-					Confirm
-				</button>
-			</h5>
-		</div>
-
-
-	<div id="playerlist">
-		<table class="table table-striped">
-			<thead>
+			<script id="playerRow" type="text/html">
 				<tr>
-					<th scope="col">No.</th>
-					<th scope="col">Player Name</th>
-					<th scope="col"></th>
+					<td>{{playerName}}</td>
+					<td>{{playerNumber}}</td>
 				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row" id="number"></th>
-					<td id="playername"></td>
-					<td> <button  type="button" class="btn btn-primary">Select</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+			</script>
+
+			<script>
+
+				console.log('asdfasdf')
+
+				function listing() {
+					$.ajax({
+						type: "GET",
+						url: "/players",
+						data: {},
+						success: function (response) {
+							var playerRow = "<tr><td>%s</td><td>%s</td><td><button>Select!</button</td></tr>"
+							response.forEach(function (player) {
+								var row = playerRow.replace('%s', player.playername).replace('%s', player.number)
+								$('#player-list').append(row)
+							})
+						}
+					})
+				}
+
+				listing()
+
+
+			</script>
 
 	</body>
 
 
-	</html>
+</html>

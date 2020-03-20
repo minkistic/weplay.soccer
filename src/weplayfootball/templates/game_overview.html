@@ -1,65 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Webpage Title -->
   <title>게임오버뷰</title>
 
   <!-- Required meta tags -->
   <meta charset="utf-8" />
-  <meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!-- Bootstrap CSS -->
-  <link
-  rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-  crossorigin="anonymous"
-  />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
   <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-  crossorigin="anonymous"
-  ></script>
-  <script
-  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-  crossorigin="anonymous"
-  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
   <!-- 구글폰트 -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
-  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 
   <style type="text/css">
     * {
       font-family: 'Roboto', sans-serif;
     }
+
     .wrap {
       width: 100%;
       margin: auto;
     }
+
     .header {
       margin: 20px 5px 20px 5px;
       text-align: center;
     }
+
     .SubHeader {
       margin: 20px 5px 20px 5px;
       text-align: center;
     }
+
     .button {
       text-align: right;
     }
-    h1, h2, h3, h4
-    h5 {
+
+    h1,
+    h2,
+    h3,
+    h4 h5 {
       display: inline;
     }
+
     .contents {
       text-align: auto;
     }
@@ -70,19 +67,22 @@
       border: 1px solid #000;
       padding: 10px;
       border-radius: 10px;
-      max-width:280px;
+      max-width: 280px;
       margin-top: 20px;
       margin-bottom: 20px;
       margin-left: auto;
       margin-right: auto;
-      text-align:center;
+      text-align: center;
     }
+
     #sw-time {
       font-size: 30px;
       font-weight: bold;
       text-align: center;
     }
-    #sw-rst, #sw-go {
+
+    #sw-rst,
+    #sw-go {
       width: 120px;
       box-sizing: padding-box;
       padding: 10px;
@@ -100,42 +100,41 @@
 
     <!--     <div class="header"> -->
 
-      <h5>
-        <button onclick="back()" type="button" class="btn btn-dark">
-          <
-        </button>
-        GAME#
-        <button onclick="select_goalie()" type="button" class="btn btn-dark">
-          골키퍼 설정
-        </button>
-        <button onclick="end_game()" type="button" class="btn btn-success">
-          End Game
-        </button>
+    <h5>
+      <button onclick="back()" type="button" class="btn btn-dark">
+        < </button>
+          GAME#
+          <button onclick="select_goalie()" type="button" class="btn btn-dark">
+            골키퍼 설정
+          </button>
+          <button onclick="end_game()" type="button" class="btn btn-success">
+            End Game
+          </button>
 
 
-      </h5>
-      <!--    </div> -->
+    </h5>
+    <!--    </div> -->
 
 
-      <div id="stopwatch">
-        <!-- [DISPLAY TIMER] -->
-        <div id="sw-time">00:00:00</div>
-        <!-- [RESET BUTTON] -->
-        <input type="button" value="Reset" id="sw-rst" disabled/>
-        <!-- [START/STOP BUTTON] -->
-        <input type="button" value="Start" id="sw-go" disabled/>
-      </div>
+    <div id="stopwatch">
+      <!-- [DISPLAY TIMER] -->
+      <div id="sw-time">00:00:00</div>
+      <!-- [RESET BUTTON] -->
+      <input type="button" value="Reset" id="sw-rst" disabled />
+      <!-- [START/STOP BUTTON] -->
+      <input type="button" value="Start" id="sw-go" disabled />
+    </div>
 
-     
 
-      <div class="SubHeader">
-        <h3>TEAM A</h3>&nbsp; &nbsp;&nbsp; &nbsp;<h3 id=score1>0</h3>
-        &nbsp; &nbsp;<h3>vs</h3>&nbsp; &nbsp;
-        <h3 id=score2>0</h3> &nbsp; &nbsp;&nbsp; &nbsp; <h3>TEAM B</h3>
-      </div>
 
-      <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
-<!--     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <div class="SubHeader">
+      <h3>TEAM A</h3>&nbsp; &nbsp;&nbsp; &nbsp;<h3 id=score1>0</h3>
+      &nbsp; &nbsp;<h3>vs</h3>&nbsp; &nbsp;
+      <h3 id=score2>0</h3> &nbsp; &nbsp;&nbsp; &nbsp; <h3>TEAM B</h3>
+    </div>
+
+    <!-- https://getbootstrap.com/docs/4.0/components/navs/ -->
+    <!--     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
       <li class="nav-item">
         <a 
@@ -165,182 +164,162 @@
 
 </ul> -->
 
-<!-- <div class="tab-content" id="pills-tabContent">
+    <!-- <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
   <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
 </div>
 </div> -->
 
-<div class="SubHeader">
-  <table class="table table-striped" class= "table table-bordered">
+    <div class="SubHeader">
+      <table class="table table-striped" class="table table-bordered">
 
-    <tbody>
-      <tr>
-       <td name=totalShots id=totalShots1>0</td>
-       <td>TOTAL SHOTS</td>
-       <td name=totalShots id=totalShots2>0</td>
-     </tr>
+        <tbody>
+          <tr>
+            <td name=totalShots id=totalShots1>0</td>
+            <td>TOTAL SHOTS</td>
+            <td name=totalShots id=totalShots2>0</td>
+          </tr>
 
-     <tr>
-       <td name=shotsOnTarget id=shotsOnTarget1>0</td>
-       <td>SHOTS ON TARGET</td>
-       <td name=shotsOnTarget id=shotsOnTarget2>0</td>
-     </tr>
+          <tr>
+            <td name=shotsOnTarget id=shotsOnTarget1>0</td>
+            <td>SHOTS ON TARGET</td>
+            <td name=shotsOnTarget id=shotsOnTarget2>0</td>
+          </tr>
 
-     <tr>
-       <td name=shotsOffTarget id=shotsOffTarget1>0</td>
-       <td>SHOTS OFF TARGET</td>
-       <td name=shotsOffTarget id=shotsOffTarget2>0</td>
-     </tr>
+          <tr>
+            <td name=shotsOffTarget id=shotsOffTarget1>0</td>
+            <td>SHOTS OFF TARGET</td>
+            <td name=shotsOffTarget id=shotsOffTarget2>0</td>
+          </tr>
 
-     <tr>
-       <td name=saves id=saves1>0</td>
-       <td>SAVES</td>
-       <td name=saves id=saves2>0</td>
-     </tr>
+          <tr>
+            <td name=saves id=saves1>0</td>
+            <td>SAVES</td>
+            <td name=saves id=saves2>0</td>
+          </tr>
 
-     <tr>
-       <td name=corners id=corners1>0</td>
-       <td>CORNERS</td>
-       <td naem=corners id=corners2>0</td>
-     </tr>
+          <tr>
+            <td name=corners id=corners1>0</td>
+            <td>CORNERS</td>
+            <td naem=corners id=corners2>0</td>
+          </tr>
 
-     <tr>
-       <td name=offsides id=offsides1>0</td>
-       <td>OFFSIDES</td>
-       <td name=offsides id=offsides2>0</td>
-     </tr>
+          <tr>
+            <td name=offsides id=offsides1>0</td>
+            <td>OFFSIDES</td>
+            <td name=offsides id=offsides2>0</td>
+          </tr>
 
-     <tr>
-       <td name=fouls id=fouls1>0</td>
-       <td>FOULS</td>
-       <td name=fouls id=fouls2>0</td>
-     </tr>
+          <tr>
+            <td name=fouls id=fouls1>0</td>
+            <td>FOULS</td>
+            <td name=fouls id=fouls2>0</td>
+          </tr>
 
-     <tr>
-       <td name=cards id=cards1>0</td>
-       <td>CARDS</td>
-       <td name=cards id=cards2>0</td>
-     </tr>
-   </tbody>
+          <tr>
+            <td name=cards id=cards1>0</td>
+            <td>CARDS</td>
+            <td name=cards id=cards2>0</td>
+          </tr>
+        </tbody>
 
- </table>
-</div>
+      </table>
+    </div>
 
- <!-- 이벤트 타입 -->
-      <div id="eventTypeAll">
-        <div class="input-group mb-3">
-          <div class="btn-group-toggle" data-toggle="buttons" style = "margin:0 auto">
-            <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('shooting')">
-              <input 
-              type="radio" 
-              name="eventType" 
-              id="eventType1" 
-              autocomplete="off" 
-              value="슈팅"/> 
-              슈팅
-            </label>
+    <!-- 이벤트 타입 -->
+    <div id="eventTypeAll">
+      <div class="input-group mb-3">
+        <div class="btn-group-toggle" data-toggle="buttons" style="margin:0 auto">
+          <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('shooting')">
+            <input type="radio" name="eventType" id="eventType1" autocomplete="off" value="슈팅" />
+            슈팅
+          </label>
 
-            <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('foul')">
-              <input 
-              type="radio" 
-              name="eventType" 
-              id="eventType2" 
-              autocomplete="off"
-              value="파울"/>
-              파울
-            </label>
+          <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('foul')">
+            <input type="radio" name="eventType" id="eventType2" autocomplete="off" value="파울" />
+            파울
+          </label>
 
-            <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('cornerkick')">
-              <input 
-              type="radio" 
-              name="eventType" 
-              id="eventType3" 
-              autocomplete="off"
-              value="코너킥"/>
-              코너킥
-            </label>
+          <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('cornerkick')">
+            <input type="radio" name="eventType" id="eventType3" autocomplete="off" value="코너킥" />
+            코너킥
+          </label>
 
-            <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('offside')">
-              <input 
-              type="radio" 
-              name="eventType" 
-              id="eventType4" 
-              autocomplete="off"
-              value="오프사이드"/>
-              오프사이드
-            </label>
-          </div>
+          <label class="btn btn-outline-primary btn-lg" onclick="eventType_goGameStats('offside')">
+            <input type="radio" name="eventType" id="eventType4" autocomplete="off" value="오프사이드" />
+            오프사이드
+          </label>
         </div>
       </div>
+    </div>
 
-<br>
-<h6> GAME DETAILS </h6>
+    <br>
+    <h6> GAME DETAILS </h6>
 
-<!-- <a href="#" class="list-group-item list-group-item-action">Match Detail</a> -->
-<!-- <div class="list-group" id=gameStats>-->  
-  <div class="list-group-item list-group-item-action" id=gameStats>None
+    <!-- <a href="#" class="list-group-item list-group-item-action">Match Detail</a> -->
+    <!-- <div class="list-group" id=gameStats>-->
+    <div class="list-group-item list-group-item-action" id=gameStats>None
+    </div>
   </div>
-</div>
 
 
-<script>
+  <script>
 
 
-        // function form_submit() {
+    // function form_submit() {
 
-        // document.id.action="link_page.html";
+    // document.id.action="link_page.html";
 
-        // document.id.submit();
+    // document.id.submit();
 
-        // }
+    // }
 
 
 
-        // 타이머: https://code-boxx.com/simple-javascript-stopwatch/
+    // 타이머: https://code-boxx.com/simple-javascript-stopwatch/
 
-        var sw = {
-          /* [INIT] */
-        etime : null, // holds HTML time display
-        erst : null, // holds HTML reset button
-        ego : null, // holds HTML start/stop button
-        timer : null, // timer object
-        now : 0, // current timer
-        init : function () {
-          // Get HTML elements
-          sw.etime = document.getElementById("sw-time");
-          sw.erst = document.getElementById("sw-rst");
-          sw.ego = document.getElementById("sw-go");
+    var sw = {
+      /* [INIT] */
+      etime: null, // holds HTML time display
+      erst: null, // holds HTML reset button
+      ego: null, // holds HTML start/stop button
+      timer: null, // timer object
+      now: 0, // current timer
+      init: function () {
+        // Get HTML elements
+        sw.etime = document.getElementById("sw-time");
+        sw.erst = document.getElementById("sw-rst");
+        sw.ego = document.getElementById("sw-go");
 
-          // Attach listeners
-          sw.erst.addEventListener("click", sw.reset);
-          sw.erst.disabled = false;
-          sw.ego.addEventListener("click", sw.start);
-          sw.ego.disabled = false;
-        },
+        // Attach listeners
+        sw.erst.addEventListener("click", sw.reset);
+        sw.erst.disabled = false;
+        sw.ego.addEventListener("click", sw.start);
+        sw.ego.disabled = false;
+      },
 
-        /* [ACTIONS] */
-        tick : function () {
+      /* [ACTIONS] */
+      tick: function () {
         // tick() : update display if stopwatch running
 
-          // Calculate hours, mins, seconds
-          sw.now++;
-          var remain = sw.now;
-          var hours = Math.floor(remain / 3600);
-          remain -= hours * 3600;
-          var mins = Math.floor(remain / 60);
-          remain -= mins * 60;
-          var secs = remain;
+        // Calculate hours, mins, seconds
+        sw.now++;
+        var remain = sw.now;
+        var hours = Math.floor(remain / 3600);
+        remain -= hours * 3600;
+        var mins = Math.floor(remain / 60);
+        remain -= mins * 60;
+        var secs = remain;
 
-          // Update the display timer
-          if (hours<10) { hours = "0" + hours; }
-          if (mins<10) { mins = "0" + mins; }
-          if (secs<10) { secs = "0" + secs; }
-          sw.etime.innerHTML = hours + ":" + mins + ":" + secs;
-        },
+        // Update the display timer
+        if (hours < 10) { hours = "0" + hours; }
+        if (mins < 10) { mins = "0" + mins; }
+        if (secs < 10) { secs = "0" + secs; }
+        sw.etime.innerHTML = hours + ":" + mins + ":" + secs;
+      },
 
-        start : function () {
+      start: function () {
         // start() : start the stopwatch
 
         sw.timer = setInterval(sw.tick, 1000);
@@ -349,7 +328,7 @@
         sw.ego.addEventListener("click", sw.stop);
       },
 
-      stop  : function () {
+      stop: function () {
         // stop() : stop the stopwatch
 
         clearInterval(sw.timer);
@@ -359,183 +338,184 @@
         sw.ego.addEventListener("click", sw.start);
       },
 
-      reset : function () {
+      reset: function () {
         // reset() : reset the stopwatch
 
-          // Stop if running
-          if (sw.timer != null) { sw.stop(); }
+        // Stop if running
+        if (sw.timer != null) { sw.stop(); }
 
-          // Reset time
-          sw.now = -1;
-          sw.tick();
-        }
-      };
-  // end of sw
+        // Reset time
+        sw.now = -1;
+        sw.tick();
+      }
+    };
+    // end of sw
 
-  window.addEventListener("load", sw.init);
-  $(document).ready(function(){
-    listing();
-  });
-
-
-  function eventType_goGameStats(type) {
-    let time = $('#sw-time').html()
-// 주소? 타입 &
-  window.open('/recordevent?type='+type+'&time='+time); //새창열기
-  // $('#eventTypeAll').load(location.href + '#eventTypeAll');
-}
+    window.addEventListener("load", sw.init);
+    $(document).ready(function () {
+      listing();
+    });
 
 
-function listing() {
-  $.ajax({
-    type: "GET",
-    url: "/gameoverview",
-    data: {},
-    success: function(response) {
-      let gameStats = response;
-        $("#gameStats").html("") // 기존꺼 날려버리기
-
-
-        // 합계 카운트
-        let score1 = 0;
-        let score2 = 0;
-
-        let shootOntarget1 = 0;
-        let shootOfftarget1 = 0;
-        let shootOntarget2 = 0;
-        let shootOfftarget2 = 0;
-
-        let corners1 = 0;
-        let corners2 = 0;
-
-        let offsides1 = 0;
-        let offsides2 = 0;
-
-        let fouls1 = 0;
-        let fouls2 = 0;
-
-        let cards1Yellow = 0;
-        let cards2Yellow = 0;
-        let cards1Red = 0;
-        let cards2Red = 0;
-
-        // console.log(gameStats)
-
-        for (let i = 0; i < gameStats.length; i++) {
-
-          if(gameStats[i]["score"] == "득점성공" && gameStats[i]["team"] == "우리팀") score1++;
-          if(gameStats[i]["score"] == "득점성공" && gameStats[i]["team"] == "상대팀") score2++;
-
-          if(gameStats[i]["shoot"] == "유효슈팅" && gameStats[i]["team"] == "우리팀") shootOntarget1++;
-          if(gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "우리팀") shootOfftarget1++;
-          if(gameStats[i]["shoot"] == "유효슈팅" && gameStats[i]["team"] == "상대팀") shootOntarget2++;
-          if(gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "상대팀") shootOfftarget2++;
-
-          if(gameStats[i]["eventType"] == "코너킥" && gameStats[i]["team"] == "우리팀") corners1++;
-          if(gameStats[i]["eventType"] == "코너킥" && gameStats[i]["team"] == "상대팀") corners2++;
-
-          if(gameStats[i]["eventType"] == "오프사이드" && gameStats[i]["team"] == "우리팀") offsides1++;
-          if(gameStats[i]["eventType"] == "오프사이드" && gameStats[i]["team"] == "상대팀") offsides2++;
-
-          if(gameStats[i]["eventType"] == "파울" && gameStats[i]["team"] == "우리팀") fouls1++;
-          if(gameStats[i]["eventType"] == "파울" && gameStats[i]["team"] == "상대팀") fouls2++;  
-
-          if(gameStats[i]["foulCard"] == "옐로우" && gameStats[i]["team"] == "우리팀") cards1Yellow++;
-          if(gameStats[i]["foulCard"] == "옐로우" && gameStats[i]["team"] == "상대팀") cards2Yellow++;  
-          if(gameStats[i]["foulCard"] == "레드" && gameStats[i]["team"] == "우리팀") cards1Red++;
-          if(gameStats[i]["foulCard"] == "레드" && gameStats[i]["team"] == "상대팀") cards2Red++;  
-
-          // 이벤트에 따라서 보여질 기록 로그 설정
-          if (gameStats[i]["eventType"] == "슈팅") {
-            if(gameStats[i]['score'] == '득점성공') {
-              if(gameStats[i]["team"] == "우리팀") {
-                let allRecodList = make_recordList_score(gameStats[i], 'success');
-                $("#gameStats").append(allRecodList);  
-              } else {
-                let allRecodList = make_recordList_score(gameStats[i], 'danger');
-                $("#gameStats").append(allRecodList);
-              }
-            } else {
-              if(gameStats[i]["team"] == "우리팀") {
-                let allRecodList = make_recordList_scoreNot(gameStats[i], 'success');
-                $("#gameStats").append(allRecodList);  
-              } else {
-                let allRecodList = make_recordList_scoreNot(gameStats[i], 'danger');
-                $("#gameStats").append(allRecodList);
-              }
-            }
-          }
-          // 여기까지가 슈팅 이벤트
-          else if (gameStats[i]["eventType"] == "코너킥") {
-            if(gameStats[i]["team"] == "우리팀") {
-              let allRecodList = make_recordList_cornerkick (gameStats[i], 'success');
-              $("#gameStats").append(allRecodList);
-            } else {
-              let allRecodList = make_recordList_cornerkick (gameStats[i], 'danger');
-              $("#gameStats").append(allRecodList);
-            }
-          }
-
-          else if (gameStats[i]["eventType"] == "오프사이드") {
-            if(gameStats[i]["team"] == "우리팀") {
-              let allRecodList = make_recordList_offside (gameStats[i], 'danger');
-              $("#gameStats").append(allRecodList);
-            } else {
-              let allRecodList = make_recordList_offside (gameStats[i], 'success');
-              $("#gameStats").append(allRecodList);
-            }
-          }
-
-          else if (gameStats[i]["eventType"] == "파울") {
-            if(gameStats[i]["team"] == "우리팀") {
-              let allRecodList = make_recordList_foul (gameStats[i], 'danger');
-              $("#gameStats").append(allRecodList);
-            } else {
-              let allRecodList = make_recordList_foul (gameStats[i], 'success');
-              $("#gameStats").append(allRecodList);
-            }
-          }
-
-    // 합게 카운트 결과 값
-      //득점
-      $("#score1").text(score1)
-      $("#score2").text(score2)
-      //전체슈팅
-      $("#totalShots1").text(shootOntarget1 + shootOfftarget1)
-      $("#totalShots2").text(shootOntarget2 + shootOfftarget2)
-      //유효, 무효 슈팅
-      $("#shotsOnTarget1").text(shootOntarget1)
-      $("#shotsOffTarget1").text(shootOfftarget1)     
-      $("#shotsOnTarget2").text(shootOntarget2)
-      $("#shotsOffTarget2").text(shootOfftarget2)
-      // 세이브
-      $("#saves1").text(shootOntarget2 - score2)
-      $("#saves2").text(shootOntarget1 - score1)
-      // 코너킥
-      $("#corners1").text(corners1)
-      $("#corners2").text(corners2)
-      // 오프사이드
-      $("#offsides1").text(offsides1)
-      $("#offsides2").text(offsides2)
-      // 파울 (오프사이드포함안함)
-      $("#fouls1").text(fouls1)
-      $("#fouls2").text(fouls2)   
-      // 카드
-      $("#cards1").text(cards1Yellow + cards1Red)
-      $("#cards2").text(cards2Yellow + cards2Red)
-
-      console.log(response)
-
+    function eventType_goGameStats(type) {
+      let time = $('#sw-time').html()
+      // 주소? 타입 &
+      window.open('/recordevent?type=' + type + '&time=' + time); //새창열기
+      // $('#eventTypeAll').load(location.href + '#eventTypeAll');
+      $('#eventTypeAll .btn').removeClass('active')
     }
-  }
-})
-}
 
-// end of listing
 
-// 이벤트 타입에 따라 리스팅하는 정보 고르기
-function make_recordList_score(recordList, color) {
-  return `
+    function listing() {
+      $.ajax({
+        type: "GET",
+        url: "/gameoverview",
+        data: {},
+        success: function (response) {
+          let gameStats = response;
+          $("#gameStats").html("") // 기존꺼 날려버리기
+
+
+          // 합계 카운트
+          let score1 = 0;
+          let score2 = 0;
+
+          let shootOntarget1 = 0;
+          let shootOfftarget1 = 0;
+          let shootOntarget2 = 0;
+          let shootOfftarget2 = 0;
+
+          let corners1 = 0;
+          let corners2 = 0;
+
+          let offsides1 = 0;
+          let offsides2 = 0;
+
+          let fouls1 = 0;
+          let fouls2 = 0;
+
+          let cards1Yellow = 0;
+          let cards2Yellow = 0;
+          let cards1Red = 0;
+          let cards2Red = 0;
+
+          // console.log(gameStats)
+
+          for (let i = 0; i < gameStats.length; i++) {
+
+            if (gameStats[i]["score"] == "득점성공" && gameStats[i]["team"] == "우리팀") score1++;
+            if (gameStats[i]["score"] == "득점성공" && gameStats[i]["team"] == "상대팀") score2++;
+
+            if (gameStats[i]["shoot"] == "유효슈팅" && gameStats[i]["team"] == "우리팀") shootOntarget1++;
+            if (gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "우리팀") shootOfftarget1++;
+            if (gameStats[i]["shoot"] == "유효슈팅" && gameStats[i]["team"] == "상대팀") shootOntarget2++;
+            if (gameStats[i]["shoot"] == "무효슈팅" && gameStats[i]["team"] == "상대팀") shootOfftarget2++;
+
+            if (gameStats[i]["eventType"] == "코너킥" && gameStats[i]["team"] == "우리팀") corners1++;
+            if (gameStats[i]["eventType"] == "코너킥" && gameStats[i]["team"] == "상대팀") corners2++;
+
+            if (gameStats[i]["eventType"] == "오프사이드" && gameStats[i]["team"] == "우리팀") offsides1++;
+            if (gameStats[i]["eventType"] == "오프사이드" && gameStats[i]["team"] == "상대팀") offsides2++;
+
+            if (gameStats[i]["eventType"] == "파울" && gameStats[i]["team"] == "우리팀") fouls1++;
+            if (gameStats[i]["eventType"] == "파울" && gameStats[i]["team"] == "상대팀") fouls2++;
+
+            if (gameStats[i]["foulCard"] == "옐로우" && gameStats[i]["team"] == "우리팀") cards1Yellow++;
+            if (gameStats[i]["foulCard"] == "옐로우" && gameStats[i]["team"] == "상대팀") cards2Yellow++;
+            if (gameStats[i]["foulCard"] == "레드" && gameStats[i]["team"] == "우리팀") cards1Red++;
+            if (gameStats[i]["foulCard"] == "레드" && gameStats[i]["team"] == "상대팀") cards2Red++;
+
+            // 이벤트에 따라서 보여질 기록 로그 설정
+            if (gameStats[i]["eventType"] == "슈팅") {
+              if (gameStats[i]['score'] == '득점성공') {
+                if (gameStats[i]["team"] == "우리팀") {
+                  let allRecodList = make_recordList_score(gameStats[i], 'success');
+                  $("#gameStats").append(allRecodList);
+                } else {
+                  let allRecodList = make_recordList_score(gameStats[i], 'danger');
+                  $("#gameStats").append(allRecodList);
+                }
+              } else {
+                if (gameStats[i]["team"] == "우리팀") {
+                  let allRecodList = make_recordList_scoreNot(gameStats[i], 'success');
+                  $("#gameStats").append(allRecodList);
+                } else {
+                  let allRecodList = make_recordList_scoreNot(gameStats[i], 'danger');
+                  $("#gameStats").append(allRecodList);
+                }
+              }
+            }
+            // 여기까지가 슈팅 이벤트
+            else if (gameStats[i]["eventType"] == "코너킥") {
+              if (gameStats[i]["team"] == "우리팀") {
+                let allRecodList = make_recordList_cornerkick(gameStats[i], 'success');
+                $("#gameStats").append(allRecodList);
+              } else {
+                let allRecodList = make_recordList_cornerkick(gameStats[i], 'danger');
+                $("#gameStats").append(allRecodList);
+              }
+            }
+
+            else if (gameStats[i]["eventType"] == "오프사이드") {
+              if (gameStats[i]["team"] == "우리팀") {
+                let allRecodList = make_recordList_offside(gameStats[i], 'danger');
+                $("#gameStats").append(allRecodList);
+              } else {
+                let allRecodList = make_recordList_offside(gameStats[i], 'success');
+                $("#gameStats").append(allRecodList);
+              }
+            }
+
+            else if (gameStats[i]["eventType"] == "파울") {
+              if (gameStats[i]["team"] == "우리팀") {
+                let allRecodList = make_recordList_foul(gameStats[i], 'danger');
+                $("#gameStats").append(allRecodList);
+              } else {
+                let allRecodList = make_recordList_foul(gameStats[i], 'success');
+                $("#gameStats").append(allRecodList);
+              }
+            }
+
+            // 합게 카운트 결과 값
+            //득점
+            $("#score1").text(score1)
+            $("#score2").text(score2)
+            //전체슈팅
+            $("#totalShots1").text(shootOntarget1 + shootOfftarget1)
+            $("#totalShots2").text(shootOntarget2 + shootOfftarget2)
+            //유효, 무효 슈팅
+            $("#shotsOnTarget1").text(shootOntarget1)
+            $("#shotsOffTarget1").text(shootOfftarget1)
+            $("#shotsOnTarget2").text(shootOntarget2)
+            $("#shotsOffTarget2").text(shootOfftarget2)
+            // 세이브
+            $("#saves1").text(shootOntarget2 - score2)
+            $("#saves2").text(shootOntarget1 - score1)
+            // 코너킥
+            $("#corners1").text(corners1)
+            $("#corners2").text(corners2)
+            // 오프사이드
+            $("#offsides1").text(offsides1)
+            $("#offsides2").text(offsides2)
+            // 파울 (오프사이드포함안함)
+            $("#fouls1").text(fouls1)
+            $("#fouls2").text(fouls2)
+            // 카드
+            $("#cards1").text(cards1Yellow + cards1Red)
+            $("#cards2").text(cards2Yellow + cards2Red)
+
+            console.log(response)
+
+          }
+        }
+      })
+    }
+
+    // end of listing
+
+    // 이벤트 타입에 따라 리스팅하는 정보 고르기
+    function make_recordList_score(recordList, color) {
+      return `
   <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
   ${recordList["eventTime"]}
@@ -564,10 +544,10 @@ function make_recordList_score(recordList, color) {
   </a>
   </div>
   `;
-}
+    }
 
-function make_recordList_scoreNot(recordList, color) {
-  return `
+    function make_recordList_scoreNot(recordList, color) {
+      return `
   <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
   ${recordList["eventTime"]}
@@ -598,10 +578,10 @@ function make_recordList_scoreNot(recordList, color) {
   </a>
   </div>
   `;
-}
+    }
 
-function make_recordList_cornerkick(recordList, color) {
-  return `
+    function make_recordList_cornerkick(recordList, color) {
+      return `
   <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
   ${recordList["eventTime"]}
@@ -614,10 +594,10 @@ function make_recordList_cornerkick(recordList, color) {
   </a>
   </div>
   `;
-}
+    }
 
-function make_recordList_offside(recordList, color) {
-  return `
+    function make_recordList_offside(recordList, color) {
+      return `
   <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
   ${recordList["eventTime"]}
@@ -631,10 +611,10 @@ function make_recordList_offside(recordList, color) {
   </a>
   </div>
   `;
-}
+    }
 
-function make_recordList_foul(recordList, color) {
-  return `
+    function make_recordList_foul(recordList, color) {
+      return `
   <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action list-group-item-${color}">
   ${recordList["eventTime"]}
@@ -649,18 +629,18 @@ function make_recordList_foul(recordList, color) {
   </a>
   </div>
   `;
-}
+    }
 
-var reListing
-reListing = setInterval(listing, 2000);
+    var reListing
+    reListing = setInterval(listing, 2000);
 
-</script>
+  </script>
 
 </body>
 
 </html>
 
- <!--  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+<!--  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
 
   
   <a href="#" class="list-group-item list-group-item-action list-group-item-primary">This is a primary list group item</a>

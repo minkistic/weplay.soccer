@@ -188,11 +188,11 @@ def teamlist_get():
 
 
 # 선수선택화면
-# @app.route('/playerList')
-# def player_list():
-#     return render_template('player_list.html')
+@app.route('/playerList')
+def player_list():
+    return render_template('player_list.html')
 
-@app.route('/playerList', methods=['GET'])
+@app.route('/players', methods=['GET'])
 def playerlist_get():
     # db에서 읽어온다.
     playerlist = list(db.players.find({},{'_id':False}))  # db.bookmarks에서 가져와서 리스트로 만들어라,자동으로 들어가는 _id는 가져오지마라 제이슨으로 못만드니깐
