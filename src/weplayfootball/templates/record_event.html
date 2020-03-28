@@ -154,6 +154,159 @@
 			border: 0;
 			color: #fff;
 		}
+
+		html,
+		body,
+		div,
+		span,
+		applet,
+		object,
+		iframe,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p,
+		blockquote,
+		pre,
+		a,
+		abbr,
+		acronym,
+		address,
+		big,
+		cite,
+		code,
+		del,
+		dfn,
+		em,
+		img,
+		ins,
+		kbd,
+		q,
+		s,
+		samp,
+		small,
+		strike,
+		strong,
+		sub,
+		sup,
+		tt,
+		var,
+		b,
+		u,
+		i,
+		center,
+		dl,
+		dt,
+		dd,
+		ol,
+		ul,
+		li,
+		fieldset,
+		form,
+		label,
+		legend,
+		button,
+		table,
+		caption,
+		tbody,
+		tfoot,
+		thead,
+		tr,
+		th,
+		td,
+		article,
+		aside,
+		canvas,
+		details,
+		embed,
+		figure,
+		figcaption,
+		footer,
+		header,
+		hgroup,
+		menu,
+		nav,
+		output,
+		ruby,
+		section,
+		summary,
+		time,
+		mark,
+		audio,
+		video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-family: 'notokr', 'Helvetica', sans-serif;
+			font: inherit;
+			font-size: 14px;
+			color: #484848;
+			letter-spacing: -0.04em;
+			vertical-align: baseline;
+			box-sizing: border-box;
+		}
+
+		.field_wrap {
+			padding: 20px;
+			background-color: #009933;
+		}
+
+		.field_wrap .field {
+			border-top: 1px solid #000;
+			border-left: 1px solid #000;
+		}
+
+		.box_wrap {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-right: 1px solid #000;
+			border-bottom: 1px solid #000;
+			background-color: #afcd83;
+		}
+
+		.box_wrap .box {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			height: 100px;
+			border-right: 1px solid #000;
+		}
+
+		.box_wrap .box:last-child {
+			border-right: none;
+		}
+
+		.box_wrap .box .inner {
+			width: 100%;
+			background: none;
+		}
+
+		.box_wrap .box .inner01 {
+			width: 30%;
+			border-left: 1px solid #000;
+			background-color: #d0f0a2;
+		}
+
+		.box_wrap .box .inner02 {
+			width: 30%;
+			border-right: 1px solid #000;
+			background-color: #d0f0a2;
+		}
+
+		.goalArea {
+			text-align: center;
+			font-size: 10px;
+			width: 50px;
+			height: 15px;
+			border: 1px solid white;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: white;
+		}
 	</style>
 	<!-- 
 		<link href="stopwatch.css" rel="stylesheet">
@@ -178,9 +331,7 @@
 			< </button>
 				GAME STAT +
 
-				<button onclick="record_event()" type="button" class="btn btn-success">
-					CONFIRM
-				</button>
+
 				<!-- </div> -->
 
 				<!-- 기본사항 -->
@@ -199,20 +350,26 @@
 							슈팅
 						</label>
 
-						<label class="btn btn-outline-primary" onclick="foulEvent()">
+						<label class="btn btn-outline-primary" id="eventType2-label" onclick="foulEvent()">
 							<input type="radio" name="eventType" id="eventType2" autocomplete="off" value="파울" />
 							파울
 						</label>
 
-						<label class="btn btn-outline-primary" onclick="conerkickEvent()">
+						<label class="btn btn-outline-primary" id="eventType3-label" onclick="conerkickEvent()">
 							<input type="radio" name="eventType" id="eventType3" autocomplete="off" value="코너킥" />
 							코너킥
 						</label>
 
-						<label class="btn btn-outline-primary" onclick="offsideFoulEvent()">
+						<label class="btn btn-outline-primary" id="eventType4-label" onclick="offsideFoulEvent()">
 							<input type="radio" name="eventType" id="eventType4" autocomplete="off" value="오프사이드" />
 							오프사이드
 						</label>
+					</div>
+
+					<div>
+						<button onclick="location.reload();" type="button" class="btn btn-dark">
+							REFRESH
+						</button>
 					</div>
 				</div>
 
@@ -298,10 +455,13 @@
 							<div class="input-group mb-3">
 								<label class="input-group-text" for="inputGroupSelect01">득점정보</label>
 								<input class="custom-select" name="scorePlayer" id="scorePlayer" placeholder="선수"
-									onclick="window.open('/playerList','playerList','width=320,height=500,location=no,status=no,scrollbars=yes');">
-
+									data-toggle="modal" data-target="#playerlist">
+								<div class="input-group-append">
+									<label class="input-group-text" for="inputGroupSelect01">선수리스트</label>
+									<!-- <span type="button" class="btn btn-light">선수리스트</span> -->
+								</div>
 								<input class="custom-select" name="scoreArea" id="scoreArea" placeholder="위치"
-									onclick="window.open('/fieldAreaSelection','fieldAreaSelection','width=320,height=500,location=no,status=no,scrollbars=yes');">
+									data-toggle="modal" data-target="#fieldAreaSelection">
 
 								<div class="input-group mb-3" id="shootMethod">
 									<div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -557,15 +717,147 @@
 
 	</div>
 
+	<button onclick="record_event()" type="button" class="btn btn-dark btn-lg btn-block">
+		CONFIRM
+	</button>
+
+
+	<!-- field selection -->
+	<div class="modal fade" id="fieldAreaSelection" tabindex="-1" role="dialog"
+		aria-labelledby="fieldAreaSelectionTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable" role="document">
+			<div class="modal-content">
+				<div class="field_wrap">
+					<div class="goalArea"> 상대팀 </div>
+					<div class="field">
+						<div class="box_wrap">
+							<div class="box box01">
+								<button type="button" class="inner">1</button>
+								<button type="button" class="inner01">1-1</button>
+							</div>
+							<div class="box box02">
+								<button type="button" class="inner">2</button>
+							</div>
+							<div class="box box03">
+								<button type="button" class="inner02">3-1</button>
+								<button type="button" class="inner">3</button>
+							</div>
+						</div>
+						<div class="box_wrap">
+							<div class="box box04">
+								<button type="button" class="inner">4</button>
+								<button type="button" class="inner01">4-1</button>
+							</div>
+							<div class="box box05">
+								<button type="button" class="inner">5</button>
+							</div>
+							<div class="box box06">
+								<button type="button" class="inner02">6-1</button>
+								<button type="button" class="inner">6</button>
+							</div>
+						</div>
+						<div class="box_wrap">
+							<div class="box box07">
+								<button type="button" class="inner">7</button>
+							</div>
+							<div class="box box08">
+								<button type="button" class="inner">8</button>
+							</div>
+							<div class="box box09">
+								<button type="button" class="inner">9</button>
+							</div>
+						</div>
+						<div class="box_wrap">
+							<div class="box box10">
+								<button type="button" class="inner">10</button>
+							</div>
+							<div class="box box11">
+								<button type="button" class="inner">11</button>
+							</div>
+							<div class="box box12">
+								<button type="button" class="inner">12</button>
+							</div>
+						</div>
+						<div class="box_wrap">
+							<div class="box box13">
+								<button type="button" class="inner">13</button>
+								<button type="button" class="inner01">13-1</button>
+							</div>
+							<div class="box box14">
+								<button type="button" class="inner">14</button>
+							</div>
+							<div class="box box15">
+								<button type="button" class="inner02">15-1</button>
+								<button type="button" class="inner">15</button>
+							</div>
+						</div>
+						<div class="box_wrap">
+							<div class="box box16">
+								<button type="button" class="inner">16</button>
+								<button type="button" class="inner01">16-1</button>
+							</div>
+							<div class="box box17">
+								<button type="button" class="inner">17</button>
+							</div>
+							<div class="box box18">
+								<button type="button" class="inner02">18-1</button>
+								<button type="button" class="inner">18</button>
+							</div>
+						</div>
+					</div>
+					<div class="goalArea"> 우리팀 </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+					<button type="button" class="btn btn-primary" onclick="fieldAreaSelected()">완료</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 
 	<div>
 		<button onclick="location.reload();" type="button" class="btn btn-secondary btn-lg btn-block">
 			REFRESH
 		</button>
+	</div> -->
+
+	<!-- 플레이어 리스트 -->
+	<div class="modal fade" id="playerlist" tabindex="-1" role="dialog" aria-labelledby="playerlistTitle"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable" role="document">
+			<div class="modal-content">
+				<h5 class="SubHeader">Player List
+					<button type="button" class="close" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</h5>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">No.</th>
+							<th scope="col">Player</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody id="player-list">
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 
+
+	<script id="playerRow" type="text/html">
+			<tr>
+				<td>{{playerName}}</td>
+				<td>{{playerNumber}}</td>
+			</tr>
+		</script>
+
+
+
 	<script>
-
-
 		// 1. ajax get -> data (축구 선수 목록)
 		// 2. ajax 성공 -> select에 option
 		// 3. 저장 -> ajax post
@@ -848,44 +1140,54 @@
 
 			//슈팅선택
 			if (type == 'shooting') {
-				console.log($('#eventType1'))
-				$("#eventType1-label").addClass('active')
-				$("#eventType1").prop("checked", true)
-
+				// console.log($('#eventType1'))
+				// $("#eventType1-label").addClass('active')
+				// $("#eventType1").prop("checked", true)
+				$("#eventType1-label").trigger("click")
 				// console.log('mingi')
 			} else if (type == 'foul') {
-				$("input:radio[name='eventType']:radio[value='파울']").attr("checked", true);
+				// $("#eventType2-label").addClass('active')
+				// $("#eventType2").prop("checked", true)
+				$("#eventType2-label").trigger("click")
 			} else if (type == 'cornerkick') {
-				$("input:radio[name='eventType']:radio[value='코너킥']").attr("checked", true);
+				// $("#eventType3-label").addClass('active')
+				// $("#eventType3").prop("checked", true)
+				$("#eventType3-label").trigger("click")
 			} else if (type == 'offside') {
-				$("input:radio[name='eventType']:radio[value='오프사이드']").attr("checked", true);
+				// $("#eventType4-label").addClass('active')
+				// $("#eventType4").prop("checked", true)
+				$("#eventType4-label").trigger("click")
 			}
 
 		})
 
+		// 선수화면 선택기
 
-   	// 	loadPlayerList();
-   	// })
+		function listing() {
+			$.ajax({
+				type: "GET",
+				url: "/players",
+				data: {},
+				success: function (response) {
+					var playerRow = "<tr><td>%s</td><td>%s</td><td><button>Select</button</td></tr>"
+					response.forEach(function (player) {
+						var row = playerRow.replace('%s', player.number).replace('%s', player.playername)
+						$('#player-list').append(row)
+					})
+				}
+			})
+		}
 
-   	// function loadPlayerList() {
-   	// 	$.ajax({
-   	// 		url: '/playerList',
-   	// 		method: 'GET',
-   	// 		data : {},
-   	// 		success: function (response) {
-   	// 			response = [
-   	// 			'A', 'B', 'C'
-   	// 			]
+		listing()
 
-   	// 			$('#playerList').html('');
-   	// 			for(let player: response) {
-   	// 				$('#playerList').append(
-   	// 					`<li>${player}</li>`
-   	// 					)
-   	// 			}
-   	// 		}
-   	// 	})
-   	// }
+		function fieldAreaSelected() {
+			$('#myModal').on('show.bs.modal', function (event) { // myModal 윈도우가 오픈할때 아래의 옵션을 적용
+				var button = $(event.relatedTarget) // 모달 윈도우를 오픈하는 버튼
+				var titleTxt = button.data('title') // 버튼에서 data-title 값을 titleTxt 변수에 저장
+				var modal = $(this)
+				modal.find('.modal-title').text('Title : ' + titleTxt) // 모달위도우에서 .modal-title을 찾아 titleTxt 값을 치환
+			})
+		}
 
 
 	</script>

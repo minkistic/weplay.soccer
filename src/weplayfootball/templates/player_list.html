@@ -71,70 +71,57 @@
 
 
 	<body>
-		<div class="wrap">
-
-			<div class="header">
-
-				<h5>
-					<button onclick="back()" type="button" class="btn btn-primary">
-						< </button>
-							PLAYER LIST
-							<button onclick="confirm()" type="button" class="btn btn-primary">
-								Confirm
-							</button>
-				</h5>
-			</div>
 
 
-			<div id="playerlist">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th scope="col">No.</th>
-							<th scope="col">Player Name</th>
-							<!-- <th scope="col"></th> -->
-						</tr>
-					</thead>
-					<tbody id="player-list">
-						<!-- <tr>
-							<th scope="row" id="number"></th>
-							<td id="playername"></td>
-							<td> <button type="button" class="btn btn-primary">Select</td>
-						</tr> -->
-					</tbody>
-				</table>
-			</div>
+		<div id="playerlist">
+			<h5 class="SubHeader">Player List
+				<button type="button" class="close" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</h5>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">No.</th>
+						<th scope="col">Player</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody id="player-list">
+				</tbody>
+			</table>
+		</div>
 
-			<script id="playerRow" type="text/html">
+		<script id="playerRow" type="text/html">
 				<tr>
 					<td>{{playerName}}</td>
 					<td>{{playerNumber}}</td>
 				</tr>
 			</script>
 
-			<script>
+		<script>
 
-				console.log('asdfasdf')
+			console.log('asdfasdf')
 
-				function listing() {
-					$.ajax({
-						type: "GET",
-						url: "/players",
-						data: {},
-						success: function (response) {
-							var playerRow = "<tr><td>%s</td><td>%s</td><td><button>Select!</button</td></tr>"
-							response.forEach(function (player) {
-								var row = playerRow.replace('%s', player.playername).replace('%s', player.number)
-								$('#player-list').append(row)
-							})
-						}
-					})
-				}
+			function listing() {
+				$.ajax({
+					type: "GET",
+					url: "/players",
+					data: {},
+					success: function (response) {
+						var playerRow = "<tr><td>%s</td><td>%s</td><td><button>Select</button</td></tr>"
+						response.forEach(function (player) {
+							var row = playerRow.replace('%s', player.number).replace('%s', player.playername)
+							$('#player-list').append(row)
+						})
+					}
+				})
+			}
 
-				listing()
+			listing()
 
 
-			</script>
+		</script>
 
 	</body>
 
