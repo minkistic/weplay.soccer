@@ -1,35 +1,31 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
   <!-- Optional JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-  crossorigin="anonymous"
-  ></script>
-  <script
-  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-  crossorigin="anonymous"
-  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <!-- 구글폰트 -->
-  <link
-  href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
-  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   >
-  
+
 
   <!-- Webpage Title -->
   <title>매치만들기</title>
@@ -38,51 +34,59 @@
     * {
       font-family: 'Roboto', sans-serif;
     }
+
     .wrap {
       width: 500px;
       margin: auto;
     }
+
     .header {
       margin: 20px 5px 20px 5px;
       text-align: center;
     }
+
     .SubHeader {
       margin: 20px 5px 20px 5px;
     }
+
     .button {
       text-align: right;
     }
-    h1, h2, h3, h4
-    h5 {
+
+    h1,
+    h2,
+    h3,
+    h4 h5 {
       display: inline;
     }
+
     .contents {
       text-align: auto;
     }
   </style>
-  
+
 </head>
 
 <script>
   $('#datetimepicker').data("DateTimePicker").FUNCTION()
 
-  </script>
+</script>
 
 </script>
 
 <body>
-  <div class = "wrap">
+  <div class="wrap">
 
     <!-- 헤더 -->
     <div class="header">
-     <button onclick="()" type="button" class="btn btn-primary">
-      BACK
-    </button>
-   CREATE A MATCH
-    <button onclick="makeMatch()" type="button" class="btn btn-primary">
-      CONFIRM
-    </button>
-  </div>
+      <button onclick="()" type="button" class="btn btn-primary">
+        BACK
+      </button>
+      CREATE A MATCH
+      <button onclick="makeMatch()" type="button" class="btn btn-primary">
+        CONFIRM
+      </button>
+    </div>
 
     <!-- 이벤트 타입 -->
     <div class="input-group mb-3" id="matchHomeAway">
@@ -99,26 +103,27 @@
       </div>
     </div>
 
-<div class="form-group">
-    <input type="text" class="form-control" placeholder="우리팀 이름" id="teamName">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="상대팀 이름" id="teamNameOpponent">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="매치날짜" id="matchDate">
-</div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="우리팀 이름" id="teamName">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="상대팀 이름" id="teamNameOpponent">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="매치날짜" id="matchDate">
+    </div>
 
 
-<!--Default date and time picker -->
-<!-- <div class="form-group pmd-textfield pmd-textfield-floating-label">
+    <!--Default date and time picker -->
+    <!-- <div class="form-group pmd-textfield pmd-textfield-floating-label">
   <label class="control-label" for="datetimepicker-default">Select Date and Time</label>
   <input type="text" id="datetimepicker-default" class="form-control" />
 </div> -->
 
 
-<!-- 매치날짜, 시간 -->
-<!-- https://eonasdan.github.io/bootstrap-datetimepicker/ --><!-- 
+    <!-- 매치날짜, 시간 -->
+    <!-- https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+    <!-- 
 <div style="overflow:hidden;">
     <div class="form-group">
         <div class="row">
@@ -138,26 +143,27 @@
 </div> -->
 
 
-</div>
-</div>
+  </div>
+  </div>
 
-</div>
-        <script>
-            // $(function () {
-            //     $('#datetimepicker1').datetimepicker();
-            // });
+  </div>
+  <script>
+    // $(function () {
+    //     $('#datetimepicker1').datetimepicker();
+    // });
 
-  // 파라미터 보내기 (매치오버뷰로)
-  function makeMatch() {
-    let matchHomeAway = $('#matchHomeAway').html()
-    let teamNameOpponent = $('#teamNameOpponent').html()
-    let matchDate = $('#matchDate').html()
-// 여러가지 정보 &
-  window.open('/matchoverviews?matchHomeAway='+matchHomeAway+'&teamNameOpponent='+teamNameOpponent+'&matchDate='+teamNameOpponent); //새창열기
-}
+    // 파라미터 보내기 (매치오버뷰로)
+    function makeMatch() {
+      let matchHomeAway = $('#matchHomeAway').html()
+      let teamName = $('#teamName').html()
+      let teamNameOpponent = $('#teamNameOpponent').html()
+      let matchDate = $('#matchDate').html()
+      // 여러가지 정보 &
+      window.open('/matchoverviews?matchHomeAway=' + matchHomeAway + '&teamName=' + teamName + '&teamNameOpponent=' + teamNameOpponent + '&matchDate=' + teamNameOpponent); //새창열기
+    }
 
 
-        </script>
+  </script>
 
 </body>
 
