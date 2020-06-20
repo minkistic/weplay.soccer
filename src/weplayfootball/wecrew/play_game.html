@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	    <title>WECREW</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />	    
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
+		<link type="text/css" rel="stylesheet" href="./assets/css/style.css" />
+		
+		<script src="https://kit.fontawesome.com/65f31987e2.js" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+		<script src="./assets/vendors/countimer/ez.countimer.min.js"></script>
+		
+	</head>
+	<body>
+		
+		<input type="hidden" id="game_setting_match_id" value="1" /><!-- 매치 ID -->
+		<input type="hidden" id="game_setting_game_id" value="2" /><!-- 게임 ID -->
+		<input type="hidden" id="game_setting_start_datetime" value="2020-06-01 12:00:00" /><!-- 시작 일시 -->
+		<input type="hidden" id="game_setting_location_type" value="1" /><!-- 로케이션 레이어 위치 설정 -->
+		
+		<input type="hidden" id="game_playing_event_id" value="0" /><!-- 이벤트가 발생 할 때마다 순차 증가 -->
+		
+		<div class="container">
+		
+			<div class="page page-play-game">
+
+				<div class="section">
+							
+					<div class="section-content">
+						
+						<div class="section-left">
+							
+							<div class="game-control">
+								<div class="timer"></div>
+								<div class="timer-buttons">
+									<button type="button" class="btn btn-outline-primary timer-button timer-button__start">시작</button>
+									<button type="button" class="btn btn-outline-danger timer-button timer-button__stop">정지</button>
+									<!--<button type="button" class="btn btn-outline-info timer-button timer-button__over">종료</button>-->
+								</div>
+							</div>
+						
+							<div class="game-info">
+								<div class="game-info__column">
+									<span class="game_info__score">0</span>
+									<span class="game_info__team">[수원 FC]</span>
+								</div>
+								<div class="game-info__column">
+									<span class="game_info__score">0</span>
+									<span class="game_info__team">[인천 FC]</span>
+								</div>
+							</div>
+							
+							<div class="game-summary">
+								
+								<div class="game-summary__row">
+									<span class="game-summary__left">0</span>
+									<span class="game-summary__center">TOTAL SHOTS</span>
+									<span class="game-summary__right">0</span>
+								</div>
+								<div class="game-summary__row">
+									
+								</div>
+								
+								<div class="game-summary__row">
+									<span class="game-summary__left">0</span>
+									<span class="game-summary__center">SHOTS ON TARGET</span>
+									<span class="game-summary__right">0</span>
+								</div>
+								<div class="game-summary__row">
+									
+								</div>
+								
+								<div class="game-summary__row">
+									<span class="game-summary__left">0</span>
+									<span class="game-summary__center">SHOTS OFF TARGET</span>
+									<span class="game-summary__right">0</span>
+								</div>
+								<div class="game-summary__row">
+									
+								</div>
+								
+								<div class="game-summary__row">
+									<span class="game-summary__left">0</span>
+									<span class="game-summary__center">SAVES</span>
+									<span class="game-summary__right">0</span>
+								</div>
+								<div class="game-summary__row">
+									
+								</div>
+								
+								<div class="game-summary__row">
+									<span class="game-summary__left">0</span>
+									<span class="game-summary__center">CORNER</span>
+									<span class="game-summary__right">0</span>
+								</div>
+								<div class="game-summary__row">
+									
+								</div>
+								
+								<div class="game-summary__row">
+									<span class="game-summary__left">0</span>
+									<span class="game-summary__center">OFFSIDES</span>
+									<span class="game-summary__right">0</span>
+								</div>
+								<div class="game-summary__row">
+									
+								</div>
+								
+								<div class="game-summary__row">
+									<span class="game-summary__left">0</span>
+									<span class="game-summary__center">FOULS</span>
+									<span class="game-summary__right">0</span>
+								</div>
+								<div class="game-summary__row">
+									
+								</div>
+								
+								<div class="game-summary__row">
+									<span class="game-summary__left">0</span>
+									<span class="game-summary__center">CARDS</span>
+									<span class="game-summary__right">0</span>
+								</div>
+								<div class="game-summary__row">
+									
+								</div>
+								
+							</div>
+							
+						</div>
+						
+						<div class="section-right">
+							
+							<div class="game-event">
+								
+								<div class="game-event-actions">
+
+									<div class="game-event-actions__time">
+										
+									</div>
+									
+									<div class="game-event-actions__action">
+										
+										<div class="item-actions">
+											<button type="button" class="item-action btn btn-outline-secondary btn-action" data-action="shoot">슈팅</button>
+											<button type="button" class="item-action btn btn-outline-secondary btn-action" data-action="corner">코너킥</button>
+											<button type="button" class="item-action btn btn-outline-secondary btn-action" data-action="offside">오프사이드</button>
+											<button type="button" class="item-action btn btn-outline-secondary btn-action" data-action="foul">파울</button>
+										</div>
+										
+										<div class="item-actions_tab_container">
+											
+											<div class="item-action-tab item-action-tab__event_logs" id="item_action_event_logs">
+								
+											</div>
+							
+											<div class="item-action-tab" id="item_action_shoot" data-action="shoot" style="display: none;">
+												<form class="frm" id="frm_item_action_shoot">
+												<input type="hidden" class="action" name="action" id="action" value="슈팅" />
+												<input type="hidden" class="field" name="action_shoot_team" data-field-name="팀" id="action_shoot_team" value="" />
+												<input type="hidden" class="field" name="action_shoot_result" data-field-name="결과" id="action_shoot_result" value="" />
+												<input type="hidden" class="field" name="action_shoot_type" data-field-name="타입" id="action_shoot_type" value="" />
+												<input type="hidden" class="field" name="action_shoot_player" data-field-name="득점자" id="action_shoot_player" value="" />
+												<input type="hidden" class="field" name="action_shoot_location" data-field-name="득점 위치" id="action_shoot_location" value="" />
+												<input type="hidden" class="field" name="action_shoot_point" data-field-name="포인트" id="action_shoot_point" value="" />
+												<input type="hidden" class="field" name="action_shoot_reason" data-field-name="득점원인" id="action_shoot_reason" value="" />
+												<input type="hidden" class="field" name="action_shoot_assist_player" data-field-name="어시스트 플레이어" id="action_shoot_assist_player" value="" />
+												<input type="hidden" class="field" name="action_shoot_assist_location" data-field-name="어시스트 위치" id="action_shoot_assist_location" value="" />
+												<input type="hidden" class="field" name="action_shoot_buildup_player" data-field-name="빌드업 플레이어" id="action_shoot_buildup_player" value="" />
+												<input type="hidden" class="field" name="action_shoot_buildup_location" data-field-name="빌드업 위치" id="action_shoot_buildup_location" value="" />
+												<div class="item-action-tab__row">
+													<input type="text" class="form-control time" name="action_shoot_time" id="action_shoot_time" value="" />
+												</div>
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_team" data-value="우리팀">우리팀</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_team" data-value="상대팀">상대팀</button>
+													</div>
+												</div>
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_result" data-value="득점 성공">득점 성공</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_result" data-value="득점 실패">득점 실패</button>
+													</div>
+												</div>
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_type" data-value="필드">필드</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_type" data-value="프리킥">프리킥</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_type" data-value="자책골">자책골</button>
+													</div>
+												</div>
+												<div class="item-action-tab__row">
+													<span>득점자</span>
+													<button type="button" class="btn btn-outline-secondary btn-popup" id="button_action_shoot_player" data-target="action_shoot_player" data-content="player" data-value="">플레이어 선택</button>
+												</div>
+												<div class="item-action-tab__row">
+													<span>득점 위치</span>
+													<button type="button" class="btn btn-outline-secondary btn-popup" id="button_action_shoot_location" data-target="action_shoot_location" data-content="location" data-value="">위치 선택</button>
+												</div>
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_point" data-value="오른발">오른발</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_point" data-value="왼발">왼발</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_point" data-value="헤더">헤더</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_point" data-value="기타">기타</button>
+													</div>
+												</div>
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_reason" data-value="상대 실책">상대 실책</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_shoot_reason" data-value="세트피스">세트피스</button>
+													</div>
+												</div>
+												<div class="item-action-tab__row">
+													<span>도움자</span>
+													<button type="button" class="btn btn-outline-secondary btn-popup" id="button_action_shoot_assist_player" data-target="action_shoot_assist_player" data-content="player" data-value="">플레이어 선택</button>
+												</div>
+												<div class="item-action-tab__row">
+													<span>도움 위치</span>
+													<button type="button" class="btn btn-outline-secondary btn-popup" id="button_action_shoot_assist_location" data-target="action_shoot_assist_location" data-content="location" data-value="">위치 선택</button>
+												</div>
+												<div class="item-action-tab__row">
+													<span>빌드업</span>
+													<button type="button" class="btn btn-outline-secondary btn-popup" id="button_action_shoot_buildup_player" data-target="action_shoot_buildup_player" data-content="player" data-value="">플레이어 선택</button>
+												</div>
+												<div class="item-action-tab__row">
+													<span>빌드업 위치</span>
+													<button type="button" class="btn btn-outline-secondary btn-popup" id="button_action_shoot_buildup_location" data-target="action_shoot_buildup_location" data-content="location" data-value="">위치 선택</button>
+												</div>
+												
+												<div class="item-action-tab__row">
+													<button type="button" class="btn btn-secondary btn-lg btn-cancel">취소</button>
+													<button type="button" class="btn btn-primary btn-lg btn-save">등록</button>
+												</div>
+												</form>
+											</div>
+											
+											<div class="item-action-tab" id="item_action_corner" data-action="corner" style="display: none">
+												<form class="frm" id="frm_item_action_corner">
+												<input type="hidden" class="action" name="action" id="action" value="코너킥" />
+												<input type="hidden" class="field" name="action_corner_team" data-field-name="팀" id="action_corner_team" value="" />
+												<input type="hidden" class="field" name="action_corner_location" data-field-name="위치" id="action_corner_location" value="" />
+												<input type="hidden" class="field" name="action_corner_player" data-field-name="플레이어" id="action_corner_player" value="" />
+												
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<input type="text" class="form-control time" name="action_corner_time" id="action_corner_time" value="" />																	</div>
+												</div>
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_corner_team" data-value="우리팀">우리팀</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_corner_team" data-value="상대팀">상대팀</button>
+													</div>
+												</div>
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_corner_location" data-value="오른쪽">오른쪽</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_corner_location" data-value="왼쪽">왼쪽</button>
+													</div>
+												</div>
+												<div class="item-action-tab__row">
+													<span>킥커</span>
+													<button type="button" class="btn btn-outline-secondary btn-popup" data-target="action_corner_player" id="button_action_corner_player" data-content="player" data-value="">플레이어 선택</button>
+												</div>
+
+												<div class="item-action-tab__row">
+													<button type="button" class="btn btn-secondary btn-lg btn-cancel">취소</button>
+													<button type="button" class="btn btn-primary btn-lg btn-save">등록</button>
+												</div>
+												</form>
+											</div>
+											
+											<div class="item-action-tab" id="item_action_offside" data-action="offside" style="display: none">
+												<form class="frm" id="frm_item_action_offside">
+												<input type="hidden" class="action" name="action" id="action" value="오프사이드" />
+												<input type="hidden" class="field" name="action_offside_team" data-field-name="플레이어" id="action_offside_team" value="" />
+												<input type="hidden" class="field" name="action_offside_player" data-field-name="위치" id="action_offside_player" value="" />
+												<input type="hidden" class="field" name="action_offside_location" data-field-name="오심" id="action_offside_location" value="" />
+												
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<input type="text" class="form-control time" name="action_offside_time" id="action_offside_time" value="" />																</div>
+												</div>
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_offside_team" data-value="우리팀">우리팀</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_offside_team" data-value="상대팀">상대팀</button>
+													</div>
+												</div>
+												
+												<div class="item-action-tab__row">
+													<span>오프사이드</span>
+													<button type="button" class="btn btn-outline-secondary btn-popup" id="button_action_offside_player" data-target="action_offside_player" data-content="player" data-value="">플레이어 선택</button>
+												</div>
+												
+												<div class="item-action-tab__row">
+													<span>파울 위치</span>
+													<button type="button" class="btn btn-outline-secondary btn-popup" id="button_action_offside_location" data-target="action_offside_location" data-content="location" data-value="">위치 선택</button>
+												</div>
+
+												<div class="item-action-tab__row">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" data-field-name="판정" id="action_offside_misjudge" data-target="action_offside_card" data-value="오심" />
+														<label class="custom-control-label" for="action_offside_misjudge">오심</label>
+													</div>
+												</div>
+												
+												<div class="item-action-tab__row">
+													<button type="button" class="btn btn-secondary btn-lg btn-cancel">취소</button>
+													<button type="button" class="btn btn-primary btn-lg btn-save">등록</button>
+												</div>
+												</form>
+												
+											</div>
+											
+											<div class="item-action-tab" id="item_action_foul" data-action="foul" style="display: none">
+												<form class="frm" id="frm_item_action_foul">
+												<input type="hidden" class="action" name="action" id="action" value="파울" />
+												<input type="hidden" class="field" name="action_foul_team" data-field-name="팀" id="action_foul_team" value="" />
+												<input type="hidden" class="field" name="action_foul_player" data-field-name="플레이어" id="action_foul_player" value="" />
+												<input type="hidden" class="field" name="action_foul_location" data-field-name="위치" id="action_foul_location" value="" />
+												<input type="hidden" class="field" name="action_foul_card" data-field-name="카드" id="action_foul_card" value="" />
+												
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<input type="text" class="form-control time" name="action_foul_time" id="action_foul_time" value="" />																		</div>
+												</div>
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_foul_team" data-value="우리팀">우리팀</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_foul_team" data-value="상대팀">상대팀</button>
+													</div>
+												</div>
+												
+												<div class="item-action-tab__row">
+													<span>파울</span>
+													<button type="button" class="btn btn-outline-secondary btn-popup" id="button_action_foul_player" data-target="action_foul_player" data-content="player" data-value="">플레이어 선택</button>
+												</div>
+												
+												<div class="item-action-tab__row">
+													<span>파울 위치</span>
+													<button type="button" class="btn btn-outline-secondary btn-popup" id="button_action_foul_location" data-target="action_foul_location" data-content="location" data-value="">위치 선택</button>
+												</div>
+												
+												<div class="item-action-tab__row">
+													<div class="btn-group" role="group">
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_foul_card" data-value="옐로우 카드">옐로우 카드</button>
+														<button type="button" class="btn btn-outline-secondary btn-field" data-target="action_foul_card" data-value="레드 카드">레드 카드</button>
+													</div>
+												</div>
+												
+												<div class="item-action-tab__row">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" data-field-name="판정" id="action_foul_misjudge" data-target="action_foul_card" data-value="오심" />
+														<label class="custom-control-label" for="action_foul_misjudge">오심</label>
+													</div>
+												</div>
+
+												<div class="item-action-tab__row">
+													<button type="button" class="btn btn-secondary btn-lg btn-cancel">취소</button>
+													<button type="button" class="btn btn-primary btn-lg btn-save">등록</button>
+												</div>
+												</form>
+											</div>
+											
+										</div>
+									
+									</div>
+									
+								</div>
+								
+							</div>
+						
+						</div>
+						
+					</div>
+					
+				</div>
+									
+			</div>
+			
+		</div>
+		
+		
+		<!-- 팝업 레이어 -->
+		<div class="popup_layer mfp-hide" id="popup_layer">
+									
+			<div class="popup_content player" data-content="player" data-target="" data-target-button="">
+				
+				<div class="card">
+
+					<div class="card-body">
+						
+						<! -- 선수 목록 시작 -->
+						<div class="list-box list-box-player">
+							
+							<div class="item-player" data-player-id="1" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="2" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="3" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="4" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="5" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="6" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="7" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="8" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="9" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="10" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="11" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="12" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="13" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="14" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+							
+							<div class="item-player" data-player-id="15" data-player-name="메시" data-player-number="1번" data-player-position="MF">
+								<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+								<div class="item-player__info">
+									<span class="item-player__name">메시</span><br />
+									<span class="item-player__number">1번</span>
+									<span class="item-player__position">MF</span>
+								</div>
+							</div>
+
+							
+						</div>
+						<! -- 선수 목록 종료 -->
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+			<div class="popup_content location" data-content="location" data-target="" data-target-button="">
+				
+				<div class="card">
+
+					<div class="card-body">
+						
+						<table class="type" data-type="1">
+							<tr>
+								<td class="sector sector3" data-location="3">3</td>
+								<td class="sector sector3" data-location="6">6</td>
+								<td class="sector sector4" rowspan="2" data-location="9">9</td>
+								<td class="sector sector4" rowspan="2" data-location="12">12</td>
+								<td class="sector sector3" data-location="15">15</td>
+								<td class="sector sector3" data-location="18">18</td>
+							</tr>
+							<tr>
+								<td class="sector sector1" data-location="3-1">3-1</td>
+								<td class="sector sector1" data-location="6-1">6-1</td>
+								<td class="sector sector1" data-location="15-1">15-1</td>
+								<td class="sector sector1" data-location="18-1">18-1</td>
+							</tr>
+							<tr>
+								<td class="sector sector4" data-location="2">2</td>
+								<td class="sector sector4" data-location="5">5</td>
+								<td class="sector sector4" data-location="8">8</td>
+								<td class="sector sector4" data-location="11">11</td>
+								<td class="sector sector4" data-location="14">14</td>
+								<td class="sector sector4" data-location="17">17</td>
+							</tr>
+							<tr>
+								<td class="sector sector1" data-location="1-1">1-1</td>
+								<td class="sector sector1" data-location="4-1">4-1</td>
+								<td class="sector sector4" rowspan="2" data-location="7">7</td>
+								<td class="sector sector4" rowspan="2" data-location="10">10</td>
+								<td class="sector sector1" data-location="13-1">13-1</td>
+								<td class="sector sector1" data-location="16-1">16-1</td>
+							</tr>
+							<tr>
+								<td class="sector sector3" data-location="1">1</td>
+								<td class="sector sector3" data-location="4">4</td>
+								<td class="sector sector3" data-location="13">13</td>
+								<td class="sector sector3" data-location="16">16</td>
+							</tr>
+						</table>
+						
+						<table class="type" data-type="2">
+							<tr>
+								<td class="sector sector3" data-location="16">16</td>
+								<td class="sector sector3" data-location="13">13</td>
+								<td class="sector sector4" rowspan="2" data-location="10">10</td>
+								<td class="sector sector4" rowspan="2" data-location="7">7</td>
+								<td class="sector sector3" data-location="4">4</td>
+								<td class="sector sector3" data-location="1">1</td>
+							</tr>
+							<tr>
+								<td class="sector sector1" data-location="16-1">16-1</td>
+								<td class="sector sector1" data-location="13-1">13-1</td>
+								<td class="sector sector1" data-location="4-1">4-1</td>
+								<td class="sector sector1" data-location="1-1">1-1</td>
+							</tr>
+							<tr>
+								<td class="sector sector4" data-location="17">17</td>
+								<td class="sector sector4" data-location="14">14</td>
+								<td class="sector sector4" data-location="11">11</td>
+								<td class="sector sector4" data-location="8">8</td>
+								<td class="sector sector4" data-location="5">5</td>
+								<td class="sector sector4" data-location="2">2</td>
+							</tr>
+							<tr>
+								<td class="sector sector1" data-location="18-1">18-1</td>
+								<td class="sector sector1" data-location="14-1">14-1</td>
+								<td class="sector sector4" rowspan="2" data-location="11">11</td>
+								<td class="sector sector4" rowspan="2" data-location="8">8</td>
+								<td class="sector sector1" data-location="6-1">6-1</td>
+								<td class="sector sector1" data-location="3-1">3-1</td>
+							</tr>
+							<tr>
+								<td class="sector sector3" data-location="18">18</td>
+								<td class="sector sector3" data-location="15">15</td>
+								<td class="sector sector3" data-location="6">6</td>
+								<td class="sector sector3" data-location="3">3</td>
+							</tr>
+						</table>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		<!-- 팝업 레이어 -->
+		
+		
+		<script type="text/javascript">
+			
+			$(document).ready(function(){
+				
+				// 타이머 설정
+				$('.timer').countimer({
+					autoStart: false,
+					separator : ':',
+					leadingZeros: 2,
+					initMinutes : 0,
+					initSeconds: 0
+				});
+				
+				$('.timer-button__stop').hide();
+				
+				// 타이머 버튼 설정
+				$('.timer-button__start').click(function(){ // 시작 버튼 연동
+					
+					// 정지 버튼을 누르면, 
+					if($('.timer').countimer('stopped')){ // 정지상태에서 재시작이면,
+						$('.timer').countimer('resume');
+					} else { // 처음 시작이면,
+						$('.timer').countimer('start'); 
+					}
+					
+					$('.timer-button__start').hide();
+					$('.timer-button__stop').show();
+				});
+				
+				$('.timer-button__stop').click(function(){ // 정지 버튼 연동
+					$('.timer').countimer('stop');
+					$(".timer-button__start").text('재시작');
+					$('.timer-button__start').show();
+				});
+				
+				
+				// 이벤트 액션 로그 초기화
+				//clearEventActionLogs();
+				
+				// 이벤트 액션 로그탭 표시 
+				showEventActionLogsTab();
+				
+				var action_tabs = $('.item-actions_tab_container .item-action-tab');
+				
+				// 액션 입력 버튼 이벤트 처리
+				$('.item-actions button.btn-action').click(function(){
+					btnActionClick(this); // 액션 버튼 처리
+				});
+				
+				
+				// 액션 등록 버튼 이벤트 처리
+				$(action_tabs).find('button.btn-save').click(function(){
+					btnSave(this);	// 	데이터 저장 및 전달
+					btnActionClear(); // 액션 이벤트 초기화
+					showEventActionLogsTab(); // 로그탭 표시
+				});
+				
+				// 액션 취소 버튼 이벤트 처리
+				$(action_tabs).find('button.btn-cancel').click(function(){
+					btnActionClear(); // 액션 이벤트 초기화
+					showEventActionLogsTab(); // 로그탭 표시
+				});
+				
+				// 레이어 연동 버튼 이벤트 처리
+				$(action_tabs).find('button.btn-popup').click(function(){
+					openPopup(this, $(this).data('content'));
+				});
+				
+								
+				// 필드 버튼 선택 이벤트 처리
+				$(action_tabs).find('button.btn-field').click(function(){
+					btnFieldClick(this);	
+				});
+				
+				
+				var popup_player	= $('.popup_layer .popup_content.player'); // 플레이어 팝업 레이어
+				var popup_location	= $('.popup_layer .popup_content.location'); // 로케이션 팝업 레이어
+				
+				// 플레이어 레이어 오픈 후, 플레이어 선택 이벤트 처리
+				$(popup_player).find('.item-player').click(function(){
+					popupBtnPlayerClick(this);
+				});
+				
+				// 위치 레이어 오픈 후, 위치 선택 이벤트 처리
+				$(popup_location).find('table td.sector').click(function(){
+					popupBtnLocationClick(this);
+				});
+				
+			});
+			
+			
+			// 액션 버튼 클릭
+			function btnActionClick(element){
+				
+				// 변수 선언
+				var action 		= $(element).data('action'); // 선택 액션 버튼
+				var tabs 		= $('.item-actions_tab_container .item-action-tab'); // 액션 탭
+				var buttons 	= $('.item-actions button'); // 액션 버튼
+				var time 		= $('.timer').countimer('current'); // 현재 시간 설정
+				var open_tab 	= {};
+				
+				
+				// 선택 액션 버튼 처리 btn-outline-secondary
+				$(buttons).each(function(){
+					
+					if($(this).data('action') != action) { // 선택된 액션 버튼이 아니면,
+						$(this).removeClass('btn-primary'); // 기존 선택 제거
+						if(!$(this).hasClass('btn-outline-secondary')) { // 비선택 상태 버튼 클래스 있는지 체크
+							$(this).addClass('btn-outline-secondary'); // 없다면 추가
+						}
+					} else { // 선택된 액션 버튼이면,
+						$(this).removeClass('btn-outline-secondary'); // 기존 상태 제거
+						if(!$(this).hasClass('btn-primary')) { // 선택 상태가 아니라면,
+							$(this).addClass('btn-primary'); // 없다면 추가
+						}
+					}
+					
+				});
+				
+				
+				// 탭 처리
+				$(tabs).each(function(){
+					tabClear($(this));
+					$(this).hide();
+				});
+				
+				$(tabs).each(function(){ // 모든 탭 중, 클릭된 액션 탭 표시
+					if($(this).data('action') == action) {
+						$(this).show();	
+						open_tab = $(this);
+					}
+				});
+				
+				
+				// 이벤트 액션에 현재 시간 설정
+				$(open_tab).find('input[type="text"].time').val(time.displayedMode.formatted);
+				
+			}
+			
+			
+			// 액션 탭 초기화
+			function btnActionClear(){
+				
+				// 변수 선언
+				var tabs 	= $('.item-actions_tab_container .item-action-tab'); // 액션 탭
+				var buttons = $('.item-actions button'); // 액션 버튼
+				
+				
+				// 선택 액션 버튼 처리 btn-outline-secondary
+				$(buttons).each(function(){
+					
+					$(this).removeClass('btn-primary'); // 기존 선택 제거
+					if(!$(this).hasClass('btn-outline-secondary')) { // 비선택 상태 버튼 클래스 있는지 체크
+						$(this).addClass('btn-outline-secondary'); // 없다면 추가
+					}
+					
+				});
+				
+				// 탭 처리
+				$(tabs).each(function(){
+					tabClear($(this));
+					$(this).hide();
+				});
+				
+				/*
+				$(tabs).each(function(){ // 기본 로그 탭 표시
+					if($(this).hasClass('item-action-tab__event_logs')) {
+						$(this).show();	
+					}
+				});
+				*/
+				
+			}
+						
+			
+			// 탭 초기화
+			function tabClear(tab){
+				
+				// 시간 데이터 초기화
+				$(tab).find('input[type="text"].time').val('');
+				
+				// 입력 데이터 초기화
+				$(tab).find('input[type="hidden"].field').val('');
+				
+				// 체크박스 초기화
+				$(tab).find('input[type="checkbox"]').prop("checked", false);
+				
+				// 필드 버튼 초기화
+				$(tab).find('button.btn-field').removeClass('btn-primary');
+				$(tab).find('button.btn-field').each(function(){
+					if(!$(this).hasClass('btn-outline-secondary')) {
+						$(this).addClass('btn-outline-secondary'); // 없다면 추가
+					}
+				});
+				
+				// 팝업 버튼 초기화
+				var button_text = '';
+				$(tab).find('button.btn-popup').removeClass('btn-primary');
+				$(tab).find('button.btn-popup').each(function(){
+					if(!$(this).hasClass('btn-outline-secondary')) {
+						$(this).addClass('btn-outline-secondary'); // 없다면 추가
+					}
+					
+					
+					if($(this).data('content') == 'player') { button_text = '플레이어 선택'; }
+					if($(this).data('content') == 'location') { button_text = '위치 선택'; }
+					$(this).text(button_text);
+					
+				});
+				
+			}
+			
+			
+			// 이벤트 액션 로그 초기화
+			function clearEventActionLogs(){
+				sessionStorage.clear();
+			}
+			
+			
+			// 이벤트 액션 로그 탭 표시
+			function showEventActionLogsTab() {
+				
+				// 액션 로그 다시 생성
+				loadEventActionLogs();
+				
+				$('.item-action-tab__event_logs').show();
+				
+			}
+			
+			
+			// 이벤트 액션 로그 다시 불러오기
+			function loadEventActionLogs(){
+				
+				// 이벤트 액션별 HTML 생성
+				function actionRow(object) {
+					
+					var row = '';
+					
+					row += '<div class="event" id="event_'+object.id+'" data-event-id="'+object.id+'">';
+						row += '<h5><i>'+object.time+'</i>'+object.action+'<button class="btn btn-outline-danger control">삭제</button></h5>';
+						row += '<div class="fields">';
+						for (let [key, value] of Object.entries(object.fields)) {
+							row += '<span><i>'+key+'</i> : '+value+'</span>';
+						}
+						row += '</div>';
+					row += '</div>';
+					
+					return row;
+					
+				}
+				
+				
+				var eventDatas = [];
+				
+				// 세션 데이터 가져오기
+				for(var i=0; sessionStorage.length > i; i++) {
+					var sessionKey 	= sessionStorage.key(i);
+					var eventData 	= sessionStorage.getItem(sessionKey);
+					var eventObject = JSON.parse(eventData); // JSON 데이터로 변경
+					
+					eventDatas[parseInt(eventObject.id) - 1] = eventObject;
+				}
+				
+				eventDatas.reverse();
+				
+				
+				// 로그 표시 HTML 생성
+				var logs_html = '';
+				
+				if($(eventDatas).length > 0) { // 이벤트 데이터가 있을 때,
+					$(eventDatas).each(function(){
+						logs_html += actionRow(this);
+					});
+				} else {
+					logs_html += '<div class="empty">아직 이벤트 데이터가 없습니다.</div>';
+				}
+				
+				$('#item_action_event_logs').html(logs_html);
+				
+				
+				// 삭제 이벤트 연결
+				$('#item_action_event_logs').find('.event').find('.control').bind('click', function(){
+					
+					// 선택된 이벤트
+					var event = $(this).closest('.event');
+					var event_id = $(event).data('event-id');
+					
+					// 이벤트 Element 삭제
+					$(event).remove();
+					
+					// 세션 삭제
+					sessionStorage.removeItem(event_id);
+					
+				});
+				
+				
+				// 이벤트 ID 최종 번호 다시 저장
+				$('#game_playing_event_id').val(sessionStorage.length);
+				
+			}
+			
+			
+			// 팝업 레이어 처리
+			function openPopup(element, content){
+				
+				var popup_layer 	= $('.popup_layer');	// 팝업 레이어
+				var popup_contents 	= $('.popup_layer .popup_content');	// 팝업 콘텐츠
+				var target			= $(element).data('target');	// 저장될 타겟
+				var target_button	= $(element).attr('id');	// 클릭한 버튼 타겟
+				
+				$(popup_contents).each(function(){ // 팝업 콘텐츠 표시
+					if($(this).data('content') == content) {
+						
+						// 레이어 타겟 설정
+						$(this).data('target', target);
+						$(this).data('target-button', target_button);
+						
+						// 로케이션 타입 설정
+						if(content == 'location') {
+							
+							var types = $(popup_contents).find('table'); // 로케이션 테이블
+							
+							$(types).each(function(){
+								if($(this).data('type') == $('#game_setting_location_type').val()) { // 로케이션 타입 표시
+									$(this).show();
+								} else {
+									$(this).hide(); // 로케이션 타입 비표시
+								}
+							});
+						}
+						
+						$(this).show();
+						
+					} else {
+						
+						// 초기화
+						$(this).data('target', '');
+						$(this).data('target-button', '');
+						$(this).hide();
+					}
+				});
+				
+				$.magnificPopup.open({
+					items: {
+						src: '#popup_layer'
+					},
+					type: 'inline',
+					modal: false,
+					closeOnBgClick: true,
+					
+				});
+			}
+			
+			
+			// 팝업 레이어 플레이어 선택 처리
+			function popupBtnPlayerClick(element){
+				
+				var popup_content = $(element).closest('.popup_content'); // 팝업 콘텐츠
+				var target = $(popup_content).data('target');	// 타겟
+				var target_button = $(popup_content).data('target-button');	// 	클릭한 버튼 타겟
+				var player_id = $(element).data('player-id');	// 플레이어 ID 
+				var player 	= $(element).data('player-number') + ' ' + $(element).data('player-position') + ' ' + $(element).data('player-name');
+				
+				$('#'+target).val(player_id);	// 타겟 데이터 저장
+				$('#'+target_button).text(player);	// 	버튼 설정
+				
+				
+				// 버튼 선택 디자인 처리
+				$('#'+target_button).removeClass('btn-outline-secondary'); // 기존 상태 제거
+				if(!$('#'+target_button).hasClass('btn-primary')) { // 선택 상태가 아니라면,
+					$('#'+target_button).addClass('btn-primary'); // 없다면 추가
+				}
+				
+				$(popup_content).data('target', ''); // 타겟 초기화
+				$(popup_content).data('target-button', ''); // 타겟 버튼 초기화 
+				$.magnificPopup.close(); // 팝업 닫기
+			}
+			
+			// 팝업 레이어 위치 선택 처리
+			function popupBtnLocationClick(element){
+				
+				var popup_content = $(element).closest('.popup_content'); // 팝업 콘텐츠
+				var target = $(popup_content).data('target');	// 	타겟
+				var target_button = $(popup_content).data('target-button');	// 	클릭한 버튼 타겟
+				var location_id = $(element).data('location');	// 위치 ID 
+				
+				$('#'+target).val(location_id);	// 타겟 데이터 저장
+				$('#'+target_button).text(location_id);	// 	버튼 설정
+				
+				
+				// 버튼 선택 디자인 처리
+				$('#'+target_button).removeClass('btn-outline-secondary'); // 기존 상태 제거
+				if(!$('#'+target_button).hasClass('btn-primary')) { // 선택 상태가 아니라면,
+					$('#'+target_button).addClass('btn-primary'); // 없다면 추가
+				}
+				
+				$(popup_content).data('target', ''); // 타겟 초기화
+				$(popup_content).data('target-button', ''); // 타겟 버튼 초기화 
+				$.magnificPopup.close(); // 팝업 닫기
+			}
+			
+			
+			function btnFieldClick(element) {
+				
+				// 변수 설정
+				var value 	= $(element).data('value');		// 선택 값
+				var target 	= $(element).data('target');	// 타겟 히든 필드
+				
+				$('#'+target).val(value); // 데이터 입력
+				
+				// 선택 디자인 처리
+				$(element).parents('.btn-group').children('button').each(function(){
+					
+					if($(this).data('value') != value) { // 선택된 버튼이 아니면,
+						$(this).removeClass('btn-primary'); // 기존 선택 제거
+						if(!$(this).hasClass('btn-outline-secondary')) { // 비선택 상태 버튼 클래스 있는지 체크
+							$(this).addClass('btn-outline-secondary'); // 없다면 추가
+						}
+					} else { // 선택된 액션 버튼이면,
+						$(this).removeClass('btn-outline-secondary'); // 기존 상태 제거
+						if(!$(this).hasClass('btn-primary')) { // 선택 상태가 아니라면,
+							$(this).addClass('btn-primary'); // 없다면 추가
+						}
+					}
+					
+				});
+				
+			}
+			
+			
+			// 데이터 저장
+			function btnSave(element){
+				
+				// 이벤트 아이디
+				var event_id 	= $('#game_playing_event_id');
+				$(event_id).val(parseInt($(event_id).val()) + 1); // 순차 증가
+				
+				var form 		= $(element).closest('.item-action-tab').find('form');
+				var fields 		= $(form).find('input[type="hidden"].field');
+				var checkboxs 	= $(form).find('input[type="checkbox"]');
+				
+				// 입력 데이터 저장
+				var eventObject 	= Object();
+				eventObject.id 		= $(event_id).val();
+				eventObject.action 	= $(form).find('input.action').val();
+				eventObject.time 		= $(form).find('input.time').val();
+				eventObject.fields	= {};
+				
+				// 버튼 선택 입력값 처리 (hidden)
+				$(fields).each(function(){
+					var fieldName = $(this).data('field-name');
+					eventObject.fields[fieldName] = $(this).val();
+				});
+				
+
+				// 체크박스 입력값 처리
+				$(checkboxs).each(function(){
+					var fieldName = $(this).data('field-name');
+					
+					if($(this).prop('checked')) { // 체크되었을 때,
+						eventObject.fields[fieldName] = $(this).data('value');
+					} else { // 아닐때
+						eventObject.fields[fieldName] = '';
+					}
+				});
+				
+				
+				// 세션 스토리지 저장
+				/*
+				var match_id 	= $('#game_setting_match_id').val();
+				var game_id 	= $('#game_setting_game_id').val();
+				var session_id 	= match_id + '_' + game_id;
+				*/
+				
+				var eventData = JSON.stringify(eventObject); // 오브젝트 JSON 데이터로 변환
+				sessionStorage.setItem(eventObject.id, eventData);
+									
+			}
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

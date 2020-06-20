@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	    <title>WECREW</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />	    
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link type="text/css" rel="stylesheet" href="./assets/css/style.css" />
+		
+		<script src="https://kit.fontawesome.com/65f31987e2.js" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	</head>
+	<body>
+			
+		<div class="container">
+		
+			<div class="page page-new-game">
+
+				
+				<!-- 게임 등록 시작 -->
+				<div class="section game">
+					
+					<h4>게임 생성</h4>
+					<div class="section-content">
+						<div class="section-left">
+							<form>
+								<div class="form-group">
+									<label for="time">시작 시간</label>
+									<input type="time" class="form-control" id="time" aria-describedby="emailHelp">
+									<small id="timeHelp" class="form-text text-muted">게임 시작 시간을 등록하세요.</small>
+								</div>
+								<div class="form-group">
+									<label for="title">게임 타이틀</label>
+									<input type="text" class="form-control" id="title" aria-describedby="emailHelp">
+									<small id="titleHelp" class="form-text text-muted">게임 타이틀을 등록하세요.</small>
+								</div>
+							</form>
+						</div>
+						<div class="section-right">
+							<button type="button" class="btn btn-primary btn-lg btn-block">게임 생성</button>
+						</div>
+					</div>
+				
+				</div>
+				<!-- 게임 등록 종료 -->
+				
+				
+				<!-- 선수 선택 시작 -->
+				<div class="section player">
+					<h4>선수 선택 <span class="count_player"><i>12</i>명</span></h4>
+					
+					
+					<div class="section-content">
+						
+						
+						<div class="section-left">
+							
+							<div class="card">
+						
+								<div class="card-body">
+									
+									<! -- 선수 목록 시작 -->
+									<div class="list-box list-box-player">
+										
+										<div class="item-player">
+											<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-player__name">메시</span>
+											<span class="item-player__number">
+	
+												<select class="form-control item-player__number-select" id="item-player__number">
+													<option>1번</option>
+												</select>
+												
+											</span>
+											<span class="item-player__position">
+												<select class="form-control item-player__position-select" id="item-player__position">
+													<option>MF</option>
+												</select>
+											</span>
+											<span class="item-player__status"><i class="fas fa-user-times"></i></span>
+										</div>
+										
+										<div class="item-player">
+											<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-player__name">메시</span>
+											<span class="item-player__number">
+	
+												<select class="form-control item-player__number-select" id="item-player__number">
+													<option>1번</option>
+												</select>
+												
+											</span>
+											<span class="item-player__position">
+												<select class="form-control item-player__position-select" id="item-player__position">
+													<option>MF</option>
+												</select>
+											</span>
+											<span class="item-player__status"><i class="fas fa-user-times"></i></span>
+										</div>
+										
+										<div class="item-player">
+											<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-player__name">메시</span>
+											<span class="item-player__number">
+	
+												<select class="form-control item-player__number-select" id="item-player__number">
+													<option>1번</option>
+												</select>
+												
+											</span>
+											<span class="item-player__position">
+												<select class="form-control item-player__position-select" id="item-player__position">
+													<option>MF</option>
+												</select>
+											</span>
+											<span class="item-player__status"><i class="fas fa-user-times"></i></span>
+										</div>
+										
+										<div class="item-player">
+											<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-player__name">메시</span>
+											<span class="item-player__number">
+	
+												<select class="form-control item-player__number-select" id="item-player__number">
+													<option>1번</option>
+												</select>
+												
+											</span>
+											<span class="item-player__position">
+												<select class="form-control item-player__position-select" id="item-player__position">
+													<option>MF</option>
+												</select>
+											</span>
+											<span class="item-player__status"><i class="fas fa-user-times"></i></span>
+										</div>
+										
+										<div class="item-player">
+											<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-player__name">메시</span>
+											<span class="item-player__number">
+	
+												<select class="form-control item-player__number-select" id="item-player__number">
+													<option>1번</option>
+												</select>
+												
+											</span>
+											<span class="item-player__position">
+												<select class="form-control item-player__position-select" id="item-player__position">
+													<option>MF</option>
+												</select>
+											</span>
+											<span class="item-player__status"><i class="fas fa-user-times"></i></span>
+										</div>
+										
+										<div class="item-player">
+											<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-player__name">메시</span>
+											<span class="item-player__number">
+	
+												<select class="form-control item-player__number-select" id="item-player__number">
+													<option>1번</option>
+												</select>
+												
+											</span>
+											<span class="item-player__position">
+												<select class="form-control item-player__position-select" id="item-player__position">
+													<option>MF</option>
+												</select>
+											</span>
+											<span class="item-player__status"><i class="fas fa-user-times"></i></span>
+										</div>
+										
+										<div class="item-player">
+											<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-player__name">메시</span>
+											<span class="item-player__number">
+	
+												<select class="form-control item-player__number-select" id="item-player__number">
+													<option>1번</option>
+												</select>
+												
+											</span>
+											<span class="item-player__position">
+												<select class="form-control item-player__position-select" id="item-player__position">
+													<option>MF</option>
+												</select>
+											</span>
+											<span class="item-player__status"><i class="fas fa-user-times"></i></span>
+										</div>
+										
+										<div class="item-player">
+											<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-player__name">메시</span>
+											<span class="item-player__number">
+	
+												<select class="form-control item-player__number-select" id="item-player__number">
+													<option>1번</option>
+												</select>
+												
+											</span>
+											<span class="item-player__position">
+												<select class="form-control item-player__position-select" id="item-player__position">
+													<option>MF</option>
+												</select>
+											</span>
+											<span class="item-player__status"><i class="fas fa-user-times"></i></span>
+										</div>
+										
+										<div class="item-player">
+											<span class="item-player__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-player__name">메시</span>
+											<span class="item-player__number">
+	
+												<select class="form-control item-player__number-select" id="item-player__number">
+													<option>1번</option>
+												</select>
+												
+											</span>
+											<span class="item-player__position">
+												<select class="form-control item-player__position-select" id="item-player__position">
+													<option>MF</option>
+												</select>
+											</span>
+											<span class="item-player__status"><i class="fas fa-user-times"></i></span>
+										</div>
+										
+									</div>
+									<! -- 선수 목록 종료 -->
+									
+								</div>
+								
+							</div>
+									
+						</div>
+						
+						<div class="section-right">
+							
+							<div class="card">
+						
+								<div class="card-body">
+									
+									<! -- 회원 목록 시작 -->
+									<div class="list-box list-box-member">
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+										<div class="item-member">
+											<span class="item-member__img"><img src="assets/images/temp/player.jpg" /></span>
+											<span class="item-member__name">메시</span>
+										</div>
+										
+									</div>
+									<!-- 회원 목록 종료 -->
+								
+								</div>
+							</div>
+							
+						</div>
+						
+					</div>
+					
+					
+					
+				</div>
+				<!-- 선수 선택 종료 -->
+				
+									
+			</div>
+			
+		</div>
+		
+	</body>
+</html>
